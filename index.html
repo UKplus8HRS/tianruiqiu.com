@@ -3,163 +3,203 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tianrui Qiu | Personal Website</title>
+    <title>Tianrui Qiu | Pixel Portfolio</title>
     <meta
       name="description"
-      content="Personal portfolio website for Tianrui Qiu, including projects, skills, experience, and contact information."
+      content="Tianrui Qiu's personal portfolio, featuring frontend work, software projects, and contact links."
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top">Tianrui Qiu</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Tianrui Qiu home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Tianrui Qiu</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-content">
-          <p class="eyebrow">Personal Portfolio</p>
-          <h1>Tianrui Qiu</h1>
-          <p class="lead">
-            I build practical software with clean interfaces, reliable engineering,
-            and a strong focus on user needs.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href="#contact">Contact Me</a>
-          </div>
-        </div>
-        <aside class="profile-panel" aria-label="Profile summary">
-          <dl>
-            <div>
-              <dt>Focus</dt>
-              <dd>Software Engineering</dd>
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Pixel Portfolio / Personal Homepage</p>
+            <h1 id="hero-title">Hi, I'm Tianrui Qiu.</h1>
+            <p class="lead">
+              I design and build calm, useful web experiences with frontend craft,
+              product thinking, and a practical engineering mindset.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button primary" href="#work">View Work</a>
+              <a class="button secondary" href="#contact">Get in Touch</a>
             </div>
-            <div>
-              <dt>Location</dt>
-              <dd>United Kingdom</dd>
+            <ul class="quick-facts" aria-label="Profile highlights">
+              <li>Frontend-focused</li>
+              <li>Open to opportunities</li>
+              <li>Based in the UK</li>
+            </ul>
+          </div>
+
+          <div class="pixel-stage" aria-label="Pixel art desk scene">
+            <div class="pixel-sun" aria-hidden="true"></div>
+            <div class="pixel-cloud cloud-one" aria-hidden="true"></div>
+            <div class="pixel-cloud cloud-two" aria-hidden="true"></div>
+            <div class="pixel-window">
+              <div class="window-sky">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
-            <div>
-              <dt>Availability</dt>
-              <dd>Open to opportunities</dd>
+            <div class="pixel-character">
+              <div class="hair"></div>
+              <div class="face">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+              </div>
+              <div class="body"></div>
             </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Projects</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <p class="project-type">Web Application</p>
-            <h3>Project One</h3>
-            <p>
-              Replace this with a short description of what the project does,
-              your role, the technologies used, and the result.
-            </p>
-            <a href="#" aria-label="Open Project One">Project link</a>
-          </article>
-          <article class="project-card">
-            <p class="project-type">Research / Engineering</p>
-            <h3>Project Two</h3>
-            <p>
-              Use this space for a project that shows problem solving, technical
-              depth, or measurable impact.
-            </p>
-            <a href="#" aria-label="Open Project Two">Project link</a>
-          </article>
-          <article class="project-card">
-            <p class="project-type">Tooling</p>
-            <h3>Project Three</h3>
-            <p>
-              Add another representative project. Keep it specific and focus on
-              what you personally contributed.
-            </p>
-            <a href="#" aria-label="Open Project Three">Project link</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section split" id="skills">
-        <div class="section-heading">
-          <p class="eyebrow">Capabilities</p>
-          <h2>Skills</h2>
-        </div>
-        <div class="skill-groups">
-          <div>
-            <h3>Languages</h3>
-            <p>Python, JavaScript, TypeScript, HTML, CSS</p>
+            <div class="pixel-desk">
+              <div class="monitor">
+                <div class="monitor-screen">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="monitor-stand"></div>
+              </div>
+              <div class="keyboard"></div>
+              <div class="mug"></div>
+            </div>
+            <div class="pixel-floor" aria-hidden="true"></div>
           </div>
-          <div>
-            <h3>Frameworks</h3>
-            <p>React, Node.js, Next.js, Tailwind CSS</p>
-          </div>
-          <div>
-            <h3>Tools</h3>
-            <p>Git, GitHub, VS Code, Figma, Vercel</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" id="experience">
-        <div class="section-heading">
-          <p class="eyebrow">Background</p>
-          <h2>Experience</h2>
-        </div>
-        <div class="timeline">
-          <article>
-            <p class="date">2026</p>
-            <h3>Role or Degree</h3>
-            <p>
-              Add your current study, internship, work experience, or strongest
-              relevant background item here.
-            </p>
-          </article>
-          <article>
-            <p class="date">2025</p>
-            <h3>Previous Experience</h3>
-            <p>
-              Summarize what you did, what you learned, and why it matters for
-              the roles you are applying to.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Let's connect</h2>
+        <section class="section intro-panel" id="about" aria-labelledby="about-title">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">A personal site with a softer signal.</h2>
+          </div>
           <p>
-            I am open to internship, graduate, and full-time opportunities.
-            Replace the links below with your real contact details.
+            This page is built to feel approachable while still being useful for
+            hiring conversations. Replace this paragraph with a short summary of
+            your background, target role, and the kind of work you want to do next.
           </p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:hello@tianruiqiu.com">hello@tianruiqiu.com</a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer class="footer">
-      <p>© 2026 Tianrui Qiu. Built for GitHub Pages.</p>
-    </footer>
+        <section class="section" id="work" aria-labelledby="work-title">
+          <div class="section-heading">
+            <p class="eyebrow">Selected Work</p>
+            <h2 id="work-title">Projects worth opening.</h2>
+          </div>
+          <div class="project-grid">
+            <article class="project-card mint">
+              <div class="project-preview" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="project-type">Portfolio</p>
+              <h3>Personal Website</h3>
+              <p>
+                A lightweight GitHub Pages site with responsive layout, custom
+                domain setup, and a friendly pixel-inspired visual system.
+              </p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>GitHub Pages</span>
+              </div>
+            </article>
+
+            <article class="project-card peach">
+              <div class="project-preview dashboard" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="project-type">Web App</p>
+              <h3>Project Placeholder</h3>
+              <p>
+                Add a real project here. Focus on the problem, your contribution,
+                the stack, and the result instead of a long feature list.
+              </p>
+              <div class="tags">
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>UI</span>
+              </div>
+            </article>
+
+            <article class="project-card lavender">
+              <div class="project-preview terminal" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="project-type">Engineering</p>
+              <h3>Technical Build</h3>
+              <p>
+                Use this card for a course project, research tool, automation
+                script, or any work that shows your technical decision-making.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>APIs</span>
+                <span>Data</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+          <div class="section-heading">
+            <p class="eyebrow">Toolkit</p>
+            <h2 id="skills-title">Skills in progress.</h2>
+          </div>
+          <div class="skill-board">
+            <div>
+              <h3>Frontend</h3>
+              <p>HTML, CSS, JavaScript, TypeScript, React, responsive UI</p>
+            </div>
+            <div>
+              <h3>Engineering</h3>
+              <p>Git, GitHub, API integration, debugging, deployment workflows</p>
+            </div>
+            <div>
+              <h3>Design Sense</h3>
+              <p>Layout, visual hierarchy, accessibility basics, product polish</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Let's build the next screen.</h2>
+            <p>
+              Replace these links with your real email, GitHub, LinkedIn, and
+              resume. Keep this area direct so recruiters can act quickly.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:hello@tianruiqiu.com">Email</a>
+            <a href="https://github.com/UKplus8HRS" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

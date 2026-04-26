@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="loader" aria-hidden="true">
+      <div class="loader-card">
+        <span class="loader-dot"></span>
+        <span>LOAD TIANRUI</span>
+      </div>
+    </div>
+
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="#top" aria-label="Tianrui Qiu home">
@@ -33,7 +40,7 @@
 
       <main id="top">
         <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
+          <div class="hero-copy reveal">
             <p class="eyebrow">Pixel Portfolio / Personal Homepage</p>
             <h1 id="hero-title">Hi, I'm Tianrui Qiu.</h1>
             <p class="lead">
@@ -51,42 +58,34 @@
             </ul>
           </div>
 
-          <div class="pixel-stage" aria-label="Pixel art desk scene">
-            <div class="pixel-sun" aria-hidden="true"></div>
-            <div class="pixel-cloud cloud-one" aria-hidden="true"></div>
-            <div class="pixel-cloud cloud-two" aria-hidden="true"></div>
-            <div class="pixel-window">
-              <div class="window-sky">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="pixel-character">
-              <div class="hair"></div>
-              <div class="face">
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-              </div>
-              <div class="body"></div>
-            </div>
-            <div class="pixel-desk">
-              <div class="monitor">
-                <div class="monitor-screen">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="monitor-stand"></div>
-              </div>
-              <div class="keyboard"></div>
-              <div class="mug"></div>
-            </div>
-            <div class="pixel-floor" aria-hidden="true"></div>
+          <div class="hero-visual reveal" data-tilt aria-label="Pixel art developer workspace">
+            <img src="assets/hero-pixel-workspace.webp" alt="Pixel art developer workspace with a laptop and warm window light">
+            <div class="scanline" aria-hidden="true"></div>
+            <div class="hero-chip chip-one" aria-hidden="true">UI</div>
+            <div class="hero-chip chip-two" aria-hidden="true">CSS</div>
+            <div class="hero-chip chip-three" aria-hidden="true">JS</div>
+            <div class="spark spark-one" aria-hidden="true"></div>
+            <div class="spark spark-two" aria-hidden="true"></div>
+            <div class="spark spark-three" aria-hidden="true"></div>
           </div>
         </section>
 
-        <section class="section intro-panel" id="about" aria-labelledby="about-title">
+        <section class="motion-strip reveal" aria-label="Skill highlights">
+          <div class="marquee">
+            <span>Frontend</span>
+            <span>Responsive UI</span>
+            <span>GitHub Pages</span>
+            <span>Pixel Style</span>
+            <span>Product Thinking</span>
+            <span>Frontend</span>
+            <span>Responsive UI</span>
+            <span>GitHub Pages</span>
+            <span>Pixel Style</span>
+            <span>Product Thinking</span>
+          </div>
+        </section>
+
+        <section class="section intro-panel reveal" id="about" aria-labelledby="about-title">
           <div>
             <p class="eyebrow">About</p>
             <h2 id="about-title">A personal site with a softer signal.</h2>
@@ -98,13 +97,13 @@
           </p>
         </section>
 
-        <section class="section" id="work" aria-labelledby="work-title">
+        <section class="section reveal" id="work" aria-labelledby="work-title">
           <div class="section-heading">
             <p class="eyebrow">Selected Work</p>
             <h2 id="work-title">Projects worth opening.</h2>
           </div>
           <div class="project-grid">
-            <article class="project-card mint">
+            <article class="project-card mint reveal" data-tilt>
               <div class="project-preview" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -123,7 +122,7 @@
               </div>
             </article>
 
-            <article class="project-card peach">
+            <article class="project-card peach reveal" data-tilt>
               <div class="project-preview dashboard" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -142,7 +141,7 @@
               </div>
             </article>
 
-            <article class="project-card lavender">
+            <article class="project-card lavender reveal" data-tilt>
               <div class="project-preview terminal" aria-hidden="true">
                 <span></span>
                 <span></span>
@@ -163,7 +162,7 @@
           </div>
         </section>
 
-        <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+        <section class="section skills-section reveal" id="skills" aria-labelledby="skills-title">
           <div class="section-heading">
             <p class="eyebrow">Toolkit</p>
             <h2 id="skills-title">Skills in progress.</h2>
@@ -184,7 +183,7 @@
           </div>
         </section>
 
-        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
           <div>
             <p class="eyebrow">Contact</p>
             <h2 id="contact-title">Let's build the next screen.</h2>
@@ -201,5 +200,7 @@
         </section>
       </main>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

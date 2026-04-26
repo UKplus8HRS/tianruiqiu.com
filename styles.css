@@ -40,6 +40,18 @@ body {
   overflow-x: hidden;
 }
 
+html:lang(zh) body {
+  font-family: Inter, "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+}
+
+html:lang(zh) .eyebrow,
+html:lang(zh) .project-type,
+html:lang(zh) .marquee,
+html:lang(zh) .loader-card {
+  font-family: Inter, "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  font-weight: 900;
+}
+
 a {
   color: inherit;
 }
@@ -138,6 +150,25 @@ a {
   background: #ffffff;
   color: var(--ink);
   box-shadow: 3px 3px 0 var(--line);
+}
+
+.language-toggle {
+  min-height: 38px;
+  border: 2px solid var(--line);
+  padding: 7px 12px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 var(--line);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.language-toggle:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--line);
 }
 
 .hero {

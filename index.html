@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tianrui Qiu | Pixel Portfolio</title>
+    <title data-i18n="meta.title">Tianrui Qiu | Pixel Portfolio</title>
     <meta
       name="description"
       content="Tianrui Qiu's personal portfolio, featuring frontend work, software projects, and contact links."
+      data-i18n-content="meta.description"
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
     <div class="loader" aria-hidden="true">
       <div class="loader-card">
         <span class="loader-dot"></span>
-        <span>LOAD TIANRUI</span>
+        <span data-i18n="loader.label">LOAD TIANRUI</span>
       </div>
     </div>
 
@@ -31,35 +32,48 @@
           <span>Tianrui Qiu</span>
         </a>
         <nav class="nav" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#work" data-i18n="nav.work">Work</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
+        <button
+          class="language-toggle"
+          type="button"
+          data-language-toggle
+          aria-label="Switch language to Chinese"
+          data-i18n-aria-label="language.aria"
+        >
+          中文
+        </button>
       </header>
 
       <main id="top">
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Pixel Portfolio / Personal Homepage</p>
-            <h1 id="hero-title">Hi, I'm Tianrui Qiu.</h1>
-            <p class="lead">
+            <p class="eyebrow" data-i18n="hero.eyebrow">Pixel Portfolio / Personal Homepage</p>
+            <h1 id="hero-title" data-i18n="hero.title">Hi, I'm Tianrui Qiu.</h1>
+            <p class="lead" data-i18n="hero.lead">
               I design and build calm, useful web experiences with frontend craft,
               product thinking, and a practical engineering mindset.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="#work">View Work</a>
-              <a class="button secondary" href="#contact">Get in Touch</a>
+              <a class="button primary" href="#work" data-i18n="hero.viewWork">View Work</a>
+              <a class="button secondary" href="#contact" data-i18n="hero.contact">Get in Touch</a>
             </div>
             <ul class="quick-facts" aria-label="Profile highlights">
-              <li>Frontend-focused</li>
-              <li>Open to opportunities</li>
-              <li>Based in the UK</li>
+              <li data-i18n="hero.factOne">Frontend-focused</li>
+              <li data-i18n="hero.factTwo">Open to opportunities</li>
+              <li data-i18n="hero.factThree">Based in the UK</li>
             </ul>
           </div>
 
           <div class="hero-visual reveal" data-tilt aria-label="Pixel art developer workspace">
-            <img src="assets/hero-pixel-workspace.webp" alt="Pixel art developer workspace with a laptop and warm window light">
+            <img
+              src="assets/hero-pixel-workspace.webp"
+              alt="Pixel art developer workspace with a laptop and warm window light"
+              data-i18n-alt="hero.imageAlt"
+            >
             <div class="scanline" aria-hidden="true"></div>
             <div class="hero-chip chip-one" aria-hidden="true">UI</div>
             <div class="hero-chip chip-two" aria-hidden="true">CSS</div>
@@ -72,25 +86,25 @@
 
         <section class="motion-strip reveal" aria-label="Skill highlights">
           <div class="marquee">
-            <span>Frontend</span>
-            <span>Responsive UI</span>
-            <span>GitHub Pages</span>
-            <span>Pixel Style</span>
-            <span>Product Thinking</span>
-            <span>Frontend</span>
-            <span>Responsive UI</span>
-            <span>GitHub Pages</span>
-            <span>Pixel Style</span>
-            <span>Product Thinking</span>
+            <span data-i18n="marquee.frontend">Frontend</span>
+            <span data-i18n="marquee.responsive">Responsive UI</span>
+            <span data-i18n="marquee.pages">GitHub Pages</span>
+            <span data-i18n="marquee.pixel">Pixel Style</span>
+            <span data-i18n="marquee.product">Product Thinking</span>
+            <span data-i18n="marquee.frontend">Frontend</span>
+            <span data-i18n="marquee.responsive">Responsive UI</span>
+            <span data-i18n="marquee.pages">GitHub Pages</span>
+            <span data-i18n="marquee.pixel">Pixel Style</span>
+            <span data-i18n="marquee.product">Product Thinking</span>
           </div>
         </section>
 
         <section class="section intro-panel reveal" id="about" aria-labelledby="about-title">
           <div>
-            <p class="eyebrow">About</p>
-            <h2 id="about-title">A personal site with a softer signal.</h2>
+            <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+            <h2 id="about-title" data-i18n="about.title">A personal site with a softer signal.</h2>
           </div>
-          <p>
+          <p data-i18n="about.body">
             This page is built to feel approachable while still being useful for
             hiring conversations. Replace this paragraph with a short summary of
             your background, target role, and the kind of work you want to do next.
@@ -99,8 +113,8 @@
 
         <section class="section reveal" id="work" aria-labelledby="work-title">
           <div class="section-heading">
-            <p class="eyebrow">Selected Work</p>
-            <h2 id="work-title">Projects worth opening.</h2>
+            <p class="eyebrow" data-i18n="work.eyebrow">Selected Work</p>
+            <h2 id="work-title" data-i18n="work.title">Projects worth opening.</h2>
           </div>
           <div class="project-grid">
             <article class="project-card mint reveal" data-tilt>
@@ -109,9 +123,9 @@
                 <span></span>
                 <span></span>
               </div>
-              <p class="project-type">Portfolio</p>
-              <h3>Personal Website</h3>
-              <p>
+              <p class="project-type" data-i18n="projects.one.type">Portfolio</p>
+              <h3 data-i18n="projects.one.title">Personal Website</h3>
+              <p data-i18n="projects.one.body">
                 A lightweight GitHub Pages site with responsive layout, custom
                 domain setup, and a friendly pixel-inspired visual system.
               </p>
@@ -128,9 +142,9 @@
                 <span></span>
                 <span></span>
               </div>
-              <p class="project-type">Web App</p>
-              <h3>Project Placeholder</h3>
-              <p>
+              <p class="project-type" data-i18n="projects.two.type">Web App</p>
+              <h3 data-i18n="projects.two.title">Project Placeholder</h3>
+              <p data-i18n="projects.two.body">
                 Add a real project here. Focus on the problem, your contribution,
                 the stack, and the result instead of a long feature list.
               </p>
@@ -147,9 +161,9 @@
                 <span></span>
                 <span></span>
               </div>
-              <p class="project-type">Engineering</p>
-              <h3>Technical Build</h3>
-              <p>
+              <p class="project-type" data-i18n="projects.three.type">Engineering</p>
+              <h3 data-i18n="projects.three.title">Technical Build</h3>
+              <p data-i18n="projects.three.body">
                 Use this card for a course project, research tool, automation
                 script, or any work that shows your technical decision-making.
               </p>
@@ -164,36 +178,36 @@
 
         <section class="section skills-section reveal" id="skills" aria-labelledby="skills-title">
           <div class="section-heading">
-            <p class="eyebrow">Toolkit</p>
-            <h2 id="skills-title">Skills in progress.</h2>
+            <p class="eyebrow" data-i18n="skills.eyebrow">Toolkit</p>
+            <h2 id="skills-title" data-i18n="skills.title">Skills in progress.</h2>
           </div>
           <div class="skill-board">
             <div>
-              <h3>Frontend</h3>
-              <p>HTML, CSS, JavaScript, TypeScript, React, responsive UI</p>
+              <h3 data-i18n="skills.frontend.title">Frontend</h3>
+              <p data-i18n="skills.frontend.body">HTML, CSS, JavaScript, TypeScript, React, responsive UI</p>
             </div>
             <div>
-              <h3>Engineering</h3>
-              <p>Git, GitHub, API integration, debugging, deployment workflows</p>
+              <h3 data-i18n="skills.engineering.title">Engineering</h3>
+              <p data-i18n="skills.engineering.body">Git, GitHub, API integration, debugging, deployment workflows</p>
             </div>
             <div>
-              <h3>Design Sense</h3>
-              <p>Layout, visual hierarchy, accessibility basics, product polish</p>
+              <h3 data-i18n="skills.design.title">Design Sense</h3>
+              <p data-i18n="skills.design.body">Layout, visual hierarchy, accessibility basics, product polish</p>
             </div>
           </div>
         </section>
 
         <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
           <div>
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Let's build the next screen.</h2>
-            <p>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+            <h2 id="contact-title" data-i18n="contact.title">Let's build the next screen.</h2>
+            <p data-i18n="contact.body">
               Replace these links with your real email, GitHub, LinkedIn, and
               resume. Keep this area direct so recruiters can act quickly.
             </p>
           </div>
           <div class="contact-links">
-            <a href="mailto:hello@tianruiqiu.com">Email</a>
+            <a href="mailto:hello@tianruiqiu.com" data-i18n="contact.email">Email</a>
             <a href="https://github.com/UKplus8HRS" target="_blank" rel="noreferrer">GitHub</a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>

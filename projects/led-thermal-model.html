@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Heat Sink Thermal Model // Tianrui Qiu</title>
+    <meta name="description" content="High-power LED heat sink thermal model project by Tianrui Qiu, integrating experimental measurements, fan-curve data, CAD, and MATLAB analysis.">
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = localStorage.getItem('portfolio_theme');
+            const theme = ['dark', 'light'].includes(params.get('theme')) ? params.get('theme') : (['dark', 'light'].includes(saved) ? saved : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        }());
+    </script>
+    <link rel="icon" href="../assets/favicon.ico?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-detail.css">
+</head>
+<body data-title-en="LED Heat Sink Thermal Model // Tianrui Qiu" data-title-zh="高功率 LED 散热系统热模型 // 邱天瑞">
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <nav>
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-box">
+                    <img class="logo-img-dark" src="../assets/logo-tr-dark-64.png?v=5" alt="" aria-hidden="true">
+                    <img class="logo-img-light" src="../assets/logo-tr-light-64.png?v=5" alt="" aria-hidden="true">
+                </div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-actions">
+                <a class="nav-link" href="../index.html#projects"><span data-en="Back" data-zh="返回">Back</span></a>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="暗色">Dark</span></button>
+                    <button class="toggle-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="亮色">Light</span></button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="toggle-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-tag">Project 03</div>
+                <h1 class="hero-title" data-en="LED Thermal<br>Model." data-zh="LED 散热<br>系统热模型。">LED Thermal<br>Model.</h1>
+                <p class="hero-copy" data-en="A parametric engineering analysis project for evaluating the thermal performance of a high-power LED heat sink system." data-zh="一个用于评估高功率 LED 散热系统热性能的参数化工程分析项目。">A parametric engineering analysis project for evaluating the thermal performance of a high-power LED heat sink system.</p>
+                <div class="tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Thermal Resistance</span>
+                    <span class="tag">Fan Curve</span>
+                    <span class="tag">CAD</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="panel">
+                    <p data-en="I developed a parametric thermal model for a high-power LED heat sink system, integrating experimental measurements, fan-curve data, and MATLAB-based analysis to evaluate thermal resistance and overall system performance. I also coordinated group progress, contributed to CAD modelling and experimental reporting, and supported comparison between measured results and model predictions for the complete LED lighting system design assessment." data-zh="我开发了高功率 LED 散热系统的参数化热模型，结合实验测量、风扇曲线数据和 MATLAB 分析，评估热阻与整体系统性能。同时我协调小组进度，参与 CAD 建模和实验报告，并支持实测结果与模型预测之间的对比，用于完整 LED 照明系统设计评估。">I developed a parametric thermal model for a high-power LED heat sink system, integrating experimental measurements, fan-curve data, and MATLAB-based analysis to evaluate thermal resistance and overall system performance. I also coordinated group progress, contributed to CAD modelling and experimental reporting, and supported comparison between measured results and model predictions for the complete LED lighting system design assessment.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container detail-grid">
+                <article class="detail-card">
+                    <h2 data-en="Model Inputs" data-zh="模型输入">Model Inputs</h2>
+                    <ul>
+                        <li data-en="Experimental temperature and performance measurements." data-zh="实验温度与性能测量数据。">Experimental temperature and performance measurements.</li>
+                        <li data-en="Fan-curve data for airflow estimation." data-zh="用于估算气流的风扇曲线数据。">Fan-curve data for airflow estimation.</li>
+                        <li data-en="Geometry and system assumptions from the LED heat sink design." data-zh="来自 LED 散热器设计的几何参数与系统假设。">Geometry and system assumptions from the LED heat sink design.</li>
+                    </ul>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="My Contribution" data-zh="我的贡献">My Contribution</h2>
+                    <p data-en="I contributed to the MATLAB analysis, CAD modelling, experimental reporting, and group coordination, with focus on connecting model predictions to measured results." data-zh="我参与 MATLAB 分析、CAD 建模、实验报告和小组协调，重点是把模型预测与实验测量结果联系起来。">I contributed to the MATLAB analysis, CAD modelling, experimental reporting, and group coordination, with focus on connecting model predictions to measured results.</p>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="Next Assets" data-zh="后续素材">Next Assets</h2>
+                    <p data-en="This page can later include plots, MATLAB result tables, CAD images, experimental setup photos, and report excerpts." data-zh="后面可以加入分析图表、MATLAB 结果表、CAD 图片、实验装置照片和报告节选。">This page can later include plots, MATLAB result tables, CAD images, experimental setup photos, and report excerpts.</p>
+                </article>
+            </div>
+            <div class="container cta-row">
+                <a class="btn" href="../index.html#projects" data-en="Back to Projects" data-zh="返回项目">Back to Projects</a>
+                <a class="btn btn-secondary" href="mailto:qiutianrui828@gmail.com" data-en="Discuss This Project" data-zh="交流这个项目">Discuss This Project</a>
+            </div>
+        </section>
+    </main>
+    <script src="project-page.js"></script>
+</body>
+</html>

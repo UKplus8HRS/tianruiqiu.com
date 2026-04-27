@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Year Design Portfolio // Tianrui Qiu</title>
+    <meta name="description" content="First-year design portfolio project by Tianrui Qiu, covering CAD modelling, mechanical drawing, and design communication.">
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = localStorage.getItem('portfolio_theme');
+            const theme = ['dark', 'light'].includes(params.get('theme')) ? params.get('theme') : (['dark', 'light'].includes(saved) ? saved : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        }());
+    </script>
+    <link rel="icon" href="../assets/favicon.ico?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-detail.css">
+</head>
+<body data-title-en="First-Year Design Portfolio // Tianrui Qiu" data-title-zh="大一 Design 课程作品集 // 邱天瑞">
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <nav>
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-box">
+                    <img class="logo-img-dark" src="../assets/logo-tr-dark-64.png?v=5" alt="" aria-hidden="true">
+                    <img class="logo-img-light" src="../assets/logo-tr-light-64.png?v=5" alt="" aria-hidden="true">
+                </div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-actions">
+                <a class="nav-link" href="../index.html#projects"><span data-en="Back" data-zh="返回">Back</span></a>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="暗色">Dark</span></button>
+                    <button class="toggle-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="亮色">Light</span></button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="toggle-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-tag">Project 01</div>
+                <h1 class="hero-title" data-en="First-Year<br>Design Portfolio." data-zh="大一 Design<br>课程作品集。">First-Year<br>Design Portfolio.</h1>
+                <p class="hero-copy" data-en="A foundation project in engineering design communication, CAD modelling, and mechanical drawing." data-zh="一个围绕工程设计表达、CAD 建模和机械制图能力建立的基础项目。">A foundation project in engineering design communication, CAD modelling, and mechanical drawing.</p>
+                <div class="tags">
+                    <span class="tag">Fusion 360</span>
+                    <span class="tag">CAD</span>
+                    <span class="tag">Mechanical Drawing</span>
+                    <span class="tag">Design Portfolio</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="panel">
+                    <p data-en="Through the first-year Design module at the University of Bristol, I built a structured portfolio that documents my process for understanding mechanical components, translating geometry into CAD models, and communicating engineering intent through drawings and design notes." data-zh="在布里斯托大学大一 Design 课程中，我完成了一个结构化作品集，记录了自己理解机械零件、把几何形体转化为 CAD 模型，并通过图纸和设计说明表达工程意图的过程。">Through the first-year Design module at the University of Bristol, I built a structured portfolio that documents my process for understanding mechanical components, translating geometry into CAD models, and communicating engineering intent through drawings and design notes.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container detail-grid">
+                <article class="detail-card">
+                    <h2 data-en="What I Practised" data-zh="练习内容">What I Practised</h2>
+                    <ul>
+                        <li data-en="Mechanical drawing conventions and dimensioning." data-zh="机械制图规范与尺寸标注。">Mechanical drawing conventions and dimensioning.</li>
+                        <li data-en="CAD modelling workflow in Fusion 360." data-zh="Fusion 360 中的 CAD 建模流程。">CAD modelling workflow in Fusion 360.</li>
+                        <li data-en="Design documentation and portfolio presentation." data-zh="设计文档整理与作品集表达。">Design documentation and portfolio presentation.</li>
+                    </ul>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="My Contribution" data-zh="我的贡献">My Contribution</h2>
+                    <p data-en="I created CAD models, prepared drawing outputs, and organised the portfolio narrative so the design process could be reviewed clearly." data-zh="我完成 CAD 模型、图纸输出和作品集叙事整理，让设计过程能够被清晰审阅。">I created CAD models, prepared drawing outputs, and organised the portfolio narrative so the design process could be reviewed clearly.</p>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="Next Assets" data-zh="后续素材">Next Assets</h2>
+                    <p data-en="This page can later include drawing sheets, CAD screenshots, model renders, and selected pages from the design portfolio." data-zh="后面可以加入机械图纸、CAD 截图、模型渲染图，以及作品集中的精选页面。">This page can later include drawing sheets, CAD screenshots, model renders, and selected pages from the design portfolio.</p>
+                </article>
+            </div>
+            <div class="container cta-row">
+                <a class="btn" href="../index.html#projects" data-en="Back to Projects" data-zh="返回项目">Back to Projects</a>
+                <a class="btn btn-secondary" href="mailto:qiutianrui828@gmail.com" data-en="Discuss This Project" data-zh="交流这个项目">Discuss This Project</a>
+            </div>
+        </section>
+    </main>
+    <script src="project-page.js"></script>
+</body>
+</html>

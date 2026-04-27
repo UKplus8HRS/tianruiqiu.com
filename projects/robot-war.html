@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot War Society Project // Tianrui Qiu</title>
+    <meta name="description" content="Robot War society project by Tianrui Qiu, covering model development, 3D printing, fabrication, and robot assembly.">
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = localStorage.getItem('portfolio_theme');
+            const theme = ['dark', 'light'].includes(params.get('theme')) ? params.get('theme') : (['dark', 'light'].includes(saved) ? saved : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        }());
+    </script>
+    <link rel="icon" href="../assets/favicon.ico?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-detail.css">
+</head>
+<body data-title-en="Robot War Society Project // Tianrui Qiu" data-title-zh="Robot War 机器人社团项目 // 邱天瑞">
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <nav>
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-box">
+                    <img class="logo-img-dark" src="../assets/logo-tr-dark-64.png?v=5" alt="" aria-hidden="true">
+                    <img class="logo-img-light" src="../assets/logo-tr-light-64.png?v=5" alt="" aria-hidden="true">
+                </div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-actions">
+                <a class="nav-link" href="../index.html#projects"><span data-en="Back" data-zh="返回">Back</span></a>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="暗色">Dark</span></button>
+                    <button class="toggle-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="亮色">Light</span></button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="toggle-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-tag">Project 02</div>
+                <h1 class="hero-title" data-en="Robot War<br>Build." data-zh="Robot War<br>机器人制造。">Robot War<br>Build.</h1>
+                <p class="hero-copy" data-en="A robotics society project focused on turning CAD concepts into fabricated, assembled robot hardware." data-zh="一个机器人社团项目，重点是把 CAD 概念转化为可制造、可组装的机器人硬件。">A robotics society project focused on turning CAD concepts into fabricated, assembled robot hardware.</p>
+                <div class="tags">
+                    <span class="tag">Robotics</span>
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Fabrication</span>
+                    <span class="tag">Assembly</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="panel">
+                    <p data-en="In the University of Bristol robotics society Robot War project, I worked on model development and mechanical design, then supported the manufacturing path through 3D printing, fabrication, and assembly. The project helped me connect design decisions with real physical constraints such as fit, strength, manufacturability, and iteration speed." data-zh="在布里斯托大学机器人社团 Robot War 项目中，我参与模型开发与机械设计，并支持后续 3D 打印、制造和组装。这个项目让我把设计决策和真实物理约束联系起来，例如装配配合、强度、可制造性和迭代速度。">In the University of Bristol robotics society Robot War project, I worked on model development and mechanical design, then supported the manufacturing path through 3D printing, fabrication, and assembly. The project helped me connect design decisions with real physical constraints such as fit, strength, manufacturability, and iteration speed.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container detail-grid">
+                <article class="detail-card">
+                    <h2 data-en="Engineering Focus" data-zh="工程重点">Engineering Focus</h2>
+                    <ul>
+                        <li data-en="Model development for robot structure." data-zh="机器人结构的模型开发。">Model development for robot structure.</li>
+                        <li data-en="CAD decisions guided by fabrication constraints." data-zh="根据制造约束进行 CAD 设计决策。">CAD decisions guided by fabrication constraints.</li>
+                        <li data-en="3D printing, manufacturing, and assembly workflow." data-zh="3D 打印、制造与组装流程。">3D printing, manufacturing, and assembly workflow.</li>
+                    </ul>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="My Contribution" data-zh="我的贡献">My Contribution</h2>
+                    <p data-en="I contributed to model design, prepared parts for 3D printing, and supported physical assembly so the design could move from screen to working hardware." data-zh="我参与模型设计、准备 3D 打印零件，并支持实体组装，让设计从屏幕上的模型进入真实硬件。">I contributed to model design, prepared parts for 3D printing, and supported physical assembly so the design could move from screen to working hardware.</p>
+                </article>
+                <article class="detail-card">
+                    <h2 data-en="Next Assets" data-zh="后续素材">Next Assets</h2>
+                    <p data-en="This page can later show CAD views, print photos, assembly process images, and short clips of robot testing." data-zh="后面可以展示 CAD 视图、打印照片、组装过程图，以及机器人测试短视频。">This page can later show CAD views, print photos, assembly process images, and short clips of robot testing.</p>
+                </article>
+            </div>
+            <div class="container cta-row">
+                <a class="btn" href="../index.html#projects" data-en="Back to Projects" data-zh="返回项目">Back to Projects</a>
+                <a class="btn btn-secondary" href="mailto:qiutianrui828@gmail.com" data-en="Discuss This Project" data-zh="交流这个项目">Discuss This Project</a>
+            </div>
+        </section>
+    </main>
+    <script src="project-page.js"></script>
+</body>
+</html>

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tianrui Qiu // Portfolio</title>
     <meta name="description" content="Personal portfolio of Tianrui Qiu, featuring frontend work, projects, and contact links.">
-    <link rel="icon" href="assets/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicon.ico?v=3">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -236,10 +236,16 @@
         }
 
         .logo-box {
-            background: var(--accent);
-            color: var(--bg-base);
-            padding: 0.2rem 0.5rem;
-            transform: skewX(var(--skew-angle));
+            width: 46px;
+            height: 46px;
+            flex: 0 0 46px;
+        }
+
+        .logo-box img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -779,6 +785,12 @@
                 font-size: 1rem;
             }
 
+            .logo-box {
+                width: 36px;
+                height: 36px;
+                flex-basis: 36px;
+            }
+
             .logo span {
                 max-width: 42vw;
                 overflow: hidden;
@@ -873,7 +885,7 @@
     <nav id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
-                <div class="logo-box">TQ</div>
+                <div class="logo-box"><img src="assets/logo-tq-64.png?v=3" alt="" aria-hidden="true"></div>
                 <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
             </a>
             <div class="nav-links">

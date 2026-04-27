@@ -1,224 +1,1200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title data-i18n="meta.title">Tianrui Qiu | Pixel Portfolio</title>
-    <meta
-      name="description"
-      content="Tianrui Qiu's personal portfolio, featuring frontend work, software projects, and contact links."
-      data-i18n-content="meta.description"
-    >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tianrui Qiu // Portfolio</title>
+    <meta name="description" content="Personal portfolio of Tianrui Qiu, featuring frontend work, projects, and contact links.">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    >
-    <link rel="icon" href="assets/favicon.ico?v=20260427-logo2">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=20260427-logo2">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=20260427-logo2">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20260427-logo2">
-    <link rel="stylesheet" href="styles.css?v=20260427-i18n4">
-  </head>
-  <body>
-    <div class="loader" aria-hidden="true">
-      <div class="loader-card">
-        <span class="loader-dot"></span>
-        <span data-i18n="loader.label">LOAD TIANRUI</span>
-      </div>
-    </div>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const urlTheme = params.get('theme');
+                const savedTheme = localStorage.getItem('portfolio_theme');
+                const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                const theme = ['dark', 'light'].includes(urlTheme) ? urlTheme : (['dark', 'light'].includes(savedTheme) ? savedTheme : systemTheme);
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }());
+    </script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg-base: #06070a;
+            --bg-surface: #10121a;
+            --bg-card: #161925;
+            --accent: #CCFF00;
+            --accent-hover: #b3e600;
+            --accent-dim: rgba(204, 255, 0, 0.1);
+            --text-main: #f1f5f9;
+            --text-muted: #8b949e;
+            --border: #272b3c;
+            --border-light: #3a4055;
+            --nav-bg: rgba(6, 7, 10, 0.8);
+            --grid-opacity: 0.2;
+            --scanline-opacity: 0.7;
+            --speed-opacity: 0.3;
+            --matrix-shadow: -30px 30px 0 rgba(0, 0, 0, 0.5);
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Microsoft YaHei', monospace;
+            --skew-angle: -6deg;
+            --transition-fast: 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --clip-chamfer: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+            --clip-chamfer-sm: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+        }
 
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="brand" href="#top" aria-label="Tianrui Qiu home">
-          <img class="brand-mark" src="assets/logo-tq-64.png?v=20260427-logo2" alt="" aria-hidden="true">
-          <span>Tianrui Qiu</span>
-        </a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="#work" data-i18n="nav.work">Work</a>
-          <a href="#skills" data-i18n="nav.skills">Skills</a>
-          <a href="#about" data-i18n="nav.about">About</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </nav>
-        <button
-          class="language-toggle"
-          type="button"
-          data-language-toggle
-          aria-label="Switch language to Chinese"
-          data-i18n-aria-label="language.aria"
-        >
-          中文
-        </button>
-      </header>
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --bg-base: #f5f7ee;
+            --bg-surface: #ffffff;
+            --bg-card: #eef2e8;
+            --accent: #8fb500;
+            --accent-hover: #799b00;
+            --accent-dim: rgba(143, 181, 0, 0.16);
+            --text-main: #151922;
+            --text-muted: #5d6675;
+            --border: #d5dcc9;
+            --border-light: #aeb8a1;
+            --nav-bg: rgba(245, 247, 238, 0.86);
+            --grid-opacity: 0.62;
+            --scanline-opacity: 0.16;
+            --speed-opacity: 0.18;
+            --matrix-shadow: -30px 30px 0 rgba(15, 20, 10, 0.12);
+            --card-shadow: 0 20px 40px rgba(34, 40, 23, 0.12);
+        }
 
-      <main id="top">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy reveal">
-            <p class="eyebrow" data-i18n="hero.eyebrow">Pixel Portfolio / Personal Homepage</p>
-            <h1 id="hero-title" data-i18n="hero.title">Hi, I'm Tianrui Qiu.</h1>
-            <p class="lead" data-i18n="hero.lead">
-              I design and build calm, useful web experiences with frontend craft,
-              product thinking, and a practical engineering mindset.
-            </p>
-            <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="#work" data-i18n="hero.viewWork">View Work</a>
-              <a class="button secondary" href="#contact" data-i18n="hero.contact">Get in Touch</a>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-display);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color var(--transition-smooth), color var(--transition-smooth);
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg-base);
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: var(--grid-opacity);
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+            background-size: 100% 4px;
+            opacity: var(--scanline-opacity);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .speed-lines {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: var(--speed-opacity);
+        }
+
+        .speed-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            height: 1px;
+            width: 200px;
+            transform: skewX(-45deg);
+            animation: speedLine linear infinite;
+        }
+
+        @keyframes speedLine {
+            0% { left: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { left: 110%; opacity: 0; }
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        .italic-speed {
+            font-style: italic;
+            transform: skewX(var(--skew-angle));
+            display: inline-block;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-tag::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            transform: skewX(var(--skew-angle));
+        }
+
+        h2.title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            transition: padding var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .logo-box {
+            background: var(--accent);
+            color: var(--bg-base);
+            padding: 0.2rem 0.5rem;
+            transform: skewX(var(--skew-angle));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .lang-switch,
+        .theme-switch {
+            display: flex;
+            flex-shrink: 0;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            transform: skewX(var(--skew-angle));
+            transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+        }
+
+        .lang-btn,
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-transform: uppercase;
+        }
+
+        .theme-btn {
+            padding: 0.4rem 0.65rem;
+        }
+
+        .lang-btn.active,
+        .theme-btn.active {
+            background: var(--accent);
+            color: var(--bg-base);
+        }
+
+        .lang-btn:not(.active):hover,
+        .theme-btn:not(.active):hover {
+            color: var(--text-main);
+        }
+
+        .lang-btn span,
+        .theme-btn span {
+            display: inline-block;
+            transform: skewX(calc(var(--skew-angle) * -1));
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 2.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            clip-path: var(--clip-chamfer);
+            transition: all var(--transition-fast);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--accent);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-smooth);
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            color: var(--bg-base);
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-base);
+            border-color: var(--accent);
+        }
+
+        .btn-primary::before {
+            background: var(--text-main);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-base);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 800;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle-container {
+            min-height: 6rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            perspective: 1000px;
+        }
+
+        .v-matrix {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%) rotateX(15deg) rotateY(-20deg) rotateZ(10deg);
+            transform-style: preserve-3d;
+        }
+
+        .v-grid {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-base) 100%);
+            border: 2px solid var(--border-light);
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 4px;
+            padding: 1rem;
+            box-shadow: var(--matrix-shadow);
+        }
+
+        .v-cell {
+            background: var(--bg-surface);
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        .v-cell:nth-child(7n) {
+            background: var(--accent);
+            opacity: 0.8;
+            box-shadow: 0 0 15px var(--accent-dim);
+        }
+
+        .v-cell:nth-child(5n) {
+            background: var(--text-main);
+            opacity: 0.2;
+        }
+
+        .v-frame {
+            position: absolute;
+            inset: -20px;
+            border: 1px dashed var(--accent);
+            opacity: 0.3;
+            transform: translateZ(-50px);
+        }
+
+        .about-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 4rem;
+            clip-path: var(--clip-chamfer);
+            position: relative;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .about-text {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.4;
+            max-width: 900px;
+            color: var(--text-muted);
+        }
+
+        .about-text span {
+            color: var(--text-main);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            clip-path: var(--clip-chamfer-sm);
+            transition: all var(--transition-smooth);
+            min-height: 380px;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, transparent 50%, var(--border-light) 50%);
+            transition: all var(--transition-fast);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: var(--card-shadow);
+            background: var(--bg-card);
+        }
+
+        .project-card:hover::after {
+            background: linear-gradient(135deg, transparent 50%, var(--accent) 50%);
+        }
+
+        .p-type {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .p-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .p-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .p-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .p-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--bg-base);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .skills-section {
+            overflow: hidden;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-surface);
+        }
+
+        .ticker-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .ticker-row {
+            display: flex;
+            width: fit-content;
+            animation: ticker linear infinite;
+        }
+
+        .ticker-row.reverse {
+            animation-direction: reverse;
+        }
+
+        .ticker-row:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            font-family: var(--font-mono);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding: 0 2rem;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--border-light);
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .ticker-item span {
+            color: var(--text-main);
+            -webkit-text-stroke: 0;
+        }
+
+        .ticker-item:hover {
+            color: var(--accent);
+            -webkit-text-stroke: 1px var(--accent);
+        }
+
+        .ticker-item::after {
+            content: "///";
+            color: var(--accent);
+            font-size: 0.5em;
+            -webkit-text-stroke: 0;
+        }
+
+        .contact-wrap {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-card) 100%);
+            border: 1px solid var(--border);
+            padding: 6rem 4rem;
+            text-align: center;
+            clip-path: var(--clip-chamfer);
+            position: relative;
+        }
+
+        .contact-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .contact-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .c-link {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .c-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition-fast);
+        }
+
+        .c-link:hover::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1.2em;
+            background: var(--accent);
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .hero-title {
+                margin-top: 2rem;
+            }
+
+            .about-content {
+                padding: 3rem 2rem;
+            }
+
+            .contact-wrap {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 0;
+            }
+
+            .container {
+                padding: 0 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo span {
+                max-width: 42vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .lang-btn {
+                font-size: 0.72rem;
+                padding: 0.36rem 0.58rem;
+            }
+
+            .nav-controls {
+                gap: 0.45rem;
+            }
+
+            .theme-btn {
+                font-size: 0.72rem;
+                padding: 0.36rem 0.48rem;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+
+            .hero-title {
+                font-size: clamp(2.4rem, 14vw, 4rem);
+                letter-spacing: -1px;
+            }
+
+            .hero-actions {
+                gap: 0.9rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 1rem 1.25rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-height: auto;
+                padding: 2rem;
+            }
+
+            .ticker-item {
+                font-size: 1.5rem;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .contact-links {
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .logo span {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            ::before,
+            ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .speed-lines {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <div class="speed-lines" id="speedLines"></div>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-box">TQ</div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about" data-en="About" data-zh="关于">About</a>
+                <a href="#projects" data-en="Projects" data-zh="项目">Projects</a>
+                <a href="#skills" data-en="Skills" data-zh="技能">Skills</a>
+                <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
             </div>
-            <ul class="quick-facts" aria-label="Profile highlights">
-              <li data-i18n="hero.factOne">Frontend-focused</li>
-              <li data-i18n="hero.factTwo">Open to opportunities</li>
-              <li data-i18n="hero.factThree">Based in the UK</li>
-            </ul>
-          </div>
-
-          <div class="hero-visual reveal" data-tilt aria-label="Pixel art developer workspace">
-            <img
-              src="assets/hero-pixel-workspace.webp"
-              alt="Pixel art developer workspace with a laptop and warm window light"
-              data-i18n-alt="hero.imageAlt"
-            >
-            <div class="scanline" aria-hidden="true"></div>
-            <div class="hero-chip chip-one" aria-hidden="true">UI</div>
-            <div class="hero-chip chip-two" aria-hidden="true">CSS</div>
-            <div class="hero-chip chip-three" aria-hidden="true">JS</div>
-            <div class="spark spark-one" aria-hidden="true"></div>
-            <div class="spark spark-two" aria-hidden="true"></div>
-            <div class="spark spark-three" aria-hidden="true"></div>
-          </div>
-        </section>
-
-        <section class="motion-strip reveal" aria-label="Skill highlights">
-          <div class="marquee">
-            <span data-i18n="marquee.frontend">Frontend</span>
-            <span data-i18n="marquee.responsive">Responsive UI</span>
-            <span data-i18n="marquee.pages">GitHub Pages</span>
-            <span data-i18n="marquee.pixel">Pixel Style</span>
-            <span data-i18n="marquee.product">Product Thinking</span>
-            <span data-i18n="marquee.frontend">Frontend</span>
-            <span data-i18n="marquee.responsive">Responsive UI</span>
-            <span data-i18n="marquee.pages">GitHub Pages</span>
-            <span data-i18n="marquee.pixel">Pixel Style</span>
-            <span data-i18n="marquee.product">Product Thinking</span>
-          </div>
-        </section>
-
-        <section class="section intro-panel reveal" id="about" aria-labelledby="about-title">
-          <div>
-            <p class="eyebrow" data-i18n="about.eyebrow">About</p>
-            <h2 id="about-title" data-i18n="about.title">A personal site with a softer signal.</h2>
-          </div>
-          <p data-i18n="about.body">
-            This page is built to feel approachable while still being useful for
-            hiring conversations. Replace this paragraph with a short summary of
-            your background, target role, and the kind of work you want to do next.
-          </p>
-        </section>
-
-        <section class="section reveal" id="work" aria-labelledby="work-title">
-          <div class="section-heading">
-            <p class="eyebrow" data-i18n="work.eyebrow">Selected Work</p>
-            <h2 id="work-title" data-i18n="work.title">Projects worth opening.</h2>
-          </div>
-          <div class="project-grid">
-            <article class="project-card mint reveal" data-tilt>
-              <div class="project-preview" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <p class="project-type" data-i18n="projects.one.type">Portfolio</p>
-              <h3 data-i18n="projects.one.title">Personal Website</h3>
-              <p data-i18n="projects.one.body">
-                A lightweight GitHub Pages site with responsive layout, custom
-                domain setup, and a friendly pixel-inspired visual system.
-              </p>
-              <div class="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>GitHub Pages</span>
-              </div>
-            </article>
-
-            <article class="project-card peach reveal" data-tilt>
-              <div class="project-preview dashboard" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <p class="project-type" data-i18n="projects.two.type">Web App</p>
-              <h3 data-i18n="projects.two.title">Project Placeholder</h3>
-              <p data-i18n="projects.two.body">
-                Add a real project here. Focus on the problem, your contribution,
-                the stack, and the result instead of a long feature list.
-              </p>
-              <div class="tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>UI</span>
-              </div>
-            </article>
-
-            <article class="project-card lavender reveal" data-tilt>
-              <div class="project-preview terminal" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <p class="project-type" data-i18n="projects.three.type">Engineering</p>
-              <h3 data-i18n="projects.three.title">Technical Build</h3>
-              <p data-i18n="projects.three.body">
-                Use this card for a course project, research tool, automation
-                script, or any work that shows your technical decision-making.
-              </p>
-              <div class="tags">
-                <span>Python</span>
-                <span>APIs</span>
-                <span>Data</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section skills-section reveal" id="skills" aria-labelledby="skills-title">
-          <div class="section-heading">
-            <p class="eyebrow" data-i18n="skills.eyebrow">Toolkit</p>
-            <h2 id="skills-title" data-i18n="skills.title">Skills in progress.</h2>
-          </div>
-          <div class="skill-board">
-            <div>
-              <h3 data-i18n="skills.frontend.title">Frontend</h3>
-              <p data-i18n="skills.frontend.body">HTML, CSS, JavaScript, TypeScript, React, responsive UI</p>
+            <div class="nav-controls" aria-label="Display options">
+                <div class="theme-switch" aria-label="Theme">
+                    <button class="theme-btn active" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="暗色">Dark</span></button>
+                    <button class="theme-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="亮色">Light</span></button>
+                </div>
+                <div class="lang-switch" aria-label="Language">
+                    <button class="lang-btn active" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="lang-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
             </div>
-            <div>
-              <h3 data-i18n="skills.engineering.title">Engineering</h3>
-              <p data-i18n="skills.engineering.body">Git, GitHub, API integration, debugging, deployment workflows</p>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-left reveal active">
+                    <div class="section-tag mono" data-en="System.Init()" data-zh="系统已启动">System.Init()</div>
+                    <h1 class="hero-title italic-speed" data-en="Hi, I'm<br>Tianrui Qiu." data-zh="你好，<br>我是邱天瑞。">
+                        Hi, I'm<br>Tianrui Qiu.
+                    </h1>
+                    <div class="hero-subtitle-container">
+                        <div class="hero-subtitle mono">
+                            <span id="typewriter"></span><span class="cursor"></span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary" data-en="View Projects" data-zh="查看作品">View Projects</a>
+                        <a href="#contact" class="btn" data-en="Contact Me" data-zh="联系我">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal active">
+                    <div class="v-matrix">
+                        <div class="v-grid">
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                            <div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div><div class="v-cell"></div>
+                        </div>
+                        <div class="v-frame"></div>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h3 data-i18n="skills.design.title">Design Sense</h3>
-              <p data-i18n="skills.design.body">Layout, visual hierarchy, accessibility basics, product polish</p>
-            </div>
-          </div>
         </section>
 
-        <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
-          <div>
-            <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-            <h2 id="contact-title" data-i18n="contact.title">Let's build the next screen.</h2>
-            <p data-i18n="contact.body">
-              Replace these links with your real email, GitHub, LinkedIn, and
-              resume. Keep this area direct so recruiters can act quickly.
-            </p>
-          </div>
-          <div class="contact-links">
-            <a href="mailto:hello@tianruiqiu.com" data-i18n="contact.email">Email</a>
-            <a href="https://github.com/UKplus8HRS" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
+        <section id="about">
+            <div class="container reveal">
+                <div class="section-tag mono">01 // <span data-en="About" data-zh="关于">About</span></div>
+                <div class="about-content">
+                    <p class="about-text" data-en="I am building a portfolio around <span>practical software</span>, <span>clean interfaces</span>, and projects that communicate clearly." data-zh="我正在构建自己的技术作品集，关注如何把想法变成<span>清晰、可用、可展示</span>的产品体验。">
+                        I am building a portfolio around <span>practical software</span>, <span>clean interfaces</span>, and projects that communicate clearly.
+                    </p>
+                </div>
+            </div>
         </section>
-      </main>
-    </div>
 
-    <script src="script.js?v=20260427-i18n4"></script>
-  </body>
+        <section id="projects">
+            <div class="container reveal">
+                <div class="section-tag mono">02 // <span data-en="Projects" data-zh="项目">Projects</span></div>
+                <h2 class="title italic-speed" data-en="Featured Work" data-zh="精选作品">Featured Work</h2>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="p-type" data-en="[ Web / UI ]" data-zh="[ 网页 / 界面 ]">[ Web / UI ]</div>
+                        <h3 class="p-title" data-en="Personal Portfolio Website" data-zh="个人作品集网站">Personal Portfolio Website</h3>
+                        <p class="p-desc" data-en="A highly interactive, performance-optimized personal brand website designed with dark-tech aesthetics and modular architecture." data-zh="高度交互、性能优化的个人品牌网站，采用暗黑科技美学与模块化架构设计。">
+                            A highly interactive, performance-optimized personal brand website designed with dark-tech aesthetics and modular architecture.
+                        </p>
+                        <div class="p-tags mono">
+                            <span class="p-tag">HTML/CSS</span>
+                            <span class="p-tag">JavaScript</span>
+                            <span class="p-tag">Motion</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="p-type" data-en="[ Application ]" data-zh="[ 应用开发 ]">[ Application ]</div>
+                        <h3 class="p-title" data-en="Web Application Project" data-zh="Web 应用项目">Web Application Project</h3>
+                        <p class="p-desc" data-en="A scalable web application focusing on reliable engineering, seamless API integration, and responsive data rendering." data-zh="一个关注可靠工程、无缝 API 集成和响应式数据渲染的可扩展 Web 应用。">
+                            A scalable web application focusing on reliable engineering, seamless API integration, and responsive data rendering.
+                        </p>
+                        <div class="p-tags mono">
+                            <span class="p-tag">React</span>
+                            <span class="p-tag">TypeScript</span>
+                            <span class="p-tag">Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="p-type" data-en="[ Research ]" data-zh="[ 学术研究 ]">[ Research ]</div>
+                        <h3 class="p-title" data-en="Technical / Research Project" data-zh="技术 / 学术研究项目">Technical / Research Project</h3>
+                        <p class="p-desc" data-en="Exploratory research project applying modern algorithms to solve complex systemic issues with measurable efficiency gains." data-zh="探索性研究项目，应用现代算法解决复杂的系统性问题，并获得可量化的效率提升。">
+                            Exploratory research project applying modern algorithms to solve complex systemic issues with measurable efficiency gains.
+                        </p>
+                        <div class="p-tags mono">
+                            <span class="p-tag">Python</span>
+                            <span class="p-tag">Algorithms</span>
+                            <span class="p-tag">Data Vis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section reveal">
+            <div class="container" style="margin-bottom: 2rem;">
+                <div class="section-tag mono">03 // <span data-en="Capabilities" data-zh="能力模型">Capabilities</span></div>
+            </div>
+
+            <div class="ticker-group">
+                <div class="ticker-row" style="animation-duration: 35s;">
+                    <div class="ticker-item">FRONTEND <span>HTML</span> CSS <span>JAVASCRIPT</span> TYPESCRIPT <span>REACT</span></div>
+                    <div class="ticker-item">FRONTEND <span>HTML</span> CSS <span>JAVASCRIPT</span> TYPESCRIPT <span>REACT</span></div>
+                </div>
+                <div class="ticker-row reverse" style="animation-duration: 40s;">
+                    <div class="ticker-item">ENGINEERING <span>GIT</span> GITHUB <span>API INTEGRATION</span> DEPLOYMENT</div>
+                    <div class="ticker-item">ENGINEERING <span>GIT</span> GITHUB <span>API INTEGRATION</span> DEPLOYMENT</div>
+                </div>
+                <div class="ticker-row" style="animation-duration: 30s;">
+                    <div class="ticker-item">DESIGN SENSE <span>LAYOUT</span> VISUAL HIERARCHY <span>RESPONSIVE UI</span></div>
+                    <div class="ticker-item">DESIGN SENSE <span>LAYOUT</span> VISUAL HIERARCHY <span>RESPONSIVE UI</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container reveal">
+                <div class="contact-wrap">
+                    <div class="section-tag mono">04 // <span data-en="System Halt" data-zh="系统挂起">System Halt</span></div>
+                    <h2 class="contact-title italic-speed" data-en="Let's Build Something." data-zh="开始构建吧。">
+                        Let's Build Something.
+                    </h2>
+
+                    <div class="contact-links">
+                        <a href="mailto:hello@tianruiqiu.com" class="c-link">EMAIL</a>
+                        <a href="https://github.com/UKplus8HRS" target="_blank" rel="noopener noreferrer" class="c-link">GITHUB</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="c-link">LINKEDIN</a>
+                    </div>
+
+                    <a href="mailto:hello@tianruiqiu.com" class="btn btn-primary" data-en="Initiate Connection" data-zh="建立连接">Initiate Connection</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const speedLinesContainer = document.getElementById('speedLines');
+        for (let i = 0; i < 8; i++) {
+            const line = document.createElement('div');
+            line.className = 'speed-line';
+            line.style.top = `${Math.random() * 100}%`;
+            line.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            line.style.animationDelay = `${Math.random() * 2}s`;
+            speedLinesContainer.appendChild(line);
+        }
+
+        const i18nConfig = {
+            en: "I build clean, useful web experiences with frontend craft, product thinking, and reliable engineering.",
+            zh: "我关注前端体验、产品思维和可靠的工程实现。"
+        };
+
+        const validLangs = ['en', 'zh'];
+        const validThemes = ['dark', 'light'];
+        let currentLang = 'en';
+        let currentTheme = 'dark';
+        let typewriterTimeout;
+
+        function getInitialLang() {
+            const params = new URLSearchParams(window.location.search);
+            const urlLang = params.get('lang');
+            if (urlLang && validLangs.includes(urlLang)) return urlLang;
+
+            const localLang = localStorage.getItem('portfolio_lang');
+            if (localLang && validLangs.includes(localLang)) return localLang;
+
+            return 'en';
+        }
+
+        function getInitialTheme() {
+            const params = new URLSearchParams(window.location.search);
+            const urlTheme = params.get('theme');
+            if (urlTheme && validThemes.includes(urlTheme)) return urlTheme;
+
+            const localTheme = localStorage.getItem('portfolio_theme');
+            if (localTheme && validThemes.includes(localTheme)) return localTheme;
+
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+
+        function updateUrlParam(key, value) {
+            const url = new URL(window.location.href);
+            url.searchParams.set(key, value);
+            window.history.replaceState({ path: url.toString() }, '', url.toString());
+        }
+
+        function updateThemeUI(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            updateUrlParam('theme', theme);
+            localStorage.setItem('portfolio_theme', theme);
+
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                const isActive = btn.getAttribute('data-target-theme') === theme;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        function updateLangUI(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.title = lang === 'zh' ? '邱天瑞 // 个人作品集' : 'Tianrui Qiu // Portfolio';
+
+            updateUrlParam('lang', lang);
+            localStorage.setItem('portfolio_lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-target-lang') === lang);
+            });
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (el.id !== 'typewriter') {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+
+            startTypewriter(lang);
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetLang = btn.getAttribute('data-target-lang');
+                if (targetLang !== currentLang) {
+                    currentLang = targetLang;
+                    updateLangUI(currentLang);
+                }
+            });
+        });
+
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTheme = btn.getAttribute('data-target-theme');
+                if (targetTheme !== currentTheme) {
+                    currentTheme = targetTheme;
+                    updateThemeUI(currentTheme);
+                }
+            });
+        });
+
+        function startTypewriter(lang) {
+            clearTimeout(typewriterTimeout);
+            const el = document.getElementById('typewriter');
+            if (!el) return;
+
+            const targetText = i18nConfig[lang];
+            el.innerHTML = '';
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) {
+                el.innerHTML = targetText;
+                return;
+            }
+
+            let i = 0;
+            function typeChar() {
+                if (i < targetText.length) {
+                    el.innerHTML += targetText.charAt(i);
+                    i++;
+                    const speed = Math.random() * 30 + 30;
+                    typewriterTimeout = setTimeout(typeChar, speed);
+                }
+            }
+
+            typewriterTimeout = setTimeout(typeChar, 600);
+        }
+
+        function initScrollReveal() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (!el.classList.contains('active')) {
+                    observer.observe(el);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.style.padding = window.scrollY > 50 ? "1rem 0" : "1.5rem 0";
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentLang = getInitialLang();
+            currentTheme = getInitialTheme();
+            updateThemeUI(currentTheme);
+            updateLangUI(currentLang);
+            initScrollReveal();
+        });
+    </script>
+</body>
 </html>

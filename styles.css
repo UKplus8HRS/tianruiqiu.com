@@ -133,14 +133,11 @@ a {
 }
 
 .brand-mark {
-  width: 24px;
-  height: 24px;
-  border: 3px solid var(--line);
-  background:
-    linear-gradient(90deg, var(--mint) 0 50%, transparent 50%),
-    linear-gradient(var(--peach) 0 50%, var(--butter) 50%);
-  box-shadow: 4px 4px 0 var(--line);
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
   image-rendering: pixelated;
+  filter: drop-shadow(3px 3px 0 var(--line));
 }
 
 .nav {

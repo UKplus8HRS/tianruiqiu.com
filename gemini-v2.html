@@ -10,8 +10,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const urlTheme = params.get('theme');
+                const savedTheme = localStorage.getItem('portfolio_theme');
+                const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                const theme = ['dark', 'light'].includes(urlTheme) ? urlTheme : (['dark', 'light'].includes(savedTheme) ? savedTheme : systemTheme);
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }());
+    </script>
     <style>
         :root {
+            color-scheme: dark;
             --bg-base: #06070a;
             --bg-surface: #10121a;
             --bg-card: #161925;
@@ -22,6 +37,12 @@
             --text-muted: #8b949e;
             --border: #272b3c;
             --border-light: #3a4055;
+            --nav-bg: rgba(6, 7, 10, 0.8);
+            --grid-opacity: 0.2;
+            --scanline-opacity: 0.7;
+            --speed-opacity: 0.3;
+            --matrix-shadow: -30px 30px 0 rgba(0, 0, 0, 0.5);
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'PingFang SC', sans-serif;
             --font-mono: 'JetBrains Mono', 'Microsoft YaHei', monospace;
             --skew-angle: -6deg;
@@ -29,6 +50,26 @@
             --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --clip-chamfer: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
             --clip-chamfer-sm: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+        }
+
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --bg-base: #f5f7ee;
+            --bg-surface: #ffffff;
+            --bg-card: #eef2e8;
+            --accent: #8fb500;
+            --accent-hover: #799b00;
+            --accent-dim: rgba(143, 181, 0, 0.16);
+            --text-main: #151922;
+            --text-muted: #5d6675;
+            --border: #d5dcc9;
+            --border-light: #aeb8a1;
+            --nav-bg: rgba(245, 247, 238, 0.86);
+            --grid-opacity: 0.62;
+            --scanline-opacity: 0.16;
+            --speed-opacity: 0.18;
+            --matrix-shadow: -30px 30px 0 rgba(15, 20, 10, 0.12);
+            --card-shadow: 0 20px 40px rgba(34, 40, 23, 0.12);
         }
 
         * {
@@ -48,6 +89,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            transition: background-color var(--transition-smooth), color var(--transition-smooth);
         }
 
         ::selection {
@@ -62,7 +104,7 @@
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
             background-size: 40px 40px;
-            opacity: 0.2;
+            opacity: var(--grid-opacity);
             z-index: -3;
             pointer-events: none;
         }
@@ -72,7 +114,7 @@
             inset: 0;
             background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
             background-size: 100% 4px;
-            opacity: 0.7;
+            opacity: var(--scanline-opacity);
             z-index: 9999;
             pointer-events: none;
         }
@@ -83,7 +125,7 @@
             z-index: -2;
             overflow: hidden;
             pointer-events: none;
-            opacity: 0.3;
+            opacity: var(--speed-opacity);
         }
 
         .speed-line {
@@ -166,11 +208,11 @@
             left: 0;
             width: 100%;
             padding: 1.5rem 0;
-            background: rgba(6, 7, 10, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 100;
-            transition: padding var(--transition-smooth);
+            transition: padding var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth);
         }
 
         .nav-inner {
@@ -229,15 +271,25 @@
             width: 100%;
         }
 
-        .lang-switch {
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .lang-switch,
+        .theme-switch {
             display: flex;
             flex-shrink: 0;
             background: var(--bg-surface);
             border: 1px solid var(--border);
             transform: skewX(var(--skew-angle));
+            transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
         }
 
-        .lang-btn {
+        .lang-btn,
+        .theme-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
@@ -250,16 +302,23 @@
             text-transform: uppercase;
         }
 
-        .lang-btn.active {
+        .theme-btn {
+            padding: 0.4rem 0.65rem;
+        }
+
+        .lang-btn.active,
+        .theme-btn.active {
             background: var(--accent);
             color: var(--bg-base);
         }
 
-        .lang-btn:not(.active):hover {
+        .lang-btn:not(.active):hover,
+        .theme-btn:not(.active):hover {
             color: var(--text-main);
         }
 
-        .lang-btn span {
+        .lang-btn span,
+        .theme-btn span {
             display: inline-block;
             transform: skewX(calc(var(--skew-angle) * -1));
         }
@@ -393,7 +452,7 @@
             grid-template-rows: repeat(6, 1fr);
             gap: 4px;
             padding: 1rem;
-            box-shadow: -30px 30px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: var(--matrix-shadow);
         }
 
         .v-cell {
@@ -483,7 +542,7 @@
         .project-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: var(--card-shadow);
             background: var(--bg-card);
         }
 
@@ -732,6 +791,15 @@
                 padding: 0.36rem 0.58rem;
             }
 
+            .nav-controls {
+                gap: 0.45rem;
+            }
+
+            .theme-btn {
+                font-size: 0.72rem;
+                padding: 0.36rem 0.48rem;
+            }
+
             section {
                 padding: 5rem 0;
             }
@@ -814,9 +882,15 @@
                 <a href="#skills" data-en="Skills" data-zh="技能">Skills</a>
                 <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
             </div>
-            <div class="lang-switch">
-                <button class="lang-btn active" data-target-lang="en"><span>EN</span></button>
-                <button class="lang-btn" data-target-lang="zh"><span>中文</span></button>
+            <div class="nav-controls" aria-label="Display options">
+                <div class="theme-switch" aria-label="Theme">
+                    <button class="theme-btn active" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="暗色">Dark</span></button>
+                    <button class="theme-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="亮色">Light</span></button>
+                </div>
+                <div class="lang-switch" aria-label="Language">
+                    <button class="lang-btn active" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="lang-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -973,7 +1047,9 @@
         };
 
         const validLangs = ['en', 'zh'];
+        const validThemes = ['dark', 'light'];
         let currentLang = 'en';
+        let currentTheme = 'dark';
         let typewriterTimeout;
 
         function getInitialLang() {
@@ -987,13 +1063,40 @@
             return 'en';
         }
 
+        function getInitialTheme() {
+            const params = new URLSearchParams(window.location.search);
+            const urlTheme = params.get('theme');
+            if (urlTheme && validThemes.includes(urlTheme)) return urlTheme;
+
+            const localTheme = localStorage.getItem('portfolio_theme');
+            if (localTheme && validThemes.includes(localTheme)) return localTheme;
+
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+
+        function updateUrlParam(key, value) {
+            const url = new URL(window.location.href);
+            url.searchParams.set(key, value);
+            window.history.replaceState({ path: url.toString() }, '', url.toString());
+        }
+
+        function updateThemeUI(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            updateUrlParam('theme', theme);
+            localStorage.setItem('portfolio_theme', theme);
+
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                const isActive = btn.getAttribute('data-target-theme') === theme;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
         function updateLangUI(lang) {
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
             document.title = lang === 'zh' ? '邱天瑞 // 个人作品集' : 'Tianrui Qiu // Portfolio';
 
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', lang);
-            window.history.replaceState({ path: url.toString() }, '', url.toString());
+            updateUrlParam('lang', lang);
             localStorage.setItem('portfolio_lang', lang);
 
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1015,6 +1118,16 @@
                 if (targetLang !== currentLang) {
                     currentLang = targetLang;
                     updateLangUI(currentLang);
+                }
+            });
+        });
+
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTheme = btn.getAttribute('data-target-theme');
+                if (targetTheme !== currentTheme) {
+                    currentTheme = targetTheme;
+                    updateThemeUI(currentTheme);
                 }
             });
         });
@@ -1077,6 +1190,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             currentLang = getInitialLang();
+            currentTheme = getInitialTheme();
+            updateThemeUI(currentTheme);
             updateLangUI(currentLang);
             initScrollReveal();
         });

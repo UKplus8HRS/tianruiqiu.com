@@ -70,7 +70,13 @@ a {
 }
 
 .scanlines {
-    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+    background-size: 100% 4px;
+    opacity: var(--scanline-opacity);
+    z-index: 8;
+    pointer-events: none;
 }
 
 .container {
@@ -180,6 +186,7 @@ nav {
 }
 
 main {
+    position: relative;
     padding-top: 7rem;
 }
 
@@ -370,6 +377,7 @@ section {
 
 .hero-product-card {
     position: relative;
+    z-index: 12;
     padding: clamp(0.75rem, 2vw, 1.2rem);
     background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 34%),
@@ -404,6 +412,7 @@ section {
 
 .product-screen {
     position: relative;
+    z-index: 1;
     overflow: hidden;
     aspect-ratio: 1.414 / 1;
     background: #f7f7f3;
@@ -476,10 +485,12 @@ section {
 .story-stage {
     position: sticky;
     top: 7.2rem;
+    z-index: 12;
 }
 
 .stage-shell {
     position: relative;
+    z-index: 1;
     overflow: hidden;
     aspect-ratio: 1.414 / 1;
     background: #f7f7f3;
@@ -580,6 +591,8 @@ section {
 }
 
 .sheet-card {
+    position: relative;
+    z-index: 12;
     overflow: hidden;
     background: var(--bg-surface);
     border: 1px solid var(--border);
@@ -621,6 +634,7 @@ section {
 
 .model-showcase {
     position: relative;
+    z-index: 12;
     overflow: hidden;
     min-height: min(78vh, 820px);
     padding: clamp(0.9rem, 2vw, 1.4rem);

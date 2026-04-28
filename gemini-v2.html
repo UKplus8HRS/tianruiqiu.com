@@ -182,6 +182,19 @@
             position: relative;
         }
 
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #hero { order: 0; }
+        #about { order: 1; }
+        #basic-info { order: 2; }
+        #target { order: 3; }
+        #skills { order: 4; }
+        #projects { order: 5; }
+        #contact { order: 6; }
+
         .mono {
             font-family: var(--font-mono);
         }
@@ -1005,8 +1018,8 @@
             <div class="nav-links">
                 <a href="#about" data-en="About" data-zh="关于">About</a>
                 <a href="#target" data-en="Target" data-zh="目标">Target</a>
-                <a href="#projects" data-en="Projects" data-zh="项目">Projects</a>
                 <a href="#skills" data-en="Skills" data-zh="技能">Skills</a>
+                <a href="#projects" data-en="Projects" data-zh="项目">Projects</a>
                 <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
             </div>
             <div class="nav-controls" aria-label="Display options">
@@ -1061,8 +1074,8 @@
             <div class="container reveal">
                 <div class="section-tag mono">01 // <span data-en="About" data-zh="关于">About</span></div>
                 <div class="about-content">
-                    <p class="about-text" data-en="I am a first-year <span>Mechanical and Electrical Engineering</span> student at the <span>University of Bristol</span> (Sep 2025 - Jun 2028), based in Bristol and Shanghai Zhangjiang during breaks. I learn fast, enjoy turning ideas into physical prototypes, and am especially interested in <span>AI applications and AI agent development</span> for engineering workflows." data-zh="我是<span>布里斯托大学机械与电气工程</span>大一学生（2025.9 入学，2028.6 毕业），平时 base 英国布里斯托，假期在上海张江。我学习新知识很快，喜欢把想法做成真实原型，也对 <span>AI 应用和 AI Agent 开发</span>如何提升工程流程有很强兴趣。">
-                        I am a first-year <span>Mechanical and Electrical Engineering</span> student at the <span>University of Bristol</span> (Sep 2025 - Jun 2028), based in Bristol and Shanghai Zhangjiang during breaks. I learn fast, enjoy turning ideas into physical prototypes, and am especially interested in <span>AI applications and AI agent development</span> for engineering workflows.
+                    <p class="about-text" data-en="I am a first-year <span>Mechanical and Electrical Engineering</span> student at the <span>University of Bristol</span> (currently studying), based in Bristol and Shanghai Zhangjiang during breaks. I learn fast, enjoy turning ideas into physical prototypes, and am especially interested in <span>AI applications and AI agent development</span> for engineering workflows." data-zh="我是<span>布里斯托大学机械与电气工程</span>大一在读学生，平时 base 英国布里斯托，假期在上海张江。我学习新知识很快，喜欢把想法做成真实原型，也对 <span>AI 应用和 AI Agent 开发</span>如何提升工程流程有很强兴趣。">
+                        I am a first-year <span>Mechanical and Electrical Engineering</span> student at the <span>University of Bristol</span> (currently studying), based in Bristol and Shanghai Zhangjiang during breaks. I learn fast, enjoy turning ideas into physical prototypes, and am especially interested in <span>AI applications and AI agent development</span> for engineering workflows.
                     </p>
                 </div>
             </div>
@@ -1085,8 +1098,8 @@
                         <p class="info-value" data-en="University of Bristol, BEng Mechanical and Electrical Engineering" data-zh="布里斯托大学，机械与电气工程本科">University of Bristol, BEng Mechanical and Electrical Engineering</p>
                     </article>
                     <article class="info-item">
-                        <span class="info-label" data-en="Timeline" data-zh="时间线">Timeline</span>
-                        <p class="info-value" data-en="Sep 2025 - Jun 2028" data-zh="2025.9 入学 - 2028.6 毕业">Sep 2025 - Jun 2028</p>
+                        <span class="info-label" data-en="Study Status" data-zh="学业状态">Study Status</span>
+                        <p class="info-value" data-en="Currently studying" data-zh="在读">Currently studying</p>
                     </article>
                     <article class="info-item">
                         <span class="info-label" data-en="Base" data-zh="常驻地点">Base</span>
@@ -1125,7 +1138,7 @@
 
         <section id="projects">
             <div class="container reveal">
-                <div class="section-tag mono">04 // <span data-en="Projects" data-zh="项目">Projects</span></div>
+                <div class="section-tag mono">05 // <span data-en="Projects" data-zh="项目">Projects</span></div>
                 <h2 class="title italic-speed" data-en="Featured Work" data-zh="精选作品">Featured Work</h2>
                 <p class="section-helper" data-en="Click any project card to open a more detailed project story, process, and visual documentation." data-zh="点击任意项目卡片，可以查看更完整的项目经历、过程记录和展示页面。">
                     Click any project card to open a more detailed project story, process, and visual documentation.
@@ -1185,7 +1198,7 @@
 
         <section id="skills" class="skills-section reveal">
             <div class="container" style="margin-bottom: 2rem;">
-                <div class="section-tag mono">05 // <span data-en="Capabilities" data-zh="能力模型">Capabilities</span></div>
+                <div class="section-tag mono">04 // <span data-en="Capabilities" data-zh="能力模型">Capabilities</span></div>
             </div>
 
             <div class="ticker-group">

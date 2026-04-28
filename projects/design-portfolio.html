@@ -149,6 +149,33 @@
         </section>
 
         <section id="source-section" class="source-section">
+            <div class="container model-showcase-wrap">
+                <div class="section-tag" data-en="Interactive model" data-zh="可交互模型">Interactive model</div>
+                <div class="model-showcase" data-reveal>
+                    <model-viewer
+                        class="robot-model-viewer"
+                        src="../assets/design-portfolio/full-robot-assembly.glb"
+                        alt="Interactive 3D model of the full robot assembly"
+                        camera-controls
+                        disable-pan
+                        shadow-intensity="0.9"
+                        exposure="0.95"
+                        camera-orbit="-42deg 58deg auto"
+                        min-camera-orbit="-160deg 38deg auto"
+                        max-camera-orbit="160deg 78deg auto"
+                        field-of-view="30deg"
+                        interaction-prompt="auto"
+                        reveal="auto"
+                        loading="eager">
+                    </model-viewer>
+                    <div class="model-showcase-copy">
+                        <strong data-en="Full Robot Assembly" data-zh="完整机器人装配体">Full Robot Assembly</strong>
+                        <p data-en="A fixed product-style 3/4 view, corrected from the exported OBJ axis so the robot sits naturally in the scene." data-zh="固定为产品展示感的 3/4 视角，并修正了 OBJ 导出时的坐标轴，让机器人在场景里自然放置。">A fixed product-style 3/4 view, corrected from the exported OBJ axis so the robot sits naturally in the scene.</p>
+                        <small data-en="Drag to rotate. Scroll or pinch to zoom." data-zh="拖动旋转，滚轮或双指缩放。">Drag to rotate. Scroll or pinch to zoom.</small>
+                    </div>
+                </div>
+            </div>
+
             <div class="container source-grid">
                 <div class="panel source-copy" data-reveal>
                     <p data-en="The Fusion 360 project file is still included as a downloadable source package. I also converted the exported OBJ + MTL assembly into a web-ready GLB, so the robot can be inspected directly in the browser." data-zh="这里仍然提供 Fusion 360 项目源文件下载。同时，我把导出的 OBJ + MTL 装配模型转换成网页可用的 GLB，因此可以直接在浏览器里查看机器人模型。">The Fusion 360 project file is still included as a downloadable source package. I also converted the exported OBJ + MTL assembly into a web-ready GLB, so the robot can be inspected directly in the browser.</p>
@@ -157,27 +184,10 @@
                         <a class="btn btn-secondary" href="../assets/design-portfolio/portfolio.pdf" download data-en="Download Full PDF" data-zh="下载完整 PDF">Download Full PDF</a>
                     </div>
                 </div>
-                <div class="model-card" data-reveal>
-                    <model-viewer
-                        src="../assets/design-portfolio/full-robot-assembly.glb"
-                        poster="../assets/design-portfolio/software-full-robot.webp"
-                        alt="Interactive 3D model of the full robot assembly"
-                        camera-controls
-                        auto-rotate
-                        rotation-per-second="18deg"
-                        shadow-intensity="0.8"
-                        exposure="0.9"
-                        camera-orbit="-35deg 68deg auto"
-                        field-of-view="32deg"
-                        interaction-prompt="auto"
-                        reveal="auto"
-                        loading="eager">
-                    </model-viewer>
-                    <div class="model-meta">
-                        <strong data-en="Interactive 3D Model" data-zh="可交互 3D 模型">Interactive 3D Model</strong>
-                        <p data-en="Converted from OBJ + MTL to web-ready GLB for browser viewing." data-zh="由 OBJ + MTL 转换为网页可用的 GLB，用于浏览器预览。">Converted from OBJ + MTL to web-ready GLB for browser viewing.</p>
-                        <small data-en="Drag to rotate. Scroll or pinch to zoom." data-zh="拖动旋转，滚轮或双指缩放。">Drag to rotate. Scroll or pinch to zoom.</small>
-                    </div>
+                <div class="source-file-card" data-reveal>
+                    <strong data-en="Source Package" data-zh="源文件包">Source Package</strong>
+                    <p>2773678_robot.f3z</p>
+                    <small data-en="Fusion 360 archive, original PDF, and web GLB model are kept with the project page." data-zh="Fusion 360 工程包、原始 PDF 和网页 GLB 模型都已随项目页保留。">Fusion 360 archive, original PDF, and web GLB model are kept with the project page.</small>
                 </div>
             </div>
         </section>

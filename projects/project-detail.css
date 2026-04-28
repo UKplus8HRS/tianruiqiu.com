@@ -617,70 +617,115 @@ section {
 }
 
 .source-section {
-    padding-top: 5rem;
+    padding-top: 7rem;
+    scroll-margin-top: 6.8rem;
+}
+
+.model-showcase-wrap {
+    max-width: 1420px;
+}
+
+.model-showcase {
+    position: relative;
+    overflow: hidden;
+    min-height: min(78vh, 820px);
+    padding: clamp(0.9rem, 2vw, 1.4rem);
+    background:
+        radial-gradient(circle at 50% 42%, rgba(204, 255, 0, 0.18), transparent 33%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 34%),
+        var(--bg-surface);
+    border: 1px solid var(--border-light);
+    clip-path: var(--clip-chamfer);
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42);
+}
+
+.model-showcase::before {
+    content: "";
+    position: absolute;
+    inset: 1.35rem;
+    border: 1px dashed var(--accent);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.model-showcase model-viewer {
+    display: block;
+    width: 100%;
+    height: clamp(560px, 72vh, 780px);
+    background:
+        radial-gradient(circle at 50% 58%, rgba(204, 255, 0, 0.2), transparent 30%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 48%),
+        var(--bg-base);
+    border: 1px solid var(--border);
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    --poster-color: var(--bg-base);
+    touch-action: pan-y;
+}
+
+.model-showcase-copy {
+    position: absolute;
+    left: clamp(1.6rem, 4vw, 4rem);
+    bottom: clamp(1.6rem, 4vw, 3.5rem);
+    z-index: 1;
+    max-width: 520px;
+    padding: 1.25rem 1.35rem;
+    background: color-mix(in srgb, var(--bg-base) 76%, transparent);
+    border-left: 5px solid var(--accent);
+    backdrop-filter: blur(10px);
+}
+
+.model-showcase-copy strong,
+.source-file-card strong {
+    display: block;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.model-showcase-copy p,
+.source-file-card p {
+    margin: 0.7rem 0 0.35rem;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-weight: 800;
+}
+
+.model-showcase-copy small,
+.source-file-card small {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
 }
 
 .source-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
     gap: 1.5rem;
     align-items: stretch;
+    margin-top: 2rem;
 }
 
-.source-copy {
-    min-height: 320px;
+.source-copy,
+.source-file-card {
+    min-height: 260px;
 }
 
-.model-card {
+.source-file-card {
     position: relative;
     overflow: hidden;
-    min-height: 420px;
-    padding: 1rem;
+    padding: 2rem;
     background:
-        radial-gradient(circle at 20% 20%, rgba(204, 255, 0, 0.16), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(204, 255, 0, 0.15), transparent 32%),
         var(--bg-surface);
     border: 1px solid var(--border);
     clip-path: var(--clip-chamfer);
 }
 
-.model-card model-viewer {
-    display: block;
-    width: 100%;
-    height: 330px;
-    background:
-        radial-gradient(circle at 50% 54%, rgba(204, 255, 0, 0.16), transparent 34%),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 38%),
-        var(--bg-base);
-    border: 1px solid var(--border);
-    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-    --poster-color: var(--bg-base);
-    touch-action: pan-y;
-}
-
-.model-meta {
-    padding: 1rem 0.5rem 0.25rem;
-}
-
-.model-meta strong {
-    display: block;
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.model-meta p {
-    margin: 0.7rem 0 0.35rem;
-    color: var(--text-main);
-    font-family: var(--font-mono);
-    font-size: 0.94rem;
-    font-weight: 800;
-}
-
-.model-meta small {
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+.source-file-card p {
+    font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+    word-break: break-word;
 }
 
 .model-lines {
@@ -840,7 +885,37 @@ section {
     }
 
     .source-copy,
-    .model-card {
+    .source-file-card {
         min-height: auto;
+    }
+
+    .source-section {
+        padding-top: 4rem;
+    }
+
+    .model-showcase {
+        min-height: auto;
+        padding: 0.8rem;
+    }
+
+    .model-showcase::before {
+        display: none;
+    }
+
+    .model-showcase model-viewer {
+        height: 480px;
+    }
+
+    .model-showcase-copy {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        max-width: none;
+        margin-top: 0.8rem;
+        padding: 1rem;
+    }
+
+    .source-grid {
+        margin-top: 1rem;
     }
 }

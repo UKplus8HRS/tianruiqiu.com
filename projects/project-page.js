@@ -36,7 +36,16 @@ function setLang(lang) {
     });
     const title = document.body.getAttribute(`data-title-${lang}`);
     if (title) document.title = title;
+    updateLangMedia(lang);
     updateStoryCaption();
+}
+
+function updateLangMedia(lang) {
+    document.querySelectorAll('[data-media-src-en][data-media-src-zh]').forEach(media => {
+        const nextSrc = media.getAttribute(`data-media-src-${lang}`);
+        if (!nextSrc || media.getAttribute('src') === nextSrc) return;
+        media.setAttribute('src', nextSrc);
+    });
 }
 
 function initReveal() {

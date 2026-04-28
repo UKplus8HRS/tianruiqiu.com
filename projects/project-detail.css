@@ -959,11 +959,6 @@ section {
     aspect-ratio: 4 / 5;
 }
 
-html[lang="zh-CN"] .lang-content-en,
-html:not([lang="zh-CN"]) .lang-content-zh {
-    display: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
     [data-reveal] {
         opacity: 1;

@@ -545,6 +545,41 @@
             color: var(--text-main);
         }
 
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            background: var(--border);
+            border: 1px solid var(--border);
+            clip-path: var(--clip-chamfer);
+        }
+
+        .info-item {
+            min-height: 118px;
+            padding: 1.45rem;
+            background: var(--bg-surface);
+        }
+
+        .info-label {
+            display: block;
+            margin-bottom: 0.55rem;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .info-value {
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -792,6 +827,10 @@
                 padding: 3rem 2rem;
             }
 
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-wrap {
                 padding: 4rem 2rem;
             }
@@ -986,9 +1025,49 @@
             </div>
         </section>
 
+        <section id="basic-info">
+            <div class="container reveal">
+                <div class="section-tag mono">02 // <span data-en="Basic Information" data-zh="基础信息">Basic Information</span></div>
+                <div class="info-grid">
+                    <article class="info-item">
+                        <span class="info-label" data-en="Name" data-zh="姓名">Name</span>
+                        <p class="info-value" data-en="Tianrui Qiu / Qiu Tianrui" data-zh="邱天瑞 / Tianrui Qiu">Tianrui Qiu / Qiu Tianrui</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Education" data-zh="教育背景">Education</span>
+                        <p class="info-value" data-en="University of Bristol, BEng Mechanical and Electrical Engineering" data-zh="布里斯托大学，机械与电气工程本科">University of Bristol, BEng Mechanical and Electrical Engineering</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Timeline" data-zh="时间线">Timeline</span>
+                        <p class="info-value" data-en="Sep 2025 - Jun 2028" data-zh="2025.9 入学 - 2028.6 毕业">Sep 2025 - Jun 2028</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Base" data-zh="常驻地点">Base</span>
+                        <p class="info-value" data-en="Bristol, UK / Shanghai Zhangjiang during breaks" data-zh="英国布里斯托 / 假期在上海张江">Bristol, UK / Shanghai Zhangjiang during breaks</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Internship Target" data-zh="求职目标">Internship Target</span>
+                        <p class="info-value" data-en="2026 summer internship in mechatronics, robotics, product engineering, or AI-enabled engineering" data-zh="2026 暑期实习，方向偏机电、机器人、产品工程或 AI 赋能工程">2026 summer internship in mechatronics, robotics, product engineering, or AI-enabled engineering</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Technical Stack" data-zh="技术栈">Technical Stack</span>
+                        <p class="info-value" data-en="Python, Fusion 360, CAD modelling, mechanical drawing, MATLAB, 3D printing" data-zh="Python、Fusion 360、CAD 建模、机械制图、MATLAB、3D 打印">Python, Fusion 360, CAD modelling, mechanical drawing, MATLAB, 3D printing</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Interests" data-zh="兴趣方向">Interests</span>
+                        <p class="info-value" data-en="AI applications, AI agents, robotics, prototyping, engineering automation" data-zh="AI 应用、AI Agent、机器人、原型制造、工程自动化">AI applications, AI agents, robotics, prototyping, engineering automation</p>
+                    </article>
+                    <article class="info-item">
+                        <span class="info-label" data-en="Contact" data-zh="联系方式">Contact</span>
+                        <p class="info-value">qiutianrui828@gmail.com<br>WeChat: 18821253828</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="target">
             <div class="container reveal">
-                <div class="section-tag mono">02 // <span data-en="Career Target" data-zh="求职目标">Career Target</span></div>
+                <div class="section-tag mono">03 // <span data-en="Career Target" data-zh="求职目标">Career Target</span></div>
                 <div class="about-content">
                     <p class="about-text" data-en="I am looking for <span>2026 summer internship</span> opportunities in mechatronics, robotics, product engineering, thermal/mechanical systems, or AI-enabled engineering roles. I am open to opportunities in the UK and China, with strong interest in teams that combine <span>hardware, software, CAD, prototyping, and intelligent automation</span>." data-zh="我目前目标是寻找 <span>2026 暑期实习</span>，方向偏机电、机器人、产品工程、热/机械系统，最好能结合 AI。我对英国和中国的机会都开放，尤其希望加入把 <span>硬件、软件、CAD、原型制造和智能自动化</span>结合起来的团队。">
                         I am looking for <span>2026 summer internship</span> opportunities in mechatronics, robotics, product engineering, thermal/mechanical systems, or AI-enabled engineering roles. I am open to opportunities in the UK and China, with strong interest in teams that combine <span>hardware, software, CAD, prototyping, and intelligent automation</span>.
@@ -999,7 +1078,7 @@
 
         <section id="projects">
             <div class="container reveal">
-                <div class="section-tag mono">03 // <span data-en="Projects" data-zh="项目">Projects</span></div>
+                <div class="section-tag mono">04 // <span data-en="Projects" data-zh="项目">Projects</span></div>
                 <h2 class="title italic-speed" data-en="Featured Work" data-zh="精选作品">Featured Work</h2>
 
                 <div class="projects-grid">
@@ -1047,7 +1126,7 @@
 
         <section id="skills" class="skills-section reveal">
             <div class="container" style="margin-bottom: 2rem;">
-                <div class="section-tag mono">04 // <span data-en="Capabilities" data-zh="能力模型">Capabilities</span></div>
+                <div class="section-tag mono">05 // <span data-en="Capabilities" data-zh="能力模型">Capabilities</span></div>
             </div>
 
             <div class="ticker-group">
@@ -1069,7 +1148,7 @@
         <section id="contact">
             <div class="container reveal">
                 <div class="contact-wrap">
-                    <div class="section-tag mono">05 // <span data-en="System Halt" data-zh="系统挂起">System Halt</span></div>
+                    <div class="section-tag mono">06 // <span data-en="System Halt" data-zh="系统挂起">System Halt</span></div>
                     <h2 class="contact-title italic-speed" data-en="Open to 2026 Summer Internships." data-zh="寻找 2026 暑期实习。">
                         Open to 2026 Summer Internships.
                     </h2>

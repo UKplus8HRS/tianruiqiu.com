@@ -222,6 +222,16 @@
             letter-spacing: -1px;
         }
 
+        .section-helper {
+            margin-top: -1.75rem;
+            margin-bottom: 3rem;
+            max-width: 620px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
         nav {
             position: fixed;
             top: 0;
@@ -660,6 +670,34 @@
             text-transform: uppercase;
         }
 
+        .p-card-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .p-link-cue {
+            flex-shrink: 0;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 0.58rem 0.82rem;
+            border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+            background: var(--accent-dim);
+            clip-path: var(--clip-chamfer-sm);
+            text-transform: uppercase;
+            transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .project-card:hover .p-link-cue {
+            background: var(--accent);
+            color: var(--bg-base);
+            transform: translateX(4px);
+        }
+
         .skills-section {
             overflow: hidden;
             padding: 6rem 0;
@@ -907,6 +945,11 @@
                 padding: 2rem;
             }
 
+            .p-card-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
             .ticker-item {
                 font-size: 1.5rem;
                 gap: 1rem;
@@ -1084,6 +1127,9 @@
             <div class="container reveal">
                 <div class="section-tag mono">04 // <span data-en="Projects" data-zh="项目">Projects</span></div>
                 <h2 class="title italic-speed" data-en="Featured Work" data-zh="精选作品">Featured Work</h2>
+                <p class="section-helper" data-en="Click any project card to open a more detailed project story, process, and visual documentation." data-zh="点击任意项目卡片，可以查看更完整的项目经历、过程记录和展示页面。">
+                    Click any project card to open a more detailed project story, process, and visual documentation.
+                </p>
 
                 <div class="projects-grid">
                     <a class="project-card" href="projects/design-portfolio.html">
@@ -1092,10 +1138,13 @@
                         <p class="p-desc" data-en="Built a course portfolio through the first-year Design module, developing fundamentals in mechanical drawing, CAD modelling, design communication, and structured engineering documentation." data-zh="通过大一 Design 课程完成作品集，系统学习机械制图、CAD 建模、设计表达和工程文档整理，为后续机电项目打基础。">
                             Built a course portfolio through the first-year Design module, developing fundamentals in mechanical drawing, CAD modelling, design communication, and structured engineering documentation.
                         </p>
-                        <div class="p-tags mono">
-                            <span class="p-tag">Fusion 360</span>
-                            <span class="p-tag">CAD</span>
-                            <span class="p-tag">Drawing</span>
+                        <div class="p-card-footer">
+                            <div class="p-tags mono">
+                                <span class="p-tag">Fusion 360</span>
+                                <span class="p-tag">CAD</span>
+                                <span class="p-tag">Drawing</span>
+                            </div>
+                            <span class="p-link-cue" data-en="View details ->" data-zh="查看详情 ->">View details -></span>
                         </div>
                     </a>
 
@@ -1105,10 +1154,13 @@
                         <p class="p-desc" data-en="Contributed to a university robotics society project, focusing on model development, mechanical design, 3D printing, fabrication, and assembly for a competitive robot build." data-zh="参与学校机器人社团 Robot War 项目，负责模型开发设计、3D 打印制造和组装，把 CAD 设计转化为可制造、可装配的机器人结构。">
                             Contributed to a university robotics society project, focusing on model development, mechanical design, 3D printing, fabrication, and assembly for a competitive robot build.
                         </p>
-                        <div class="p-tags mono">
-                            <span class="p-tag">Robotics</span>
-                            <span class="p-tag">3D Print</span>
-                            <span class="p-tag">Assembly</span>
+                        <div class="p-card-footer">
+                            <div class="p-tags mono">
+                                <span class="p-tag">Robotics</span>
+                                <span class="p-tag">3D Print</span>
+                                <span class="p-tag">Assembly</span>
+                            </div>
+                            <span class="p-link-cue" data-en="View details ->" data-zh="查看详情 ->">View details -></span>
                         </div>
                     </a>
 
@@ -1118,10 +1170,13 @@
                         <p class="p-desc" data-en="Developed a parametric thermal model for a high-power LED heat sink system, integrating experimental measurements, fan-curve data, and MATLAB analysis to evaluate thermal resistance and system performance. Coordinated group progress, contributed to CAD modelling and experimental reporting, and compared measured results with model predictions." data-zh="开发高功率 LED 散热系统的参数化热模型，结合实验测量、风扇曲线数据和 MATLAB 分析，评估热阻与系统性能；同时协调小组进度，参与 CAD 建模、实验报告和实测结果与模型预测的对比。">
                             Developed a parametric thermal model for a high-power LED heat sink system, integrating experimental measurements, fan-curve data, and MATLAB analysis to evaluate thermal resistance and system performance. Coordinated group progress, contributed to CAD modelling and experimental reporting, and compared measured results with model predictions.
                         </p>
-                        <div class="p-tags mono">
-                            <span class="p-tag">MATLAB</span>
-                            <span class="p-tag">Thermal</span>
-                            <span class="p-tag">CAD</span>
+                        <div class="p-card-footer">
+                            <div class="p-tags mono">
+                                <span class="p-tag">MATLAB</span>
+                                <span class="p-tag">Thermal</span>
+                                <span class="p-tag">CAD</span>
+                            </div>
+                            <span class="p-link-cue" data-en="View details ->" data-zh="查看详情 ->">View details -></span>
                         </div>
                     </a>
                 </div>

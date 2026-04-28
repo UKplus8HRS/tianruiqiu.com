@@ -4,6 +4,7 @@
     --bg-surface: #10121a;
     --bg-card: #161925;
     --accent: #CCFF00;
+    --accent-contrast: #06070a;
     --text-main: #f1f5f9;
     --text-muted: #8b949e;
     --border: #272b3c;
@@ -23,6 +24,7 @@
     --bg-surface: #ffffff;
     --bg-card: #eef2e8;
     --accent: #8fb500;
+    --accent-contrast: #151922;
     --text-main: #151922;
     --text-muted: #5d6675;
     --border: #d5dcc9;
@@ -154,6 +156,10 @@ nav {
     transform: skewX(var(--skew-angle));
 }
 
+.nav-link {
+    color: var(--text-main);
+}
+
 .nav-link,
 .toggle-btn {
     display: inline-flex;
@@ -182,7 +188,7 @@ nav {
 
 .toggle-btn.active {
     background: var(--accent);
-    color: var(--bg-base);
+    color: var(--accent-contrast);
 }
 
 main {
@@ -395,7 +401,7 @@ section {
     justify-content: center;
     padding: 1rem 1.6rem;
     background: var(--accent);
-    color: var(--bg-base);
+    color: var(--accent-contrast);
     border: 1px solid var(--accent);
     clip-path: var(--clip-chamfer);
     font-family: var(--font-mono);

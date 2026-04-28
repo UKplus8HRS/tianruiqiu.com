@@ -1,5 +1,6 @@
 const validLangs = ['en', 'zh'];
 const validThemes = ['dark', 'light'];
+let currentLang = 'en';
 
 function getParam(name) {
     return new URLSearchParams(window.location.search).get(name);
@@ -23,6 +24,7 @@ function setTheme(theme) {
 }
 
 function setLang(lang) {
+    currentLang = lang;
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     localStorage.setItem('portfolio_lang', lang);
     updateUrlParam('lang', lang);
@@ -34,6 +36,84 @@ function setLang(lang) {
     });
     const title = document.body.getAttribute(`data-title-${lang}`);
     if (title) document.title = title;
+    updateStoryCaption();
+}
+
+function initReveal() {
+    const revealItems = document.querySelectorAll('[data-reveal]');
+    if (!revealItems.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
+    });
+
+    revealItems.forEach(item => observer.observe(item));
+}
+
+function updateStoryCaption() {
+    const activeStep = document.querySelector('.story-step.is-active') || document.querySelector('.story-step');
+    const caption = document.getElementById('storyCaption');
+    if (!activeStep || !caption) return;
+
+    const text = activeStep.getAttribute(`data-story-caption-${currentLang}`);
+    if (text) caption.textContent = text;
+}
+
+function activateStoryStep(step) {
+    const image = document.getElementById('storyImage');
+    if (!step || !image) return;
+
+    document.querySelectorAll('.story-step').forEach(item => {
+        item.classList.toggle('is-active', item === step);
+    });
+
+    const nextSrc = step.getAttribute('data-story-image');
+    if (nextSrc && !image.src.endsWith(nextSrc.replace('../', ''))) {
+        image.classList.add('is-swapping');
+        window.setTimeout(() => {
+            image.src = nextSrc;
+            image.onload = () => image.classList.remove('is-swapping');
+            window.setTimeout(() => image.classList.remove('is-swapping'), 420);
+        }, 120);
+    }
+
+    updateStoryCaption();
+}
+
+function initDrawingStory() {
+    const steps = Array.from(document.querySelectorAll('.story-step'));
+    if (!steps.length) return;
+
+    steps.forEach(step => {
+        step.addEventListener('click', () => activateStoryStep(step));
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) activateStoryStep(visible.target);
+    }, {
+        threshold: [0.35, 0.5, 0.7],
+        rootMargin: '-18% 0px -32% 0px'
+    });
+
+    steps.forEach(step => observer.observe(step));
+    activateStoryStep(document.querySelector('.story-step.is-active') || steps[0]);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTheme(initialTheme);
     setLang(initialLang);
+    initReveal();
+    initDrawingStory();
 
     document.querySelectorAll('[data-target-theme]').forEach(btn => {
         btn.addEventListener('click', () => setTheme(btn.getAttribute('data-target-theme')));

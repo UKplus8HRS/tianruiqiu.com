@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First-Year Design Portfolio // Tianrui Qiu</title>
-    <meta name="description" content="First-year design portfolio project by Tianrui Qiu, covering CAD modelling, mechanical drawing, and design communication.">
+    <meta name="description" content="First-year design portfolio project by Tianrui Qiu, covering CAD modelling, hand engineering drawing, software drawing, and design communication.">
     <script>
         (function () {
             const params = new URLSearchParams(window.location.search);
@@ -44,30 +44,132 @@
             </div>
         </div>
     </nav>
+
     <main>
-        <section>
-            <div class="container">
-                <div class="section-tag">Project 01</div>
-                <h1 class="hero-title" data-en="First-Year<br>Design Portfolio." data-zh="大一 Design<br>课程作品集。">First-Year<br>Design Portfolio.</h1>
-                <p class="hero-copy" data-en="A foundation project in engineering design communication, CAD modelling, and mechanical drawing." data-zh="一个围绕工程设计表达、CAD 建模和机械制图能力建立的基础项目。">A foundation project in engineering design communication, CAD modelling, and mechanical drawing.</p>
-                <div class="tags">
-                    <span class="tag">Fusion 360</span>
-                    <span class="tag">CAD</span>
-                    <span class="tag">Mechanical Drawing</span>
-                    <span class="tag">Design Portfolio</span>
+        <section class="portfolio-hero">
+            <div class="container portfolio-hero-grid">
+                <div class="portfolio-hero-copy" data-reveal>
+                    <div class="section-tag">Project 01</div>
+                    <h1 class="hero-title" data-en="Design Practice,<br>Engineered." data-zh="Design 课程，<br>工程化表达。">Design Practice,<br>Engineered.</h1>
+                    <p class="hero-copy" data-en="A first-year University of Bristol design portfolio showing the transition from hand-drawn engineering construction to CAD modelling and software-generated technical drawings." data-zh="这是我在布里斯托大学大一 Design 课程中完成的作品集，展示从手绘工程制图，到 CAD 建模，再到软件工程图输出的完整过程。">A first-year University of Bristol design portfolio showing the transition from hand-drawn engineering construction to CAD modelling and software-generated technical drawings.</p>
+                    <div class="tags">
+                        <span class="tag">Fusion 360</span>
+                        <span class="tag">CAD</span>
+                        <span class="tag">Mechanical Drawing</span>
+                        <span class="tag">Portfolio PDF</span>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn" href="#drawing-story" data-en="View Process" data-zh="查看过程">View Process</a>
+                        <a class="btn btn-secondary" href="../assets/design-portfolio/portfolio.pdf" download data-en="Download PDF" data-zh="下载 PDF">Download PDF</a>
+                    </div>
+                </div>
+                <div class="hero-product-card" data-reveal>
+                    <div class="product-screen">
+                        <img src="../assets/design-portfolio/software-full-robot.webp" alt="Software-generated full robot engineering drawing" loading="eager">
+                    </div>
+                    <div class="product-caption" data-en="Software drawing output: full robot assembly, parts list, dimensions, and orthographic/isometric views." data-zh="软件工程图输出：完整机器人装配、零件表、尺寸标注、正投影视图和轴测视图。">Software drawing output: full robot assembly, parts list, dimensions, and orthographic/isometric views.</div>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container">
-                <div class="panel">
-                    <p data-en="Through the first-year Design module at the University of Bristol, I built a structured portfolio that documents my process for understanding mechanical components, translating geometry into CAD models, and communicating engineering intent through drawings and design notes." data-zh="在布里斯托大学大一 Design 课程中，我完成了一个结构化作品集，记录了自己理解机械零件、把几何形体转化为 CAD 模型，并通过图纸和设计说明表达工程意图的过程。">Through the first-year Design module at the University of Bristol, I built a structured portfolio that documents my process for understanding mechanical components, translating geometry into CAD models, and communicating engineering intent through drawings and design notes.</p>
+
+        <section class="portfolio-overview">
+            <div class="container overview-grid">
+                <article class="overview-stat" data-reveal>
+                    <strong>04</strong>
+                    <span data-en="selected drawing sheets" data-zh="精选图纸页面">selected drawing sheets</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong data-en="HAND" data-zh="手绘">HAND</strong>
+                    <span data-en="orthographic and isometric construction" data-zh="正投影与轴测构造">orthographic and isometric construction</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong data-en="CAD" data-zh="CAD">CAD</strong>
+                    <span data-en="Fusion 360 source model included" data-zh="包含 Fusion 360 源模型">Fusion 360 source model included</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="drawing-story" class="drawing-story">
+            <div class="container story-layout">
+                <div class="story-stage" data-reveal>
+                    <div class="stage-shell">
+                        <img id="storyImage" src="../assets/design-portfolio/hand-orthographic.webp" alt="Selected design portfolio drawing sheet">
+                    </div>
+                    <p id="storyCaption" data-en="Hand construction drawing: orthographic views, dimensions, tolerances, section view, and drawing border." data-zh="手绘构造图：正投影视图、尺寸、公差、剖视图和图框。">Hand construction drawing: orthographic views, dimensions, tolerances, section view, and drawing border.</p>
+                </div>
+
+                <div class="story-steps">
+                    <article class="story-step is-active" data-story-image="../assets/design-portfolio/hand-orthographic.webp" data-story-caption-en="Hand construction drawing: orthographic views, dimensions, tolerances, section view, and drawing border." data-story-caption-zh="手绘构造图：正投影视图、尺寸、公差、剖视图和图框。" data-reveal>
+                        <span>01</span>
+                        <h2 data-en="Hand-built orthographic logic." data-zh="手绘建立正投影逻辑。">Hand-built orthographic logic.</h2>
+                        <p data-en="Page 4 records the manual engineering drawing stage: center lines, hidden details, section view A-A, dimensioning, tolerances, and a complete drawing border." data-zh="第 4 页记录手绘工程制图阶段：中心线、隐藏线、A-A 剖视图、尺寸标注、公差和完整图框。">Page 4 records the manual engineering drawing stage: center lines, hidden details, section view A-A, dimensioning, tolerances, and a complete drawing border.</p>
+                    </article>
+                    <article class="story-step" data-story-image="../assets/design-portfolio/hand-isometric.webp" data-story-caption-en="Hand isometric drawing: translating the same component into spatial form before CAD modelling." data-story-caption-zh="手绘轴测图：在 CAD 建模前，把同一零件转换为空间形体。" data-reveal>
+                        <span>02</span>
+                        <h2 data-en="From views to volume." data-zh="从视图到立体。">From views to volume.</h2>
+                        <p data-en="Page 5 converts the part into an isometric representation, helping connect 2D projection rules with the physical 3D object." data-zh="第 5 页把零件转化为轴测表达，帮助把二维投影规则和真实三维物体联系起来。">Page 5 converts the part into an isometric representation, helping connect 2D projection rules with the physical 3D object.</p>
+                    </article>
+                    <article class="story-step" data-story-image="../assets/design-portfolio/software-wheel-hub.webp" data-story-caption-en="Software drawing: wheel hub technical reference, detail views, section view, and tight tolerances." data-story-caption-zh="软件图纸：轮毂技术图，包含局部视图、剖视图和高精度公差。" data-reveal>
+                        <span>03</span>
+                        <h2 data-en="CAD geometry becomes documentation." data-zh="CAD 几何变成工程文档。">CAD geometry becomes documentation.</h2>
+                        <p data-en="Page 7 shows a software-generated wheel hub drawing with front, bottom, section, and detail views, moving from sketch practice to controlled CAD output." data-zh="第 7 页展示软件生成的轮毂工程图，包含前视图、底视图、剖视图和局部细节，从手绘练习推进到可控的 CAD 输出。">Page 7 shows a software-generated wheel hub drawing with front, bottom, section, and detail views, moving from sketch practice to controlled CAD output.</p>
+                    </article>
+                    <article class="story-step" data-story-image="../assets/design-portfolio/software-full-robot.webp" data-story-caption-en="Full robot drawing: assembly, dimensions, part callouts, and bill of materials." data-story-caption-zh="完整机器人图纸：装配、尺寸、编号标注和物料清单。" data-reveal>
+                        <span>04</span>
+                        <h2 data-en="System-level assembly communication." data-zh="系统级装配表达。">System-level assembly communication.</h2>
+                        <p data-en="Page 8 presents the full robot drawing with front, right, top, and isometric views plus a parts list, showing how CAD output supports assembly communication." data-zh="第 8 页展示完整机器人图纸，包含前视图、右视图、俯视图、轴测图和零件表，体现 CAD 输出如何支持装配沟通。">Page 8 presents the full robot drawing with front, right, top, and isometric views plus a parts list, showing how CAD output supports assembly communication.</p>
+                    </article>
                 </div>
             </div>
         </section>
+
+        <section class="sheet-gallery">
+            <div class="container">
+                <div class="section-tag" data-en="Selected sheets" data-zh="精选图纸">Selected sheets</div>
+                <div class="gallery-grid">
+                    <figure class="sheet-card wide" data-reveal>
+                        <img src="../assets/design-portfolio/hand-orthographic.webp" alt="Hand-drawn orthographic engineering drawing sheet" loading="lazy">
+                        <figcaption data-en="Page 4 - hand-drawn orthographic and section drawing." data-zh="第 4 页 - 手绘正投影与剖视工程图。">Page 4 - hand-drawn orthographic and section drawing.</figcaption>
+                    </figure>
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/design-portfolio/hand-isometric.webp" alt="Hand-drawn isometric engineering drawing sheet" loading="lazy">
+                        <figcaption data-en="Page 5 - hand-drawn isometric construction." data-zh="第 5 页 - 手绘轴测构造图。">Page 5 - hand-drawn isometric construction.</figcaption>
+                    </figure>
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/design-portfolio/software-wheel-hub.webp" alt="Software-generated wheel hub engineering drawing" loading="lazy">
+                        <figcaption data-en="Page 7 - software-generated wheel hub technical drawing." data-zh="第 7 页 - 软件生成的轮毂技术图。">Page 7 - software-generated wheel hub technical drawing.</figcaption>
+                    </figure>
+                    <figure class="sheet-card wide" data-reveal>
+                        <img src="../assets/design-portfolio/software-full-robot.webp" alt="Software-generated full robot assembly engineering drawing" loading="lazy">
+                        <figcaption data-en="Page 8 - full robot assembly drawing and parts list." data-zh="第 8 页 - 完整机器人装配图和零件表。">Page 8 - full robot assembly drawing and parts list.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="source-section">
+            <div class="container source-grid">
+                <div class="panel source-copy" data-reveal>
+                    <p data-en="The Fusion 360 project file is included as a downloadable source package. A browser cannot directly render .f3z as an interactive model; exporting the design from Fusion as .glb, .obj, or .stl would make a web-based 3D viewer technically feasible." data-zh="这里提供 Fusion 360 项目源文件下载。浏览器不能直接把 .f3z 渲染成可交互 3D 模型；如果之后从 Fusion 导出 .glb、.obj 或 .stl，就可以实现网页 3D 预览。">The Fusion 360 project file is included as a downloadable source package. A browser cannot directly render .f3z as an interactive model; exporting the design from Fusion as .glb, .obj, or .stl would make a web-based 3D viewer technically feasible.</p>
+                    <div class="cta-row">
+                        <a class="btn" href="../assets/design-portfolio/2773678_robot.f3z" download data-en="Download Fusion Source" data-zh="下载 Fusion 源文件">Download Fusion Source</a>
+                        <a class="btn btn-secondary" href="../assets/design-portfolio/portfolio.pdf" download data-en="Download Full PDF" data-zh="下载完整 PDF">Download Full PDF</a>
+                    </div>
+                </div>
+                <div class="model-card" data-reveal>
+                    <div class="model-lines" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <strong data-en="Fusion 360 Package" data-zh="Fusion 360 工程包">Fusion 360 Package</strong>
+                    <p>2773678_robot.f3z</p>
+                    <small data-en="Ready for Fusion 360 import / export." data-zh="可用于 Fusion 360 导入 / 导出。">Ready for Fusion 360 import / export.</small>
+                </div>
+            </div>
+        </section>
+
         <section>
             <div class="container detail-grid">
-                <article class="detail-card">
+                <article class="detail-card" data-reveal>
                     <h2 data-en="What I Practised" data-zh="练习内容">What I Practised</h2>
                     <ul>
                         <li data-en="Mechanical drawing conventions and dimensioning." data-zh="机械制图规范与尺寸标注。">Mechanical drawing conventions and dimensioning.</li>
@@ -75,13 +177,13 @@
                         <li data-en="Design documentation and portfolio presentation." data-zh="设计文档整理与作品集表达。">Design documentation and portfolio presentation.</li>
                     </ul>
                 </article>
-                <article class="detail-card">
+                <article class="detail-card" data-reveal>
                     <h2 data-en="My Contribution" data-zh="我的贡献">My Contribution</h2>
-                    <p data-en="I created CAD models, prepared drawing outputs, and organised the portfolio narrative so the design process could be reviewed clearly." data-zh="我完成 CAD 模型、图纸输出和作品集叙事整理，让设计过程能够被清晰审阅。">I created CAD models, prepared drawing outputs, and organised the portfolio narrative so the design process could be reviewed clearly.</p>
+                    <p data-en="I created CAD models, prepared drawing outputs, selected portfolio pages, and organised the narrative so the design process could be reviewed clearly." data-zh="我完成 CAD 模型、工程图输出、作品集页面筛选和叙事整理，让设计过程能够被清晰审阅。">I created CAD models, prepared drawing outputs, selected portfolio pages, and organised the narrative so the design process could be reviewed clearly.</p>
                 </article>
-                <article class="detail-card">
-                    <h2 data-en="Next Assets" data-zh="后续素材">Next Assets</h2>
-                    <p data-en="This page can later include drawing sheets, CAD screenshots, model renders, and selected pages from the design portfolio." data-zh="后面可以加入机械图纸、CAD 截图、模型渲染图，以及作品集中的精选页面。">This page can later include drawing sheets, CAD screenshots, model renders, and selected pages from the design portfolio.</p>
+                <article class="detail-card" data-reveal>
+                    <h2 data-en="Next Step" data-zh="下一步">Next Step</h2>
+                    <p data-en="If I export the robot as GLB/STL later, this page can be upgraded with a real interactive 3D model viewer." data-zh="如果之后把机器人模型导出为 GLB/STL，这个页面可以升级成真正可交互的 3D 模型展示。">If I export the robot as GLB/STL later, this page can be upgraded with a real interactive 3D model viewer.</p>
                 </article>
             </div>
             <div class="container cta-row">

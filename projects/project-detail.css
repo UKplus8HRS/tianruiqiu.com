@@ -135,7 +135,8 @@ nav {
     object-fit: contain;
 }
 
-.logo-box .logo-img-dark {
+:root:not([data-theme="light"]) .logo-img-dark,
+:root[data-theme="light"] .logo-img-light {
     display: block;
 }
 

@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="project-detail.css">
 </head>
 <body data-title-en="First-Year Design Portfolio // Tianrui Qiu" data-title-zh="大一 Design 课程作品集 // 邱天瑞">
@@ -147,22 +148,36 @@
             </div>
         </section>
 
-        <section class="source-section">
+        <section id="source-section" class="source-section">
             <div class="container source-grid">
                 <div class="panel source-copy" data-reveal>
-                    <p data-en="The Fusion 360 project file is included as a downloadable source package. A browser cannot directly render .f3z as an interactive model; exporting the design from Fusion as .glb, .obj, or .stl would make a web-based 3D viewer technically feasible." data-zh="这里提供 Fusion 360 项目源文件下载。浏览器不能直接把 .f3z 渲染成可交互 3D 模型；如果之后从 Fusion 导出 .glb、.obj 或 .stl，就可以实现网页 3D 预览。">The Fusion 360 project file is included as a downloadable source package. A browser cannot directly render .f3z as an interactive model; exporting the design from Fusion as .glb, .obj, or .stl would make a web-based 3D viewer technically feasible.</p>
+                    <p data-en="The Fusion 360 project file is still included as a downloadable source package. I also converted the exported OBJ + MTL assembly into a web-ready GLB, so the robot can be inspected directly in the browser." data-zh="这里仍然提供 Fusion 360 项目源文件下载。同时，我把导出的 OBJ + MTL 装配模型转换成网页可用的 GLB，因此可以直接在浏览器里查看机器人模型。">The Fusion 360 project file is still included as a downloadable source package. I also converted the exported OBJ + MTL assembly into a web-ready GLB, so the robot can be inspected directly in the browser.</p>
                     <div class="cta-row">
                         <a class="btn" href="../assets/design-portfolio/2773678_robot.f3z" download data-en="Download Fusion Source" data-zh="下载 Fusion 源文件">Download Fusion Source</a>
                         <a class="btn btn-secondary" href="../assets/design-portfolio/portfolio.pdf" download data-en="Download Full PDF" data-zh="下载完整 PDF">Download Full PDF</a>
                     </div>
                 </div>
                 <div class="model-card" data-reveal>
-                    <div class="model-lines" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span>
+                    <model-viewer
+                        src="../assets/design-portfolio/full-robot-assembly.glb"
+                        poster="../assets/design-portfolio/software-full-robot.webp"
+                        alt="Interactive 3D model of the full robot assembly"
+                        camera-controls
+                        auto-rotate
+                        rotation-per-second="18deg"
+                        shadow-intensity="0.8"
+                        exposure="0.9"
+                        camera-orbit="-35deg 68deg auto"
+                        field-of-view="32deg"
+                        interaction-prompt="auto"
+                        reveal="auto"
+                        loading="eager">
+                    </model-viewer>
+                    <div class="model-meta">
+                        <strong data-en="Interactive 3D Model" data-zh="可交互 3D 模型">Interactive 3D Model</strong>
+                        <p data-en="Converted from OBJ + MTL to web-ready GLB for browser viewing." data-zh="由 OBJ + MTL 转换为网页可用的 GLB，用于浏览器预览。">Converted from OBJ + MTL to web-ready GLB for browser viewing.</p>
+                        <small data-en="Drag to rotate. Scroll or pinch to zoom." data-zh="拖动旋转，滚轮或双指缩放。">Drag to rotate. Scroll or pinch to zoom.</small>
                     </div>
-                    <strong data-en="Fusion 360 Package" data-zh="Fusion 360 工程包">Fusion 360 Package</strong>
-                    <p>2773678_robot.f3z</p>
-                    <small data-en="Ready for Fusion 360 import / export." data-zh="可用于 Fusion 360 导入 / 导出。">Ready for Fusion 360 import / export.</small>
                 </div>
             </div>
         </section>
@@ -183,7 +198,7 @@
                 </article>
                 <article class="detail-card" data-reveal>
                     <h2 data-en="Next Step" data-zh="下一步">Next Step</h2>
-                    <p data-en="If I export the robot as GLB/STL later, this page can be upgraded with a real interactive 3D model viewer." data-zh="如果之后把机器人模型导出为 GLB/STL，这个页面可以升级成真正可交互的 3D 模型展示。">If I export the robot as GLB/STL later, this page can be upgraded with a real interactive 3D model viewer.</p>
+                    <p data-en="The next upgrade can add exploded-view annotations, part callouts, or a guided camera path through the assembly." data-zh="下一步可以加入爆炸视图标注、零件说明，或者围绕装配体的引导式镜头路径。">The next upgrade can add exploded-view annotations, part callouts, or a guided camera path through the assembly.</p>
                 </article>
             </div>
             <div class="container cta-row">

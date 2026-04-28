@@ -634,8 +634,8 @@ section {
 .model-card {
     position: relative;
     overflow: hidden;
-    min-height: 320px;
-    padding: 2rem;
+    min-height: 420px;
+    padding: 1rem;
     background:
         radial-gradient(circle at 20% 20%, rgba(204, 255, 0, 0.16), transparent 35%),
         var(--bg-surface);
@@ -643,9 +643,25 @@ section {
     clip-path: var(--clip-chamfer);
 }
 
-.model-card strong {
-    position: relative;
-    z-index: 1;
+.model-card model-viewer {
+    display: block;
+    width: 100%;
+    height: 330px;
+    background:
+        radial-gradient(circle at 50% 54%, rgba(204, 255, 0, 0.16), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 38%),
+        var(--bg-base);
+    border: 1px solid var(--border);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    --poster-color: var(--bg-base);
+    touch-action: pan-y;
+}
+
+.model-meta {
+    padding: 1rem 0.5rem 0.25rem;
+}
+
+.model-meta strong {
     display: block;
     color: var(--accent);
     font-family: var(--font-mono);
@@ -654,20 +670,15 @@ section {
     text-transform: uppercase;
 }
 
-.model-card p {
-    position: relative;
-    z-index: 1;
-    margin: 1rem 0 0.4rem;
+.model-meta p {
+    margin: 0.7rem 0 0.35rem;
     color: var(--text-main);
     font-family: var(--font-mono);
-    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-size: 0.94rem;
     font-weight: 800;
-    word-break: break-word;
 }
 
-.model-card small {
-    position: relative;
-    z-index: 1;
+.model-meta small {
     color: var(--text-muted);
     font-family: var(--font-mono);
 }

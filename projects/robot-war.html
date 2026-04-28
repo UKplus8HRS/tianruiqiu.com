@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot War Society Project // Tianrui Qiu</title>
-    <meta name="description" content="Robot War society project by Tianrui Qiu, covering model development, 3D printing, fabrication, and robot assembly.">
+    <meta name="description" content="Robot War society project by Tianrui Qiu, covering flipper robot modelling, 3D printing, assembly, testing, and competition learning.">
     <script>
         (function () {
             const params = new URLSearchParams(window.location.search);
@@ -17,7 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="project-detail.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="project-detail.css?v=20260428-robot-war">
 </head>
 <body data-title-en="Robot War Society Project // Tianrui Qiu" data-title-zh="Robot War 机器人社团项目 // 邱天瑞">
     <div class="bg-grid"></div>
@@ -44,44 +45,167 @@
             </div>
         </div>
     </nav>
+
     <main>
-        <section>
-            <div class="container">
-                <div class="section-tag">Project 02</div>
-                <h1 class="hero-title" data-en="Robot War<br>Build." data-zh="Robot War<br>机器人制造。">Robot War<br>Build.</h1>
-                <p class="hero-copy" data-en="A robotics society project focused on turning CAD concepts into fabricated, assembled robot hardware." data-zh="一个机器人社团项目，重点是把 CAD 概念转化为可制造、可组装的机器人硬件。">A robotics society project focused on turning CAD concepts into fabricated, assembled robot hardware.</p>
-                <div class="tags">
-                    <span class="tag">Robotics</span>
-                    <span class="tag">3D Printing</span>
-                    <span class="tag">Fabrication</span>
-                    <span class="tag">Assembly</span>
+        <section class="portfolio-hero robot-war-hero">
+            <div class="container portfolio-hero-grid">
+                <div class="portfolio-hero-copy" data-reveal>
+                    <div class="section-tag">Project 02</div>
+                    <h1 class="hero-title" data-en="Flipper Robot,<br>Built to Fight." data-zh="翻板机器人，<br>为比赛而造。">Flipper Robot,<br>Built to Fight.</h1>
+                    <p class="hero-copy" data-en="A University of Bristol BEEES Robot Wars project where I worked on model development, 3D-printed structure, physical assembly, and competition preparation for a compact flipper robot." data-zh="这是我参与的布里斯托大学 BEEES Robot Wars 项目。我负责并参与翻板机器人的模型开发、3D 打印结构、实体装配和赛前准备。">A University of Bristol BEEES Robot Wars project where I worked on model development, 3D-printed structure, physical assembly, and competition preparation for a compact flipper robot.</p>
+                    <div class="tags">
+                        <span class="tag">Robot Combat</span>
+                        <span class="tag">CAD</span>
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Assembly</span>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn" href="#robot-model" data-en="View 3D Model" data-zh="查看 3D 模型">View 3D Model</a>
+                        <a class="btn btn-secondary" href="#learning" data-en="What I Learned" data-zh="项目收获">What I Learned</a>
+                    </div>
+                </div>
+                <div class="hero-product-card robot-photo-hero" data-reveal>
+                    <div class="product-screen robot-photo-screen">
+                        <img src="../assets/robot-war/flipper-overview-en.webp" alt="Annotated photo of the flipper robot" loading="eager">
+                    </div>
+                    <div class="product-caption" data-en="Final flipper robot: 3D-printed shell, exposed wiring, receiver antenna, battery/ESC packaging, drive motor, and front flipper weapon." data-zh="最终翻板机器人：3D 打印外壳、走线、接收天线、电池与电调布置、驱动电机和前部翻板武器。">Final flipper robot: 3D-printed shell, exposed wiring, receiver antenna, battery/ESC packaging, drive motor, and front flipper weapon.</div>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container">
-                <div class="panel">
-                    <p data-en="In the University of Bristol robotics society Robot War project, I worked on model development and mechanical design, then supported the manufacturing path through 3D printing, fabrication, and assembly. The project helped me connect design decisions with real physical constraints such as fit, strength, manufacturability, and iteration speed." data-zh="在布里斯托大学机器人社团 Robot War 项目中，我参与模型开发与机械设计，并支持后续 3D 打印、制造和组装。这个项目让我把设计决策和真实物理约束联系起来，例如装配配合、强度、可制造性和迭代速度。">In the University of Bristol robotics society Robot War project, I worked on model development and mechanical design, then supported the manufacturing path through 3D printing, fabrication, and assembly. The project helped me connect design decisions with real physical constraints such as fit, strength, manufacturability, and iteration speed.</p>
+
+        <section class="portfolio-overview">
+            <div class="container overview-grid">
+                <article class="overview-stat" data-reveal>
+                    <strong>BEEES</strong>
+                    <span data-en="Bristol Electrical & Electronic Engineering Society Robot Wars context" data-zh="布里斯托大学电子电气工程社团 Robot Wars 项目背景">Bristol Electrical & Electronic Engineering Society Robot Wars context</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>150G</strong>
+                    <span data-en="compact robot packaging and weight-aware design thinking" data-zh="小体量机器人装配与重量约束下的设计思维">compact robot packaging and weight-aware design thinking</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>GLB</strong>
+                    <span data-en="OBJ + MTL converted into a browser-ready interactive model" data-zh="OBJ + MTL 转换为网页可交互模型">OBJ + MTL converted into a browser-ready interactive model</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="robot-model" class="source-section robot-model-section">
+            <div class="container model-showcase-wrap">
+                <div class="section-tag" data-en="Interactive model" data-zh="可交互模型">Interactive model</div>
+                <div class="model-showcase robot-model-showcase" data-reveal>
+                    <model-viewer
+                        class="robot-model-viewer"
+                        src="../assets/robot-war/flipper-robot.glb"
+                        alt="Interactive 3D model of Tianrui Qiu's flipper robot"
+                        camera-controls
+                        disable-pan
+                        shadow-intensity="0.85"
+                        exposure="0.95"
+                        camera-orbit="-36deg 62deg auto"
+                        field-of-view="28deg"
+                        interaction-prompt="auto"
+                        reveal="auto"
+                        loading="eager">
+                    </model-viewer>
+                    <div class="model-showcase-copy">
+                        <strong data-en="150g Flipper Assembly" data-zh="150g 翻板机器人装配体">150g Flipper Assembly</strong>
+                        <p data-en="The exported OBJ/MTL assembly was converted to a web-ready GLB so the compact flipper mechanism and packaging layout can be inspected directly." data-zh="我把导出的 OBJ/MTL 装配模型转换为网页可用的 GLB，方便直接查看翻板结构和小体积内部布置。">The exported OBJ/MTL assembly was converted to a web-ready GLB so the compact flipper mechanism and packaging layout can be inspected directly.</p>
+                        <small data-en="Drag to rotate. Scroll or pinch to zoom." data-zh="拖动旋转，滚轮或双指缩放。">Drag to rotate. Scroll or pinch to zoom.</small>
+                        <button class="model-reset-btn" type="button" data-model-reset data-en="Reset View" data-zh="重置视角">Reset View</button>
+                    </div>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container detail-grid">
-                <article class="detail-card">
-                    <h2 data-en="Engineering Focus" data-zh="工程重点">Engineering Focus</h2>
+
+        <section class="robot-story-section">
+            <div class="container project-insight-intro">
+                <div class="section-tag" data-en="Build story" data-zh="项目过程">Build story</div>
+                <h2 data-en="From CAD model to fight-ready robot" data-zh="从 CAD 模型到可参赛机器人">From CAD model to fight-ready robot</h2>
+            </div>
+            <div class="container robot-story-grid">
+                <article class="robot-story-card" data-reveal>
+                    <span>01</span>
+                    <h2 data-en="Define the fighting concept." data-zh="确定翻板机器人方案。">Define the fighting concept.</h2>
+                    <p data-en="The robot uses a front flipper as the active weapon. The core design problem was packaging drive, battery, ESC, receiver, wiring, and the flipper structure inside a very compact body." data-zh="机器人采用前部翻板作为主动武器。核心问题是在很小的机身中布置驱动、电池、电调、接收机、走线和翻板结构。">The robot uses a front flipper as the active weapon. The core design problem was packaging drive, battery, ESC, receiver, wiring, and the flipper structure inside a very compact body.</p>
+                </article>
+                <article class="robot-story-card" data-reveal>
+                    <span>02</span>
+                    <h2 data-en="Model, print, and adjust." data-zh="建模、打印与调整。">Model, print, and adjust.</h2>
+                    <p data-en="I worked on model development and 3D-printable structure, then used physical assembly feedback to understand clearances, screw access, wall thickness, stiffness, and part fit." data-zh="我参与模型开发和适合 3D 打印的结构设计，并通过实体装配反馈理解间隙、螺丝装配空间、壁厚、刚度和零件配合。">I worked on model development and 3D-printable structure, then used physical assembly feedback to understand clearances, screw access, wall thickness, stiffness, and part fit.</p>
+                </article>
+                <article class="robot-story-card" data-reveal>
+                    <span>03</span>
+                    <h2 data-en="Assemble under real constraints." data-zh="在真实约束下装配。">Assemble under real constraints.</h2>
+                    <p data-en="The final build made the tradeoffs visible: the robot needed to stay small, keep enough structural strength, protect electronics, and still leave serviceable access for wiring and maintenance." data-zh="最终装配让我直观看到工程取舍：机器人要足够小、结构要够强、电子元件要被保护，同时还要保留走线和维护空间。">The final build made the tradeoffs visible: the robot needed to stay small, keep enough structural strength, protect electronics, and still leave serviceable access for wiring and maintenance.</p>
+                </article>
+                <article class="robot-story-card" data-reveal>
+                    <span>04</span>
+                    <h2 data-en="Test it in competition." data-zh="在比赛中验证。">Test it in competition.</h2>
+                    <p data-en="The BEEES Robot Wars arena turned the build into a real test: impact, reliability, weapon timing, driving control, and quick diagnosis mattered more than a clean CAD model alone." data-zh="BEEES Robot Wars 的比赛场景把设计变成了真实测试：碰撞、可靠性、翻板时机、操控和快速排查问题，比单纯好看的 CAD 模型更重要。">The BEEES Robot Wars arena turned the build into a real test: impact, reliability, weapon timing, driving control, and quick diagnosis mattered more than a clean CAD model alone.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="sheet-gallery robot-photo-gallery">
+            <div class="container">
+                <div class="section-tag" data-en="Photo evidence" data-zh="实拍素材">Photo evidence</div>
+                <div class="gallery-grid robot-gallery-grid">
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/robot-war/flipper-overview-en.webp" alt="English annotated photo of the flipper robot" loading="lazy">
+                        <figcaption data-en="Robot overview - English annotated version showing antenna, motor, battery/ESC, printed shell, and flipper." data-zh="机器人总览 - 英文标注版本，展示天线、电机、电池/电调、3D 打印外壳和翻板。">Robot overview - English annotated version showing antenna, motor, battery/ESC, printed shell, and flipper.</figcaption>
+                    </figure>
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/robot-war/flipper-overview-cn.webp" alt="Chinese annotated photo of the flipper robot" loading="lazy">
+                        <figcaption data-en="Robot overview - Chinese annotated version for bilingual portfolio presentation." data-zh="机器人总览 - 中文标注版本，用于中英文作品集展示。">Robot overview - Chinese annotated version for bilingual portfolio presentation.</figcaption>
+                    </figure>
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/robot-war/arena-en.webp" alt="English annotated BEEES Robot Wars arena photo" loading="lazy">
+                        <figcaption data-en="Competition arena - English annotated version showing the flipper robot ready to fight." data-zh="比赛现场 - 英文标注版本，展示翻板机器人准备参赛。">Competition arena - English annotated version showing the flipper robot ready to fight.</figcaption>
+                    </figure>
+                    <figure class="sheet-card" data-reveal>
+                        <img src="../assets/robot-war/arena-cn.webp" alt="Chinese annotated BEEES Robot Wars arena photo" loading="lazy">
+                        <figcaption data-en="Competition arena - Chinese annotated version showing audience, opponent, and battle setup." data-zh="比赛现场 - 中文标注版本，展示观众、对手和对战布置。">Competition arena - Chinese annotated version showing audience, opponent, and battle setup.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning">
+            <div class="container project-insight-intro">
+                <div class="section-tag" data-en="Learning outcomes" data-zh="项目收获">Learning outcomes</div>
+                <h2 data-en="What this project demonstrates" data-zh="这个项目体现了什么">What this project demonstrates</h2>
+            </div>
+            <div class="container detail-grid project-insight-grid">
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">01</span>
+                    <h2 data-en="Mechanical packaging under constraints" data-zh="约束下的机械布置能力">Mechanical packaging under constraints</h2>
+                    <p data-en="The project trained me to think beyond the outer shape: every screw, wire, receiver, battery, motor, and printed wall had to fit inside a small combat robot." data-zh="这个项目让我不只关注外形，而是开始从系统布置角度思考：螺丝、走线、接收机、电池、电机和打印壁厚都必须塞进一个小型格斗机器人中。">The project trained me to think beyond the outer shape: every screw, wire, receiver, battery, motor, and printed wall had to fit inside a small combat robot.</p>
                     <ul>
-                        <li data-en="Model development for robot structure." data-zh="机器人结构的模型开发。">Model development for robot structure.</li>
-                        <li data-en="CAD decisions guided by fabrication constraints." data-zh="根据制造约束进行 CAD 设计决策。">CAD decisions guided by fabrication constraints.</li>
-                        <li data-en="3D printing, manufacturing, and assembly workflow." data-zh="3D 打印、制造与组装流程。">3D printing, manufacturing, and assembly workflow.</li>
+                        <li data-en="Clearance and access for assembly, wiring, and maintenance." data-zh="考虑装配、走线和维护所需的间隙与操作空间。">Clearance and access for assembly, wiring, and maintenance.</li>
+                        <li data-en="Balancing compactness, structural strength, and component protection." data-zh="在小体积、结构强度和电子元件保护之间做取舍。">Balancing compactness, structural strength, and component protection.</li>
+                        <li data-en="Understanding how CAD assumptions change after physical assembly." data-zh="理解 CAD 假设在实体装配后会如何被修正。">Understanding how CAD assumptions change after physical assembly.</li>
                     </ul>
                 </article>
-                <article class="detail-card">
-                    <h2 data-en="My Contribution" data-zh="我的贡献">My Contribution</h2>
-                    <p data-en="I contributed to model design, prepared parts for 3D printing, and supported physical assembly so the design could move from screen to working hardware." data-zh="我参与模型设计、准备 3D 打印零件，并支持实体组装，让设计从屏幕上的模型进入真实硬件。">I contributed to model design, prepared parts for 3D printing, and supported physical assembly so the design could move from screen to working hardware.</p>
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">02</span>
+                    <h2 data-en="Rapid prototyping and fabrication thinking" data-zh="快速原型与制造思维">Rapid prototyping and fabrication thinking</h2>
+                    <p data-en="3D printing made design decisions immediately testable. I learned to treat modelling, fabrication, and assembly as one loop instead of separate tasks." data-zh="3D 打印让设计决策可以被快速验证。我学到应该把建模、制造和装配看成一个循环，而不是彼此分离的步骤。">3D printing made design decisions immediately testable. I learned to treat modelling, fabrication, and assembly as one loop instead of separate tasks.</p>
+                    <ul>
+                        <li data-en="Designing parts with printability and material behaviour in mind." data-zh="设计零件时考虑可打印性和材料表现。">Designing parts with printability and material behaviour in mind.</li>
+                        <li data-en="Using assembled hardware to reveal problems that CAD cannot show clearly." data-zh="通过实体装配发现 CAD 中不容易暴露的问题。">Using assembled hardware to reveal problems that CAD cannot show clearly.</li>
+                        <li data-en="Building confidence in moving from digital model to working object." data-zh="增强从数字模型推进到真实可用物体的能力。">Building confidence in moving from digital model to working object.</li>
+                    </ul>
                 </article>
-                <article class="detail-card">
-                    <h2 data-en="Next Assets" data-zh="后续素材">Next Assets</h2>
-                    <p data-en="This page can later show CAD views, print photos, assembly process images, and short clips of robot testing." data-zh="后面可以展示 CAD 视图、打印照片、组装过程图，以及机器人测试短视频。">This page can later show CAD views, print photos, assembly process images, and short clips of robot testing.</p>
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">03</span>
+                    <h2 data-en="Competition feedback and engineering judgement" data-zh="比赛反馈与工程判断">Competition feedback and engineering judgement</h2>
+                    <p data-en="The competition environment turned the robot into a live engineering test, where reliability, control, repairability, and iteration speed became part of the design evaluation." data-zh="比赛环境把机器人变成了实时工程测试：可靠性、操控、可维修性和迭代速度都会成为设计评价的一部分。">The competition environment turned the robot into a live engineering test, where reliability, control, repairability, and iteration speed became part of the design evaluation.</p>
+                    <ul>
+                        <li data-en="Seeing how design choices behave under impact and pressure." data-zh="观察设计选择在碰撞和压力下的真实表现。">Seeing how design choices behave under impact and pressure.</li>
+                        <li data-en="Learning to diagnose problems quickly with limited time." data-zh="学习在有限时间内快速判断和排查问题。">Learning to diagnose problems quickly with limited time.</li>
+                        <li data-en="Connecting mechanical design with electronics, control, and teamwork." data-zh="把机械设计与电子、控制和团队协作联系起来。">Connecting mechanical design with electronics, control, and teamwork.</li>
+                    </ul>
                 </article>
             </div>
             <div class="container cta-row">
@@ -90,6 +214,6 @@
             </div>
         </section>
     </main>
-    <script src="project-page.js"></script>
+    <script src="project-page.js?v=20260428-robot-war"></script>
 </body>
 </html>

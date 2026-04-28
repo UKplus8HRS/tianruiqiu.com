@@ -568,6 +568,40 @@
             color: var(--text-main);
         }
 
+        .focus-content {
+            min-height: 360px;
+            overflow: hidden;
+            padding-right: clamp(3rem, 34vw, 28rem);
+            isolation: isolate;
+        }
+
+        .focus-content .about-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .focus-art {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: 0;
+            width: min(43%, 540px);
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: translateY(-50%);
+            opacity: 0.88;
+            pointer-events: none;
+            filter: saturate(0.95) contrast(1.04);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 24%, #000 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 24%, #000 100%);
+        }
+
+        [data-theme="light"] .focus-art {
+            opacity: 0.72;
+            filter: saturate(0.82) contrast(0.95);
+        }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -878,6 +912,25 @@
                 padding: 3rem 2rem;
             }
 
+            .focus-content {
+                min-height: auto;
+                padding-right: 2rem;
+                padding-bottom: 0;
+            }
+
+            .focus-art {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: block;
+                width: calc(100% + 4rem);
+                height: 190px;
+                margin: 2rem -2rem -3rem;
+                transform: none;
+                -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 100%);
+                mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 100%);
+            }
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
@@ -1128,10 +1181,11 @@
         <section id="target">
             <div class="container reveal">
                 <div class="section-tag mono">03 // <span data-en="Current Focus" data-zh="当前关注">Current Focus</span></div>
-                <div class="about-content">
+                <div class="about-content focus-content">
                     <p class="about-text" data-en="I am currently building a foundation in <span>mechanical and electrical engineering</span> while exploring how <span>AI</span> can support engineering design, prototyping, and automation. My focus is on <span>CAD modelling, mechanical drawing, robotics, Python, MATLAB</span>, and practical AI tools that can improve engineering workflows." data-zh="我目前正在打牢<span>机械与电气工程</span>基础，同时探索 <span>AI</span> 如何辅助工程设计、原型制造和自动化流程。现阶段重点关注 <span>CAD 建模、机械制图、机器人、Python、MATLAB</span>，以及能够提升工程效率的实用 AI 工具。">
                         I am currently building a foundation in <span>mechanical and electrical engineering</span> while exploring how <span>AI</span> can support engineering design, prototyping, and automation. My focus is on <span>CAD modelling, mechanical drawing, robotics, Python, MATLAB</span>, and practical AI tools that can improve engineering workflows.
                     </p>
+                    <img class="focus-art" src="assets/illustrations/current-focus-atmosphere.png" alt="" aria-hidden="true" loading="lazy">
                 </div>
             </div>
         </section>

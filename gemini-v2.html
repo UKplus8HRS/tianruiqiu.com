@@ -41,6 +41,8 @@
             --grid-opacity: 0.2;
             --scanline-opacity: 0.7;
             --speed-opacity: 0.3;
+            --speed-line: rgba(204, 255, 0, 0.95);
+            --speed-glow: rgba(204, 255, 0, 0.45);
             --matrix-shadow: -30px 30px 0 rgba(0, 0, 0, 0.5);
             --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'PingFang SC', sans-serif;
@@ -67,7 +69,9 @@
             --nav-bg: rgba(245, 247, 238, 0.86);
             --grid-opacity: 0.62;
             --scanline-opacity: 0.16;
-            --speed-opacity: 0.18;
+            --speed-opacity: 0.42;
+            --speed-line: rgba(204, 255, 0, 0.98);
+            --speed-glow: rgba(143, 181, 0, 0.5);
             --matrix-shadow: -30px 30px 0 rgba(15, 20, 10, 0.12);
             --card-shadow: 0 20px 40px rgba(34, 40, 23, 0.12);
         }
@@ -130,11 +134,27 @@
 
         .speed-line {
             position: absolute;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            background: linear-gradient(90deg, transparent, var(--speed-line), transparent);
             height: 1px;
             width: 200px;
+            box-shadow: 0 0 14px var(--speed-glow);
             transform: skewX(-45deg);
             animation: speedLine linear infinite;
+        }
+
+        :root[data-theme="light"] .speed-line {
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(82, 104, 0, 0.35) 18%,
+                var(--speed-line) 50%,
+                rgba(82, 104, 0, 0.35) 82%,
+                transparent
+            );
+            box-shadow:
+                0 0 16px var(--speed-glow),
+                0 1px 0 rgba(63, 80, 0, 0.35);
+            height: 2px;
         }
 
         @keyframes speedLine {

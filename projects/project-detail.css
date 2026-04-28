@@ -295,6 +295,76 @@ section {
     padding-left: 1rem;
 }
 
+.project-insight-grid {
+    max-width: 1320px;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.project-insight-intro {
+    max-width: 1320px;
+    margin-bottom: 1.7rem;
+}
+
+.project-insight-intro h2 {
+    max-width: 900px;
+    font-size: clamp(2.6rem, 5.2vw, 5rem);
+    font-style: italic;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    transform: skewX(var(--skew-angle));
+}
+
+.project-insight-card {
+    min-height: 390px;
+    padding: clamp(2rem, 3vw, 2.7rem);
+    display: flex;
+    flex-direction: column;
+    border-color: color-mix(in srgb, var(--accent) 26%, var(--border));
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, transparent), transparent 34%),
+        var(--bg-surface);
+}
+
+.insight-index {
+    width: fit-content;
+    margin-bottom: 1.5rem;
+    padding: 0.22rem 0.55rem;
+    background: var(--accent);
+    color: var(--bg-base);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    transform: skewX(var(--skew-angle));
+}
+
+.project-insight-card h2 {
+    max-width: 13ch;
+    margin-bottom: 1.15rem;
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+    line-height: 1.28;
+}
+
+.project-insight-card p {
+    margin-bottom: 1.35rem;
+    color: var(--text-main);
+    font-size: clamp(1.08rem, 1.4vw, 1.22rem);
+    line-height: 1.65;
+}
+
+.project-insight-card ul {
+    gap: 0.9rem;
+    margin-top: auto;
+    padding-left: 1.1rem;
+}
+
+.project-insight-card li {
+    font-size: clamp(1rem, 1.2vw, 1.08rem);
+    line-height: 1.65;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -855,6 +925,14 @@ section {
 
     .detail-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-insight-card {
+        min-height: auto;
+    }
+
+    .project-insight-card h2 {
+        max-width: none;
     }
 
     .panel {

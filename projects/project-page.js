@@ -116,6 +116,27 @@ function initDrawingStory() {
     activateStoryStep(document.querySelector('.story-step.is-active') || steps[0]);
 }
 
+function initModelViewerControls() {
+    const modelViewer = document.querySelector('.robot-model-viewer');
+    const resetButton = document.querySelector('[data-model-reset]');
+    if (!modelViewer || !resetButton) return;
+
+    const defaultOrbit = modelViewer.getAttribute('camera-orbit') || '-42deg 58deg auto';
+    const defaultFieldOfView = modelViewer.getAttribute('field-of-view') || '30deg';
+
+    resetButton.addEventListener('click', () => {
+        modelViewer.setAttribute('camera-orbit', defaultOrbit);
+        modelViewer.setAttribute('camera-target', 'auto');
+        modelViewer.setAttribute('field-of-view', defaultFieldOfView);
+
+        requestAnimationFrame(() => {
+            if (typeof modelViewer.jumpCameraToGoal === 'function') {
+                modelViewer.jumpCameraToGoal();
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const initialTheme = validThemes.includes(getParam('theme'))
         ? getParam('theme')
@@ -133,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLang(initialLang);
     initReveal();
     initDrawingStory();
+    initModelViewerControls();
 
     document.querySelectorAll('[data-target-theme]').forEach(btn => {
         btn.addEventListener('click', () => setTheme(btn.getAttribute('data-target-theme')));

@@ -123,17 +123,24 @@ function initModelViewerControls() {
 
     const defaultOrbit = modelViewer.getAttribute('camera-orbit') || '-42deg 58deg auto';
     const defaultFieldOfView = modelViewer.getAttribute('field-of-view') || '30deg';
+    const defaultTarget = modelViewer.getAttribute('camera-target') || 'auto';
 
-    resetButton.addEventListener('click', () => {
+    function resetCamera() {
+        modelViewer.cameraOrbit = defaultOrbit;
+        modelViewer.cameraTarget = defaultTarget;
+        modelViewer.fieldOfView = defaultFieldOfView;
         modelViewer.setAttribute('camera-orbit', defaultOrbit);
-        modelViewer.setAttribute('camera-target', 'auto');
+        modelViewer.setAttribute('camera-target', defaultTarget);
         modelViewer.setAttribute('field-of-view', defaultFieldOfView);
 
-        requestAnimationFrame(() => {
-            if (typeof modelViewer.jumpCameraToGoal === 'function') {
-                modelViewer.jumpCameraToGoal();
-            }
-        });
+        if (typeof modelViewer.jumpCameraToGoal === 'function') {
+            modelViewer.jumpCameraToGoal();
+        }
+    }
+
+    resetButton.addEventListener('click', () => {
+        resetButton.blur();
+        resetCamera();
     });
 }
 

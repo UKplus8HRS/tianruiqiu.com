@@ -699,10 +699,10 @@ section {
     justify-content: center;
     min-height: 34px;
     margin-top: 1rem;
-    padding: 0.45rem 0.85rem;
-    background: var(--accent);
-    color: var(--bg-base);
-    border: 1px solid var(--accent);
+    padding: 0.48rem 0.95rem;
+    background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+    color: var(--text-main);
+    border: 1px solid var(--border-light);
     clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     cursor: pointer;
     font-family: var(--font-mono);
@@ -710,10 +710,22 @@ section {
     font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.model-reset-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-base);
+    transform: translateY(-1px);
 }
 
 .model-reset-btn:focus-visible {
-    outline: 2px solid var(--text-main);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
 

@@ -985,12 +985,12 @@ section {
 
 .robot-moment-card::after {
     right: 0;
-    bottom: 0;
+    top: 0;
     z-index: 3;
-    width: 84px;
-    height: 84px;
-    background:
-        linear-gradient(135deg, transparent 50%, var(--accent) 50%);
+    width: 72px;
+    height: 10px;
+    background: var(--accent);
+    transform: skewX(var(--skew-angle));
 }
 
 .robot-moment-card img {
@@ -1020,16 +1020,11 @@ section {
 }
 
 .robot-moment-card figcaption {
-    position: absolute;
-    left: clamp(1rem, 2.4vw, 2rem);
-    right: clamp(1rem, 2.4vw, 2rem);
-    bottom: clamp(1rem, 2.4vw, 2rem);
-    z-index: 4;
-    max-width: 760px;
-    padding: 1rem 1.15rem;
-    background: color-mix(in srgb, var(--bg-base) 78%, transparent);
-    border-left: 5px solid var(--accent);
-    backdrop-filter: blur(10px);
+    padding: 1rem 1.15rem 1.15rem;
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, transparent), transparent 42%),
+        var(--bg-surface);
+    border-top: 1px solid var(--border);
 }
 
 .robot-moment-card figcaption span {
@@ -1045,10 +1040,10 @@ section {
 
 .robot-moment-card figcaption strong {
     display: block;
-    max-width: 50ch;
+    max-width: 62ch;
     color: var(--text-main);
     font-family: var(--font-mono);
-    font-size: clamp(1rem, 1.35vw, 1.25rem);
+    font-size: clamp(0.9rem, 1.05vw, 1rem);
     line-height: 1.55;
 }
 

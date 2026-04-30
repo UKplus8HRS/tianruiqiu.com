@@ -952,8 +952,8 @@ section {
 
 .robot-moments-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-    gap: clamp(1.3rem, 3vw, 2rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.2rem, 3vw, 2.2rem);
     align-items: stretch;
 }
 
@@ -962,9 +962,35 @@ section {
     z-index: 12;
     overflow: hidden;
     margin: 0;
+    min-height: clamp(620px, 72vh, 820px);
     background: var(--bg-surface);
     border: 1px solid var(--border-light);
     clip-path: var(--clip-chamfer);
+    box-shadow: 0 28px 78px rgba(0, 0, 0, 0.34);
+}
+
+.robot-moment-card::before,
+.robot-moment-card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.robot-moment-card::before {
+    inset: 1rem;
+    z-index: 2;
+    border: 1px dashed var(--accent);
+    opacity: 0.22;
+}
+
+.robot-moment-card::after {
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 84px;
+    height: 84px;
+    background:
+        linear-gradient(135deg, transparent 50%, var(--accent) 50%);
 }
 
 .robot-moment-card img {
@@ -979,15 +1005,26 @@ section {
     transform: scale(1.018);
 }
 
-.robot-moment-primary {
-    min-height: clamp(620px, 74vh, 820px);
+.robot-moment-index {
+    position: absolute;
+    top: 1.45rem;
+    left: 1.45rem;
+    z-index: 4;
+    padding: 0.25rem 0.58rem;
+    background: var(--accent);
+    color: var(--bg-base);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 800;
+    transform: skewX(var(--skew-angle));
 }
 
-.robot-moment-primary figcaption {
+.robot-moment-card figcaption {
     position: absolute;
     left: clamp(1rem, 2.4vw, 2rem);
     right: clamp(1rem, 2.4vw, 2rem);
     bottom: clamp(1rem, 2.4vw, 2rem);
+    z-index: 4;
     max-width: 760px;
     padding: 1rem 1.15rem;
     background: color-mix(in srgb, var(--bg-base) 78%, transparent);
@@ -995,8 +1032,7 @@ section {
     backdrop-filter: blur(10px);
 }
 
-.robot-moment-primary figcaption span,
-.robot-moment-notes span {
+.robot-moment-card figcaption span {
     display: block;
     margin-bottom: 0.55rem;
     color: var(--accent);
@@ -1007,38 +1043,13 @@ section {
     text-transform: uppercase;
 }
 
-.robot-moment-primary figcaption strong {
+.robot-moment-card figcaption strong {
     display: block;
-    max-width: 56ch;
+    max-width: 50ch;
     color: var(--text-main);
     font-family: var(--font-mono);
     font-size: clamp(1rem, 1.35vw, 1.25rem);
     line-height: 1.55;
-}
-
-.robot-moment-side {
-    display: grid;
-    grid-template-rows: minmax(420px, 1fr) auto;
-    gap: 1rem;
-}
-
-.robot-moment-detail {
-    min-height: 500px;
-}
-
-.robot-moment-notes {
-    padding: clamp(1.3rem, 2vw, 1.7rem);
-    background:
-        linear-gradient(145deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent 42%),
-        var(--bg-surface);
-    border: 1px solid var(--border);
-    clip-path: var(--clip-chamfer);
-}
-
-.robot-moment-notes p {
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1212,13 +1223,8 @@ section {
         min-height: auto;
     }
 
-    .robot-moment-primary,
-    .robot-moment-detail {
+    .robot-moment-card {
         min-height: 460px;
-    }
-
-    .robot-moment-side {
-        grid-template-rows: auto;
     }
 
     .model-showcase-copy {

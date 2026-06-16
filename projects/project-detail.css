@@ -1167,31 +1167,51 @@ section {
     grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.95fr);
 }
 
-.thermal-console {
+.thermal-hero-figure {
     position: relative;
     z-index: 12;
     overflow: hidden;
-    min-height: 560px;
-    padding: clamp(1rem, 2vw, 1.35rem);
-    background:
-        radial-gradient(circle at 50% 42%, rgba(255, 92, 46, 0.16), transparent 32%),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 38%),
-        var(--bg-surface);
+    margin: 0;
+    background: var(--bg-surface);
     border: 1px solid var(--border-light);
     clip-path: var(--clip-chamfer);
-    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.36);
 }
 
-.thermal-console::before {
-    content: "";
-    position: absolute;
-    inset: 1.2rem;
-    border: 1px dashed var(--accent);
-    opacity: 0.22;
-    pointer-events: none;
+.thermal-hero-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
 }
 
-.thermal-console-head,
+.thermal-hero-figure figcaption {
+    padding: clamp(1rem, 2vw, 1.3rem);
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 45%),
+        var(--bg-surface);
+    border-top: 3px solid var(--accent);
+}
+
+.thermal-hero-figure figcaption span {
+    display: block;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.thermal-hero-figure figcaption strong {
+    display: block;
+    margin-top: 0.55rem;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: clamp(0.88rem, 1vw, 1rem);
+    line-height: 1.55;
+}
+
 .chart-head {
     position: relative;
     z-index: 2;
@@ -1206,158 +1226,8 @@ section {
     text-transform: uppercase;
 }
 
-.thermal-console-head strong,
 .chart-head strong {
     color: var(--accent);
-}
-
-.heat-sink-visual {
-    position: relative;
-    z-index: 1;
-    height: 370px;
-    margin: 3.2rem 0 2rem;
-    background:
-        linear-gradient(90deg, transparent 0 48%, color-mix(in srgb, var(--accent) 28%, transparent) 48% 52%, transparent 52%),
-        radial-gradient(circle at 50% 80%, rgba(204, 255, 0, 0.18), transparent 34%);
-    border: 1px solid color-mix(in srgb, var(--border-light) 70%, transparent);
-    clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-}
-
-.led-core {
-    position: absolute;
-    left: 50%;
-    bottom: 42px;
-    z-index: 4;
-    display: grid;
-    place-items: center;
-    width: 96px;
-    height: 68px;
-    background: #ff5c2e;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    color: #fff;
-    font-family: var(--font-mono);
-    font-weight: 800;
-    transform: translateX(-50%) skewX(var(--skew-angle));
-    box-shadow:
-        0 0 38px rgba(255, 92, 46, 0.45),
-        0 0 90px rgba(255, 92, 46, 0.25);
-}
-
-.led-core span {
-    transform: skewX(calc(var(--skew-angle) * -1));
-}
-
-.sink-base {
-    position: absolute;
-    left: 18%;
-    right: 18%;
-    bottom: 112px;
-    height: 34px;
-    background: var(--accent);
-    transform: skewX(var(--skew-angle));
-}
-
-.sink-fins {
-    position: absolute;
-    left: 21%;
-    right: 21%;
-    bottom: 146px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.6rem;
-    height: 140px;
-}
-
-.sink-fins span {
-    display: block;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 34%),
-        color-mix(in srgb, var(--accent) 86%, var(--bg-surface));
-    transform: skewX(var(--skew-angle));
-    opacity: 0.9;
-}
-
-.fan-ring {
-    position: absolute;
-    right: 7%;
-    top: 13%;
-    width: 112px;
-    height: 112px;
-    border: 2px solid var(--border-light);
-    border-radius: 50%;
-    animation: thermalSpin 7s linear infinite;
-}
-
-.fan-ring::before,
-.fan-ring::after,
-.fan-ring span {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 48px;
-    height: 12px;
-    background: var(--accent);
-    border-radius: 999px;
-    transform-origin: 0 50%;
-}
-
-.fan-ring::before {
-    transform: rotate(0deg);
-}
-
-.fan-ring::after {
-    transform: rotate(120deg);
-}
-
-.fan-ring span {
-    transform: rotate(240deg);
-}
-
-.thermal-flow {
-    position: absolute;
-    left: 12%;
-    width: 54%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff5c2e, var(--accent), transparent);
-    opacity: 0;
-    animation: thermalFlow 2.8s linear infinite;
-}
-
-.flow-one { top: 28%; animation-delay: -0.2s; }
-.flow-two { top: 43%; animation-delay: -1s; }
-.flow-three { top: 58%; animation-delay: -1.8s; }
-
-.thermal-readouts {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
-    overflow: hidden;
-    background: var(--border);
-    border: 1px solid var(--border);
-}
-
-.thermal-readouts div {
-    min-height: 96px;
-    padding: 1rem;
-    background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
-}
-
-.thermal-readouts span {
-    display: block;
-    margin-bottom: 0.45rem;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-}
-
-.thermal-readouts strong {
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: clamp(1rem, 1.6vw, 1.35rem);
 }
 
 .thermal-process-grid {
@@ -1565,6 +1435,14 @@ section {
     aspect-ratio: 2.25 / 1;
 }
 
+.thermal-source-figure {
+    min-height: 360px;
+}
+
+.thermal-source-figure img {
+    aspect-ratio: 1.45 / 1;
+}
+
 .thermal-figure-card figcaption {
     min-height: 126px;
     padding: 1rem 1.15rem 1.2rem;
@@ -1639,33 +1517,6 @@ section {
     font-size: 0.86rem;
 }
 
-.thermal-model-slot {
-    isolation: isolate;
-}
-
-.thermal-model-slot::after {
-    content: "";
-    position: absolute;
-    right: -16%;
-    bottom: -22%;
-    z-index: -1;
-    width: 56%;
-    aspect-ratio: 1;
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    clip-path: polygon(50% 0, 100% 26%, 100% 74%, 50% 100%, 0 74%, 0 26%);
-}
-
-@keyframes thermalSpin {
-    to { transform: rotate(360deg); }
-}
-
-@keyframes thermalFlow {
-    0% { transform: translateX(-18%); opacity: 0; }
-    20% { opacity: 0.9; }
-    80% { opacity: 0.9; }
-    100% { transform: translateX(62%); opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
     [data-reveal] {
         opacity: 1;
@@ -1674,9 +1525,7 @@ section {
     }
 
     .model-lines span,
-    .stage-shell img,
-    .fan-ring,
-    .thermal-flow {
+    .stage-shell img {
         animation: none;
         transition: none;
     }
@@ -1759,8 +1608,7 @@ section {
     .thermal-evidence-grid,
     .thermal-temperature-grid,
     .thermal-process-grid,
-    .thermal-model-layout,
-    .thermal-readouts {
+    .thermal-model-layout {
         grid-template-columns: 1fr;
     }
 
@@ -1865,7 +1713,6 @@ section {
         min-height: auto;
     }
 
-    .thermal-console,
     .thermal-process-card,
     .thermal-model-copy,
     .thermal-chart-card,
@@ -1887,11 +1734,6 @@ section {
     .thermal-result-table th,
     .thermal-result-table td {
         padding: 0.62rem 0.42rem;
-    }
-
-    .heat-sink-visual {
-        height: 320px;
-        margin: 2.2rem 0 1.2rem;
     }
 
     .robot-moment-card {

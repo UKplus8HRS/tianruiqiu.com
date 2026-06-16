@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="project-detail.css?v=20260609-led-report-2">
+    <link rel="stylesheet" href="project-detail.css?v=20260616-led-photo-1">
 </head>
 <body data-title-en="High-Power LED Cooling Analysis // Tianrui Qiu" data-title-zh="高功率 LED 散热与效率分析 // 邱天瑞">
     <div class="bg-grid"></div>
@@ -65,41 +65,13 @@
                     </div>
                 </div>
 
-                <div class="thermal-console" data-reveal aria-label="Thermal model visual dashboard">
-                    <div class="thermal-console-head">
-                        <span>MATLAB // TASK_2_SOLVER</span>
-                        <strong data-en="FAN-COUPLED" data-zh="风扇耦合">FAN-COUPLED</strong>
-                    </div>
-                    <div class="heat-sink-visual">
-                        <div class="led-core">
-                            <span>LED</span>
-                        </div>
-                        <div class="sink-base"></div>
-                        <div class="sink-fins">
-                            <span></span><span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                        <div class="fan-ring">
-                            <span></span><span></span><span></span>
-                        </div>
-                        <div class="thermal-flow flow-one"></div>
-                        <div class="thermal-flow flow-two"></div>
-                        <div class="thermal-flow flow-three"></div>
-                    </div>
-                    <div class="thermal-readouts">
-                        <div>
-                            <span data-en="Operating flow" data-zh="工作流量">Operating flow</span>
-                            <strong>269.9 L/min</strong>
-                        </div>
-                        <div>
-                            <span data-en="Baseline Rth" data-zh="基准热阻">Baseline Rth</span>
-                            <strong>1.12 K/W</strong>
-                        </div>
-                        <div>
-                            <span data-en="Fin efficiency" data-zh="鳍片效率">Fin efficiency</span>
-                            <strong>0.95</strong>
-                        </div>
-                    </div>
-                </div>
+                <figure class="thermal-hero-figure" data-reveal>
+                    <img src="../assets/led-thermal/experimental-setup.jpg" alt="High-power LED heat sink experimental setup with fan duct and sensors">
+                    <figcaption>
+                        <span data-en="Experiment photo from the project report" data-zh="项目报告中的实验装置照片">Experiment photo from the project report</span>
+                        <strong data-en="Fan duct, heat sink, heater block, thermocouple wiring, and measurement electronics used for the LED cooling test." data-zh="用于 LED 散热测试的风道、散热器、加热块、热电偶走线和测量电路。">Fan duct, heat sink, heater block, thermocouple wiring, and measurement electronics used for the LED cooling test.</strong>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
@@ -286,16 +258,15 @@
 
         <section class="thermal-assets-section">
             <div class="container source-grid">
-                <div class="source-file-card thermal-asset-card thermal-model-slot" data-reveal>
-                    <strong data-en="3D Model Slot" data-zh="3D 模型预留位">3D Model Slot</strong>
-                    <p data-en="Heat sink model coming later" data-zh="散热器 3D 模型后续补充">Heat sink model coming later</p>
-                    <small data-en="The project page is ready for a real heat sink or apparatus model when the source file is available." data-zh="等源文件准备好后，这里会接入真实散热器或实验装置的 3D 模型。">The project page is ready for a real heat sink or apparatus model when the source file is available.</small>
-                    <div class="model-lines" aria-hidden="true">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                </div>
+                <figure class="thermal-figure-card thermal-source-figure" data-reveal>
+                    <img src="../assets/led-thermal/fan-curve-interpolation.png" alt="Interpolated fan curve from the LED cooling project report" loading="lazy">
+                    <figcaption>
+                        <span data-en="Fan data source" data-zh="风扇数据来源">Fan data source</span>
+                        <strong data-en="The MATLAB model used interpolated manufacturer fan data before solving the fan/system operating point." data-zh="MATLAB 模型先对厂家风扇数据插值，再求解风扇/系统工作点。">The MATLAB model used interpolated manufacturer fan data before solving the fan/system operating point.</strong>
+                    </figcaption>
+                </figure>
                 <div class="panel source-copy" data-reveal>
-                    <p data-en="This page now uses the group report and MATLAB script as its content source: Task 2 for the fan-coupled heat sink model, Task 6 for theory/experiment comparison, and Task 7 for LED efficiency context. The only intentionally missing piece is the 3D model, which will be added when available." data-zh="这一页以小组报告和 MATLAB 脚本作为内容来源：Task 2 对应风扇耦合散热器模型，Task 6 对应理论/实验对比，Task 7 对应 LED 效率分析。唯一刻意保留的空位是 3D 模型，等文件准备好后再加入。">This page now uses the group report and MATLAB script as its content source: Task 2 for the fan-coupled heat sink model, Task 6 for theory/experiment comparison, and Task 7 for LED efficiency context. The only intentionally missing piece is the 3D model, which will be added when available.</p>
+                    <p data-en="This page uses the group report and MATLAB script as its content source: Task 2 for the fan-coupled heat sink model, Task 6 for theory/experiment comparison, and Task 7 for LED efficiency context. The figures are taken from the project report and show the actual evidence behind the model." data-zh="这一页以小组报告和 MATLAB 脚本作为内容来源：Task 2 对应风扇耦合散热器模型，Task 6 对应理论/实验对比，Task 7 对应 LED 效率分析。页面中的图片来自项目报告，用来展示模型背后的真实依据。">This page uses the group report and MATLAB script as its content source: Task 2 for the fan-coupled heat sink model, Task 6 for theory/experiment comparison, and Task 7 for LED efficiency context. The figures are taken from the project report and show the actual evidence behind the model.</p>
                     <div class="cta-row">
                         <a class="btn" href="../index.html#projects" data-en="Back to Projects" data-zh="返回项目">Back to Projects</a>
                         <a class="btn btn-secondary" href="mailto:qiutianrui828@gmail.com" data-en="Discuss This Project" data-zh="交流这个项目">Discuss This Project</a>

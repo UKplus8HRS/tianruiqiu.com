@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Source Codex Skills Projects // Tianrui Qiu</title>
+    <meta name="description" content="AI Agent and Codex skills projects by Tianrui Qiu, covering an offline-first video transcription skill and a bilingual coding-agent custom instructions checklist.">
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = localStorage.getItem('portfolio_theme');
+            const theme = ['dark', 'light'].includes(params.get('theme')) ? params.get('theme') : (['dark', 'light'].includes(saved) ? saved : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        }());
+    </script>
+    <link rel="icon" href="../assets/favicon.ico?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-detail.css?v=20260628-agent-skills-1">
+</head>
+<body data-title-en="Open-Source Codex Skills Projects // Tianrui Qiu" data-title-zh="Codex Skills 开源项目 // 邱天瑞">
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+    <nav>
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-box">
+                    <img class="logo-img-dark" src="../assets/logo-tr-dark-64.png?v=5" alt="" aria-hidden="true">
+                    <img class="logo-img-light" src="../assets/logo-tr-light-64.png?v=5" alt="" aria-hidden="true">
+                </div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-actions">
+                <a class="nav-link" href="../index.html#projects"><span data-en="Back" data-zh="返回">Back</span></a>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="深色">Dark</span></button>
+                    <button class="toggle-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="浅色">Light</span></button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="toggle-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portfolio-hero">
+            <div class="container">
+                <div class="portfolio-hero-copy" data-reveal>
+                    <div class="section-tag">Project 04</div>
+                    <h1 class="hero-title" data-en="Agent Skills,<br>Packaged & Shared." data-zh="Agent Skills，<br>整理并开源。">Agent Skills,<br>Packaged & Shared.</h1>
+                    <p class="hero-copy" data-en="Two small open-source AI Agent projects that came from my own engineering-learning friction. video-transcribe-skill uses Python, FFmpeg, and local Whisper to turn unsubtitled tutorials into transcript evidence before Codex summarizes, extracts, or answers questions. codex-agent-custom-instructions documents the working rules behind that process: clarify first, make small edits, keep deterministic steps in scripts, and verify the result." data-zh="两个来自真实工程学习阻力的小型开源 AI Agent 项目。video-transcribe-skill 用 Python、FFmpeg 和本地 Whisper 把无字幕教程变成 transcript 证据，再让 Codex 做摘要、提取和问答。codex-agent-custom-instructions 则沉淀这套工作规则：先澄清、少改动、确定性步骤交给脚本、结果要能验证。">Two small open-source AI Agent projects that came from my own engineering-learning friction. video-transcribe-skill uses Python, FFmpeg, and local Whisper to turn unsubtitled tutorials into transcript evidence before Codex summarizes, extracts, or answers questions. codex-agent-custom-instructions documents the working rules behind that process: clarify first, make small edits, keep deterministic steps in scripts, and verify the result.</p>
+                    <div class="tags">
+                        <span class="tag">Codex Skill</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">AI Agent</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn" href="https://github.com/UKplus8HRS/video-transcribe-skill" target="_blank" rel="noopener noreferrer" data-en="video-transcribe-skill" data-zh="video-transcribe-skill">video-transcribe-skill</a>
+                        <a class="btn btn-secondary" href="https://github.com/UKplus8HRS/codex-agent-custom-instructions" target="_blank" rel="noopener noreferrer" data-en="custom instructions" data-zh="custom instructions">custom instructions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-overview">
+            <div class="container overview-grid">
+                <article class="overview-stat" data-reveal>
+                    <strong>2</strong>
+                    <span data-en="public GitHub repositories used as evidence of self-driven AI Agent practice" data-zh="个用来证明自驱 AI Agent 实践的公开 GitHub 仓库">public GitHub repositories used as evidence of self-driven AI Agent practice</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>Python</strong>
+                    <span data-en="used for deterministic video/audio routing and local transcription tooling" data-zh="用于确定性的视频/音频处理与本地转写工具">used for deterministic video/audio routing and local transcription tooling</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>MIT</strong>
+                    <span data-en="license used for the small open-source skill and instruction resources" data-zh="用于这两个小型开源 skill / 指令资源的许可证">license used for the small open-source skill and instruction resources</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="project-deep-section">
+            <div class="container">
+                <div class="section-tag" data-en="What I built" data-zh="我做了什么">What I built</div>
+                <div class="detail-grid">
+                    <article class="detail-card" data-reveal>
+                        <h2>video-transcribe-skill</h2>
+                        <p data-en="I built this for a real engineering learning problem: many useful mechanical, robotics, and software tutorials have no subtitles, so an AI agent needs transcript evidence before it can summarize or answer questions reliably. The skill resolves video sources, extracts audio with FFmpeg, runs local faster-whisper transcription, and outputs transcript plus metadata files." data-zh="我做这个项目是为了解决一个真实工程学习问题：很多机械、机器人和软件教程没有字幕，AI agent 想可靠摘要或问答，必须先有 transcript 证据。这个 skill 会解析视频来源，用 FFmpeg 抽取音频，调用本地 faster-whisper 转写，并输出 transcript 和 metadata 文件。">I built this for a real engineering learning problem: many useful mechanical, robotics, and software tutorials have no subtitles, so an AI agent needs transcript evidence before it can summarize or answer questions reliably. The skill resolves video sources, extracts audio with FFmpeg, runs local faster-whisper transcription, and outputs transcript plus metadata files.</p>
+                    </article>
+                    <article class="detail-card" data-reveal>
+                        <h2>custom instructions</h2>
+                        <p data-en="A bilingual checklist that turns my own coding-agent practice into reusable rules: state assumptions, clarify ambiguity, keep edits small, put routing and retry logic in deterministic code, surface failures, and verify the result instead of only claiming completion." data-zh="一份把我自己的 coding-agent 使用经验整理成可复用规则的中英文清单：先说假设，有歧义就澄清，保持小改动，把路由和重试逻辑交给确定性代码，失败要说出来，并且用验证结果支撑“完成”。">A bilingual checklist that turns my own coding-agent practice into reusable rules: state assumptions, clarify ambiguity, keep edits small, put routing and retry logic in deterministic code, surface failures, and verify the result instead of only claiming completion.</p>
+                    </article>
+                    <article class="detail-card" data-reveal>
+                        <h2 data-en="Self-driven loop" data-zh="自驱闭环">Self-driven loop</h2>
+                        <p data-en="The value is the loop: I found a repeated bottleneck in my own engineering learning, built a small tool around it, separated scripts from model judgment, wrote down the method, and made the result public. That process is stronger evidence of self drive than a sentence claiming I learn fast." data-zh="价值在这个闭环：我发现自己工程学习里反复出现的阻塞点，围绕它做工具，把脚本和模型判断分开，写清楚方法，最后公开出来。这个过程比一句“学习能力强”更能证明自驱力。">The value is the loop: I found a repeated bottleneck in my own engineering learning, built a small tool around it, separated scripts from model judgment, wrote down the method, and made the result public. That process is stronger evidence of self drive than a sentence claiming I learn fast.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-deep-section">
+            <div class="container">
+                <div class="section-tag" data-en="Workflow architecture" data-zh="工作流结构">Workflow architecture</div>
+                <div class="readout-grid">
+                    <article class="readout-card readout-card-large" data-reveal>
+                        <div class="readout-kicker" data-en="Design principle" data-zh="设计原则">Design principle</div>
+                        <h2 data-en="Keep fragile steps out of model judgment." data-zh="把易出错步骤交给确定性工具。">Keep fragile steps out of model judgment.</h2>
+                        <p data-en="The video skill was designed around one rule: deterministic code should do platform routing, download attempts, audio conversion, path checks, and transcript writing; the model should only reason after transcript text exists." data-zh="video skill 的核心原则是：平台路由、下载尝试、音频转换、路径检查和 transcript 写入交给确定性代码；模型只在 transcript 已经存在之后做阅读、摘要和提取。">The video skill was designed around one rule: deterministic code should do platform routing, download attempts, audio conversion, path checks, and transcript writing; the model should only reason after transcript text exists.</p>
+                    </article>
+                    <article class="readout-card" data-reveal>
+                        <div class="readout-index">01</div>
+                        <h2 data-en="Input routing" data-zh="输入路由">Input routing</h2>
+                        <ul>
+                            <li data-en="Bilibili URLs and BV ids use public Bilibili APIs." data-zh="B 站链接和 BV 号使用公开 Bilibili API。">Bilibili URLs and BV ids use public Bilibili APIs.</li>
+                            <li data-en="YouTube and generic URLs fall back to yt-dlp." data-zh="YouTube 和通用链接使用 yt-dlp fallback。">YouTube and generic URLs fall back to yt-dlp.</li>
+                            <li data-en="Local files go straight into the conversion path." data-zh="本地文件直接进入转码路径。">Local files go straight into the conversion path.</li>
+                        </ul>
+                    </article>
+                    <article class="readout-card" data-reveal>
+                        <div class="readout-index">02</div>
+                        <h2 data-en="Local processing" data-zh="本地处理">Local processing</h2>
+                        <ul>
+                            <li data-en="FFmpeg normalizes audio for transcription." data-zh="FFmpeg 将音频标准化供转写使用。">FFmpeg normalizes audio for transcription.</li>
+                            <li data-en="faster-whisper runs locally without cloud transcription keys." data-zh="faster-whisper 在本地运行，不依赖云端转写 key。">faster-whisper runs locally without cloud transcription keys.</li>
+                            <li data-en="The output includes transcript.txt and metadata.json." data-zh="输出 transcript.txt 和 metadata.json。">The output includes transcript.txt and metadata.json.</li>
+                        </ul>
+                    </article>
+                    <article class="readout-card" data-reveal>
+                        <div class="readout-index">03</div>
+                        <h2 data-en="Agent use" data-zh="Agent 使用">Agent use</h2>
+                        <ul>
+                            <li data-en="Codex reads the transcript instead of pretending to watch the video." data-zh="Codex 阅读 transcript，而不是假装看过视频。">Codex reads the transcript instead of pretending to watch the video.</li>
+                            <li data-en="Summaries mention quality caveats when ASR is imperfect." data-zh="ASR 不完美时，摘要会说明质量限制。">Summaries mention quality caveats when ASR is imperfect.</li>
+                            <li data-en="The same route can support notes, extraction, or Q&A." data-zh="同一路线可以支持笔记、提取和问答。">The same route can support notes, extraction, or Q&A.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning">
+            <div class="container">
+                <div class="section-tag" data-en="Skills learned" data-zh="我学会的技能">Skills learned</div>
+                <div class="project-insight-intro">
+                    <h2 data-en="What these projects show" data-zh="这两个项目体现了什么">What these projects show</h2>
+                </div>
+                <div class="detail-grid project-insight-grid">
+                    <article class="detail-card project-insight-card" data-reveal>
+                        <div class="insight-index">01</div>
+                        <h2 data-en="Packaging repeatable workflows" data-zh="封装可复用流程">Packaging repeatable workflows</h2>
+                        <p data-en="I learned to separate deterministic tooling from model judgment: scripts handle download, routing, conversion, transcription, and file checks; Codex reads the transcript for summaries, extraction, and Q&A only after evidence exists." data-zh="我学会了把确定性工具和模型判断分开：脚本负责下载、路由、转码、转写和文件检查；Codex 只在证据存在之后阅读 transcript，并进行摘要、提取和问答。">I learned to separate deterministic tooling from model judgment: scripts handle download, routing, conversion, transcription, and file checks; Codex reads the transcript for summaries, extraction, and Q&A only after evidence exists.</p>
+                    </article>
+                    <article class="detail-card project-insight-card" data-reveal>
+                        <div class="insight-index">02</div>
+                        <h2 data-en="Writing for reuse" data-zh="为复用而写">Writing for reuse</h2>
+                        <p data-en="I practised turning a personal setup into README-first documentation, install steps, command examples, repository layout, limitations, and source notes that another user can inspect and adapt." data-zh="我练习了把个人配置整理成 README 优先的文档、安装步骤、命令示例、仓库结构、限制说明和来源说明，让别人可以检查和复用。">I practised turning a personal setup into README-first documentation, install steps, command examples, repository layout, limitations, and source notes that another user can inspect and adapt.</p>
+                    </article>
+                    <article class="detail-card project-insight-card" data-reveal>
+                        <div class="insight-index">03</div>
+                        <h2 data-en="Self-directed iteration" data-zh="自驱迭代">Self-directed iteration</h2>
+                        <p data-en="Both repositories came from repeated friction in real learning and coding work, then turned that friction into public tools. The projects are small, but they show the habit I want to keep building: notice a workflow problem, make the tool, document the method, and verify the result." data-zh="这两个仓库都来自真实学习和 coding 过程里反复出现的阻力，然后把这些阻力转化成公开工具。项目不大，但体现了我想继续保持的习惯：发现流程问题，做出工具，写清方法，再验证结果。">Both repositories came from repeated friction in real learning and coding work, then turned that friction into public tools. The projects are small, but they show the habit I want to keep building: notice a workflow problem, make the tool, document the method, and verify the result.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="panel" data-reveal>
+                    <p data-en="Source repositories: video-transcribe-skill and codex-agent-custom-instructions under github.com/UKplus8HRS." data-zh="来源仓库：github.com/UKplus8HRS 下的 video-transcribe-skill 和 codex-agent-custom-instructions。">Source repositories: video-transcribe-skill and codex-agent-custom-instructions under github.com/UKplus8HRS.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="project-page.js?v=20260616"></script>
+</body>
+</html>

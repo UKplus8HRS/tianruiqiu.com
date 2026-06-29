@@ -1,0 +1,352 @@
+@page {
+  size: A4;
+  margin: 8mm 9mm 8mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #1f2933;
+  background: #f4f5f2;
+  font-family: Aptos, Calibri, Arial, "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 9.85pt;
+  line-height: 1.42;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume {
+  width: 192mm;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+.resume-header {
+  padding-bottom: 4mm;
+  border-bottom: 1.2pt solid #1f2933;
+}
+
+.name-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8mm;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  color: #111827;
+  font-size: 25.5pt;
+  font-weight: 760;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.headline {
+  margin-top: 1.8mm;
+  color: #0b6b73;
+  font-size: 10.3pt;
+  font-weight: 700;
+}
+
+.contact {
+  margin-top: 2.4mm;
+  color: #4b5563;
+  font-size: 8.4pt;
+}
+
+.contact a {
+  color: #253244;
+  text-decoration: none;
+}
+
+.portfolio-url {
+  color: #0b6b73;
+  font-size: 9.3pt;
+  font-weight: 800;
+}
+
+.section {
+  margin-top: 3.5mm;
+  break-inside: avoid;
+}
+
+.resume-projects {
+  break-inside: auto;
+}
+
+h2 {
+  padding-bottom: 1mm;
+  border-bottom: 0.7pt solid #d7dde3;
+  color: #0b6b73;
+  font-size: 8.4pt;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.zh h2 {
+  font-size: 8.8pt;
+  text-transform: none;
+}
+
+.section-body {
+  margin-top: 1.8mm;
+}
+
+.website-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40mm;
+  align-items: stretch;
+  gap: 0;
+  border: 0.7pt solid #d7dde3;
+  background: #ffffff;
+}
+
+.website-panel p {
+  color: #3f4a56;
+}
+
+.website-copy {
+  padding: 2.3mm 2.8mm;
+  border-left: 2.5pt solid #9bd20d;
+  background: #f7faf4;
+}
+
+.website-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8mm;
+  padding: 2.2mm 2.6mm;
+  background: #0b6b73;
+  color: #ffffff;
+}
+
+.website-side span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 7.4pt;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.website-side .website-link {
+  color: #ffffff;
+  font-size: 11.9pt;
+  font-weight: 850;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 5mm;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 24mm 1fr;
+  column-gap: 2.5mm;
+  row-gap: 1.1mm;
+}
+
+.label {
+  color: #667085;
+  font-weight: 700;
+}
+
+.education-card {
+  padding-top: 0.2mm;
+}
+
+.school-logo {
+  display: block;
+  width: 34mm;
+  height: auto;
+}
+
+.education-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 3mm;
+  margin-top: 0.7mm;
+  padding-top: 0.8mm;
+  border-top: 0.9pt solid #253244;
+  color: #111827;
+  font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif;
+  font-size: 9.2pt;
+  line-height: 1.15;
+}
+
+.education-main strong {
+  font-weight: 800;
+}
+
+.education-main span {
+  flex: 0 0 auto;
+  font-size: 8.2pt;
+  font-weight: 700;
+}
+
+.degree-line {
+  margin-top: 0.2mm;
+  color: #3f4a56;
+  font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif;
+  font-size: 8.6pt;
+  line-height: 1.2;
+}
+
+.degree-line em {
+  font-style: italic;
+}
+
+.education-list {
+  margin-top: 0.5mm;
+  font-size: 8pt;
+  line-height: 1.24;
+}
+
+.education-list li {
+  margin-bottom: 0.4mm;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2mm;
+}
+
+.skill-block {
+  padding: 1.8mm 2mm;
+  border-left: 2pt solid #9bd20d;
+  background: #f7faf4;
+}
+
+.skill-title {
+  color: #111827;
+  font-size: 8.1pt;
+  font-weight: 800;
+}
+
+.skill-text {
+  margin-top: 0.8mm;
+  color: #3f4a56;
+  font-size: 8.1pt;
+}
+
+.project {
+  margin-top: 2.5mm;
+  break-inside: avoid;
+}
+
+.project:first-child {
+  margin-top: 0;
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+h3 {
+  color: #111827;
+  font-size: 9.7pt;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.project-meta {
+  flex: 0 0 auto;
+  color: #0b6b73;
+  font-size: 8.1pt;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+ul {
+  margin: 1.1mm 0 0 4.5mm;
+  padding: 0 0 0 2.2mm;
+}
+
+li {
+  margin: 0 0 0.9mm;
+  padding-left: 0.6mm;
+}
+
+.compact-list li {
+  margin-bottom: 0.65mm;
+}
+
+.self-drive-list {
+  margin-top: 0;
+}
+
+.interest-line {
+  color: #3f4a56;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.zh {
+  font-size: 9.8pt;
+  line-height: 1.44;
+}
+
+.zh h1 {
+  font-size: 25pt;
+  line-height: 1.16;
+}
+
+.zh .headline {
+  font-size: 10pt;
+}
+
+.zh .contact {
+  font-size: 8.5pt;
+}
+
+.zh .portfolio-url {
+  font-size: 9.5pt;
+}
+
+.zh .website-side span {
+  font-size: 7.8pt;
+  text-transform: none;
+}
+
+.zh .website-side .website-link {
+  font-size: 12.2pt;
+}
+
+.zh h3 {
+  font-size: 9.8pt;
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff;
+  }
+}

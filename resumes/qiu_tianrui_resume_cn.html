@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邱天瑞 中文简历</title>
+  <link rel="stylesheet" href="resume.css">
+</head>
+<body>
+  <main class="resume zh">
+    <header class="resume-header">
+      <div class="name-row">
+        <div>
+          <h1>邱天瑞</h1>
+          <p class="headline">机械与电气工程本科在读 | CAD | 机器人 | MATLAB</p>
+        </div>
+      </div>
+      <p class="contact">
+        英国布里斯托 / 假期上海张江 | <a href="mailto:q1tr@outlook.com">q1tr@outlook.com</a> | WeChat: +86 18821253828<br>
+        GitHub: <a href="https://github.com/UKplus8HRS">github.com/UKplus8HRS</a> | 个人网站: <a class="portfolio-url" href="https://tianruiqiu.com">tianruiqiu.com</a>
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>个人简介</h2>
+      <div class="section-body">
+        <p>我是英国布里斯托大学机械与电气工程大一在读学生，平时在英国布里斯托学习，假期回上海张江。我学习新东西很快，喜欢把想法做成真实原型，重点关注 CAD 建模、机器人、MATLAB 分析和实用 AI 工具。完整项目证据整理在个人网站 tianruiqiu.com。</p>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <h2>教育背景</h2>
+        <div class="section-body education-card">
+          <img class="school-logo" src="../assets/uob-logo.svg" alt="University of Bristol logo">
+          <div class="education-main">
+            <strong>University of Bristol</strong>
+            <span>2025年9月 至今</span>
+          </div>
+          <p class="degree-line">本科：<em>Mechanical and Electrical Engineering</em></p>
+          <ul class="education-list">
+            <li>课程方向：机械与电气工程基础、Design 课程、CAD 建模、MATLAB 分析。</li>
+            <li>项目实践：Design 作品集、Robot War 机器人社团项目、高功率 LED 散热分析。</li>
+            <li>学习地点：英国布里斯托；假期回上海张江。</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h2>实习方向</h2>
+        <div class="section-body">
+          <p>2026 暑期实习方向：机电、医疗机器人、车辆电子底盘、产品工程、AI Agent。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>自驱力</h2>
+      <div class="section-body">
+        <ul class="compact-list self-drive-list">
+          <li><strong>用项目证明自驱：</strong>我不是只写“学习能力强”，而是把自己反复遇到的工程学习问题做成工具。两个开源 AI Agent 项目就是这部分能力的证据。</li>
+          <li><strong>AI + 工程结合：</strong><em>video-transcribe-skill</em> 用 Python、FFmpeg 和本地 Whisper 把无字幕教程/演示变成 transcript，让 Codex 可以基于材料做摘要、提取和问答。</li>
+          <li><strong>方法沉淀：</strong><em>codex-agent-custom-instructions</em> 把我使用 coding agent 的经验整理成规则，强调先澄清、少改动、确定性流程交给脚本、结果要能验证。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>技术能力</h2>
+      <div class="section-body skills-grid">
+        <div class="skill-block">
+          <p class="skill-title">CAD 与设计</p>
+          <p class="skill-text">Fusion 360、装配建模、工程图、机械制图</p>
+        </div>
+        <div class="skill-block">
+          <p class="skill-title">编程与分析</p>
+          <p class="skill-text">Python、MATLAB、参数化建模、散热计算</p>
+        </div>
+        <div class="skill-block">
+          <p class="skill-title">原型制作</p>
+          <p class="skill-text">3D 打印、机械装配、结构布置检查、赛场/实验测试</p>
+        </div>
+        <div class="skill-block">
+          <p class="skill-title">英语能力</p>
+          <p class="skill-text">IELTS 6.5，英文课程学习与项目沟通</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resume-projects">
+      <h2>项目经历</h2>
+      <div class="section-body">
+        <article class="project">
+          <div class="project-head">
+            <h3>AI Agent / Codex Skills 开源项目</h3>
+            <p class="project-meta">2026 | AI Agent / Python</p>
+          </div>
+          <ul class="compact-list">
+            <li><strong>工程学习场景：</strong>很多机械、机器人和软件教程没有字幕，直接丢给 AI 并不可靠。我做了 <em>video-transcribe-skill</em>，先用脚本拿到音频和文字证据，再让 Codex 基于 transcript 工作。</li>
+            <li><strong>工具链实现：</strong>用 Python 串联 B 站/通用视频解析、FFmpeg 音频处理、本地 faster-whisper 转写和 transcript/metadata 输出，把“看视频学习”变成可重复流程。</li>
+            <li><strong>AI Agent 边界：</strong>下载、路由、转码和文件检查交给确定性代码；摘要、提取、问答交给模型。这个项目体现了我理解 AI Agent 不是万能聊天框，而是工程流程的一部分。</li>
+            <li><strong>方法复用：</strong><em>codex-agent-custom-instructions</em> 把使用 coding agent 的经验整理成中英文规则清单，用来减少猜测、过度修改和无法验证的输出。</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>大一 Design 课程作品集</h3>
+            <p class="project-meta">2025-2026 | 设计 / CAD</p>
+          </div>
+          <ul class="compact-list">
+            <li><strong>工程制图基础：</strong>将作品集梳理为“手绘构造 - CAD 建模 - 软件工程图 - 可审阅文档”的设计表达链路。</li>
+            <li><strong>CAD 与装配表达：</strong>完成 Fusion 360 零件/装配模型，输出剖视、详图、尺寸、公差、编号标注和 14 项零件表。</li>
+            <li><strong>作品证据整理：</strong>把装配体转换为网页可查看的 GLB 模型，同时保留 Fusion 360 源文件和精选图纸，方便在线检查设计过程。</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>Robot War 机器人社团项目</h3>
+            <p class="project-meta">2025-2026 | 机器人 / 制造</p>
+          </div>
+          <ul class="compact-list">
+            <li><strong>约束下的机械布置：</strong>参与 BEEES Robot Wars 150g 级紧凑翻板机器人，在有限空间中布置外壳、驱动、电池、电调、接收机和走线。</li>
+            <li><strong>快速原型与制造思维：</strong>参与模型开发、3D 打印和实体装配，通过赛场测试复盘可靠性、操控、维修入口和下一轮迭代重点。</li>
+            <li><strong>工程判断：</strong>从实物配合中发现 CAD 中不明显的间隙、壁厚、螺丝入口和可维护性问题，把比赛反馈转化为设计修改依据。</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <h3>高功率 LED 散热与效率分析</h3>
+            <p class="project-meta">2025-2026 | 热分析 / MATLAB</p>
+          </div>
+          <ul class="compact-list">
+            <li><strong>可复用 MATLAB 热模型：</strong>把报告公式整理成风扇耦合散热器求解器，完成风扇曲线插值、工作点求解和热阻输出。</li>
+            <li><strong>模型验证与效率理解：</strong>用 25/35/45 mm 实验数据验证趋势，并把散热表现、电输入、热损失和 LED 光效联系起来。</li>
+            <li><strong>误差复盘：</strong>比较模型预测与实验热阻差异，讨论风道、接触热阻、材料假设和实验测量带来的偏差。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+</main>
+</body>
+</html>

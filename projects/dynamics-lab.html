@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamics Lab: Vibration, Sampling & Data Analysis // Tianrui Qiu</title>
+    <meta name="description" content="University dynamics lab by Tianrui Qiu: Raspberry Pi Pico data acquisition, Python signal processing, and Young's modulus estimation from ruler vibration.">
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const saved = localStorage.getItem('portfolio_theme');
+            const theme = ['dark', 'light'].includes(params.get('theme')) ? params.get('theme') : (['dark', 'light'].includes(saved) ? saved : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        }());
+    </script>
+    <link rel="icon" href="../assets/favicon.ico?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-detail.css?v=20260903-dynamics-lab-1">
+    <style>
+        .dynamics-hero { overflow: hidden; }
+
+        .dynamics-system-figure,
+        .data-summary-panel,
+        .improvement-panel {
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            clip-path: var(--clip-chamfer);
+        }
+
+        .dynamics-system-figure {
+            min-height: 440px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signal-chain {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .chain-node {
+            position: relative;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            font-family: var(--font-mono);
+        }
+
+        .chain-node::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--accent);
+            transform: skewX(-6deg);
+        }
+
+        .chain-node strong,
+        .chain-node span {
+            display: block;
+        }
+
+        .chain-node strong {
+            color: var(--text-main);
+            font-size: 0.92rem;
+            letter-spacing: 0.04em;
+        }
+
+        .chain-node span {
+            margin-top: 0.25rem;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .chain-arrow {
+            height: 1.1rem;
+            margin-left: 1.25rem;
+            border-left: 1px dashed var(--accent);
+            position: relative;
+        }
+
+        .chain-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: -0.27rem;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-right: 1px solid var(--accent);
+            border-bottom: 1px solid var(--accent);
+            transform: rotate(45deg);
+        }
+
+        .figure-note {
+            margin-top: 1.25rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .method-section,
+        .results-section,
+        .skills-section,
+        .improvements-section,
+        .source-section {
+            padding: 7rem 0;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            border: 1px solid var(--border);
+            background: var(--border);
+            clip-path: var(--clip-chamfer);
+        }
+
+        .method-step {
+            min-height: 230px;
+            padding: 1.6rem;
+            background: var(--bg-surface);
+        }
+
+        .method-step span {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .method-step h3 {
+            margin: 1rem 0 0.75rem;
+            color: var(--text-main);
+            font-size: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .method-step p,
+        .data-summary-panel p,
+        .improvement-panel p,
+        .source-copy {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .results-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .result-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+        }
+
+        .result-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+        }
+
+        .result-table caption {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .result-table th,
+        .result-table td {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .result-table th {
+            color: var(--accent);
+            font-size: 0.74rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .result-table td { color: var(--text-main); }
+
+        .data-summary-panel { padding: 1.75rem; }
+
+        .data-summary-panel h3,
+        .improvement-panel h3 {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        .mean-readout {
+            margin: 1.5rem 0;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.08em;
+            line-height: 0.95;
+        }
+
+        .mean-readout span {
+            display: block;
+            margin-top: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+        }
+
+        .bar-chart {
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 3rem 1fr 4.25rem;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+        }
+
+        .bar-track {
+            height: 0.6rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .bar-fill {
+            display: block;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .bar-row strong {
+            color: var(--text-main);
+            font-size: 0.76rem;
+            text-align: right;
+        }
+
+        .skills-section {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .improvements-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 2rem;
+        }
+
+        .improvement-panel { padding: 2rem; }
+
+        .improvement-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.25rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .improvement-list li {
+            position: relative;
+            padding-left: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .improvement-list li::before {
+            content: '';
+            position: absolute;
+            top: 0.62rem;
+            left: 0;
+            width: 0.42rem;
+            height: 0.42rem;
+            background: var(--accent);
+            transform: skewX(-6deg);
+        }
+
+        .source-section { padding-top: 0; }
+
+        .source-copy {
+            max-width: 780px;
+            padding: 1.75rem;
+            border-left: 3px solid var(--accent);
+            background: var(--bg-card);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .results-layout,
+            .improvements-layout { grid-template-columns: 1fr; }
+            .dynamics-system-figure { min-height: auto; }
+        }
+
+        @media (max-width: 600px) {
+            .method-section,
+            .results-section,
+            .skills-section,
+            .improvements-section { padding: 4.5rem 0; }
+            .method-grid { grid-template-columns: 1fr; }
+            .method-step { min-height: 0; }
+            .dynamics-system-figure { padding: 1rem; }
+        }
+    </style>
+</head>
+<body data-title-en="Dynamics Lab: Vibration, Sampling & Data Analysis // Tianrui Qiu" data-title-zh="动力学实验：振动、采样与数据分析 // 邱天瑞">
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-box">
+                    <img class="logo-img-dark" src="../assets/logo-tr-dark-64.png?v=5" alt="" aria-hidden="true">
+                    <img class="logo-img-light" src="../assets/logo-tr-light-64.png?v=5" alt="" aria-hidden="true">
+                </div>
+                <span data-en="Tianrui Qiu" data-zh="邱天瑞">Tianrui Qiu</span>
+            </a>
+            <div class="nav-actions">
+                <a class="nav-link" href="../index.html#projects"><span data-en="Back" data-zh="返回">Back</span></a>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-theme="dark" type="button"><span data-en="Dark" data-zh="深色">Dark</span></button>
+                    <button class="toggle-btn" data-target-theme="light" type="button"><span data-en="Light" data-zh="浅色">Light</span></button>
+                </div>
+                <div class="toggle-group">
+                    <button class="toggle-btn" data-target-lang="en" type="button"><span>EN</span></button>
+                    <button class="toggle-btn" data-target-lang="zh" type="button"><span>中文</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portfolio-hero dynamics-hero">
+            <div class="container portfolio-hero-grid">
+                <div class="portfolio-hero-copy" data-reveal>
+                    <div class="section-tag" data-en="University lab / Embedded data" data-zh="大学实验 / 嵌入式数据">University lab / Embedded data</div>
+                    <h1 class="hero-title" data-en="Vibration,<br>sampled & analysed." data-zh="振动信号，<br>采样并分析。">Vibration,<br>sampled & analysed.</h1>
+                    <p class="hero-copy" data-en="In a Dynamics lab, I used a microphone, amplifier and Raspberry Pi Pico to record a metal ruler's free vibration at 5 kHz. A Python workflow then validated a known tone, extracted vibration frequency, and estimated Young's modulus through a cantilever-beam model." data-zh="在 Dynamics 实验中，我用麦克风、放大器和 Raspberry Pi Pico，以 5 kHz 采集金属尺的自由振动。随后使用 Python 完成已知音调校验、振动频率提取，并通过悬臂梁模型估算杨氏模量。">In a Dynamics lab, I used a microphone, amplifier and Raspberry Pi Pico to record a metal ruler's free vibration at 5 kHz. A Python workflow then validated a known tone, extracted vibration frequency, and estimated Young's modulus through a cantilever-beam model.</p>
+                    <div class="tags">
+                        <span class="tag">Raspberry Pi Pico</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Signal Processing</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn" href="#workflow" data-en="View workflow" data-zh="查看流程">View workflow</a>
+                        <a class="btn btn-secondary" href="#results" data-en="View results" data-zh="查看结果">View results</a>
+                    </div>
+                </div>
+
+                <figure class="dynamics-system-figure" data-reveal>
+                    <div class="signal-chain" role="img" aria-label="Signal acquisition workflow from a vibrating ruler to microphone, amplifier, Raspberry Pi Pico and Python analysis">
+                        <div class="chain-node">
+                            <strong data-en="FREE VIBRATION" data-zh="自由振动">FREE VIBRATION</strong>
+                            <span data-en="Metal ruler fixed as a cantilever" data-zh="金属尺固定为悬臂梁">Metal ruler fixed as a cantilever</span>
+                        </div>
+                        <div class="chain-arrow" aria-hidden="true"></div>
+                        <div class="chain-node">
+                            <strong data-en="ANALOGUE INPUT" data-zh="模拟输入">ANALOGUE INPUT</strong>
+                            <span data-en="Microphone + amplifier circuit" data-zh="麦克风与放大电路">Microphone + amplifier circuit</span>
+                        </div>
+                        <div class="chain-arrow" aria-hidden="true"></div>
+                        <div class="chain-node">
+                            <strong data-en="5 kHz SAMPLING" data-zh="5 kHz 采样">5 kHz SAMPLING</strong>
+                            <span data-en="Raspberry Pi Pico ADC → 3 s CSV" data-zh="Raspberry Pi Pico ADC → 3 秒 CSV">Raspberry Pi Pico ADC → 3 s CSV</span>
+                        </div>
+                        <div class="chain-arrow" aria-hidden="true"></div>
+                        <div class="chain-node">
+                            <strong data-en="PYTHON ANALYSIS" data-zh="PYTHON 分析">PYTHON ANALYSIS</strong>
+                            <span data-en="Crop, zero crossings, frequency and modulus" data-zh="裁剪、过零点、频率和模量">Crop, zero crossings, frequency and modulus</span>
+                        </div>
+                    </div>
+                    <figcaption class="figure-note" data-en="A compact experimental chain: acquire the analogue response, turn it into a time series, then make an engineering judgement from it." data-zh="一条紧凑的实验链路：采集模拟响应，将其变成时间序列，再从中作出工程判断。">A compact experimental chain: acquire the analogue response, turn it into a time series, then make an engineering judgement from it.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="portfolio-overview">
+            <div class="container overview-grid">
+                <article class="overview-stat" data-reveal>
+                    <strong>5 kHz</strong>
+                    <span data-en="sampling rate, giving a 2.5 kHz Nyquist frequency" data-zh="采样率，对应 2.5 kHz 的奈奎斯特频率">sampling rate, giving a 2.5 kHz Nyquist frequency</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>499.77 Hz</strong>
+                    <span data-en="estimated from the known 500 Hz validation tone" data-zh="对已知 500 Hz 校验音调的估计结果">estimated from the known 500 Hz validation tone</span>
+                </article>
+                <article class="overview-stat" data-reveal>
+                    <strong>238.81 GPa</strong>
+                    <span data-en="mean of the retained grouped Young's modulus estimates" data-zh="保留分组杨氏模量估计的平均值">mean of the retained grouped Young's modulus estimates</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="workflow" class="method-section">
+            <div class="container project-insight-intro">
+                <div class="section-tag" data-en="Workflow" data-zh="流程">Workflow</div>
+                <h2 data-en="From an acoustic response to a material estimate" data-zh="从声学响应到材料估计">From an acoustic response to a material estimate</h2>
+            </div>
+            <div class="container method-grid">
+                <article class="method-step" data-reveal>
+                    <span>01 / ACQUIRE</span>
+                    <h3 data-en="Record a repeatable signal" data-zh="采集可重复的信号">Record a repeatable signal</h3>
+                    <p data-en="Each 3 s recording captured the release and free decay of a ruler at 0.10 m, 0.15 m and 0.20 m overhangs." data-zh="每段 3 秒录音捕捉金属尺释放后的自由衰减，对比 0.10 m、0.15 m 和 0.20 m 三种悬臂长度。">Each 3 s recording captured the release and free decay of a ruler at 0.10 m, 0.15 m and 0.20 m overhangs.</p>
+                </article>
+                <article class="method-step" data-reveal>
+                    <span>02 / VALIDATE</span>
+                    <h3 data-en="Check the acquisition chain" data-zh="检查采集链路">Check the acquisition chain</h3>
+                    <p data-en="A separate 500 Hz tone was processed with the same settings and returned 499.77 Hz before analysing the ruler trials." data-zh="先用相同设置处理独立的 500 Hz 音调，得到 499.77 Hz，再开始分析金属尺试验。">A separate 500 Hz tone was processed with the same settings and returned 499.77 Hz before analysing the ruler trials.</p>
+                </article>
+                <article class="method-step" data-reveal>
+                    <span>03 / PROCESS</span>
+                    <h3 data-en="Make the time signal usable" data-zh="让时间信号可用">Make the time signal usable</h3>
+                    <p data-en="Python removed the DC component, used a moving-average envelope to find the active window, and estimated frequency from zero crossings in the cropped response." data-zh="Python 去除直流分量，用移动平均包络定位有效时间窗，并在裁剪后的响应中通过过零点估计频率。">Python removed the DC component, used a moving-average envelope to find the active window, and estimated frequency from zero crossings in the cropped response.</p>
+                </article>
+                <article class="method-step" data-reveal>
+                    <span>04 / INTERPRET</span>
+                    <h3 data-en="Connect frequency to stiffness" data-zh="把频率联系到刚度">Connect frequency to stiffness</h3>
+                    <p data-en="The fundamental frequency entered a cantilever-beam relationship with the measured geometry and mass per unit length to estimate Young's modulus." data-zh="将基频与测得的几何尺寸、单位长度质量代入悬臂梁关系式，估算杨氏模量。">The fundamental frequency entered a cantilever-beam relationship with the measured geometry and mass per unit length to estimate Young's modulus.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="results" class="results-section">
+            <div class="container project-insight-intro">
+                <div class="section-tag" data-en="Results" data-zh="结果">Results</div>
+                <h2 data-en="Three lengths, nine trials, one evidence trail" data-zh="三种长度、九次试验、一条证据链">Three lengths, nine trials, one evidence trail</h2>
+            </div>
+            <div class="container results-layout">
+                <div class="result-table-wrap" data-reveal>
+                    <table class="result-table">
+                        <caption data-en="Grouped measurements after the same signal-processing workflow was applied to each recording." data-zh="对每段录音应用相同信号处理流程后的分组测量结果。">Grouped measurements after the same signal-processing workflow was applied to each recording.</caption>
+                        <thead>
+                            <tr>
+                                <th data-en="Overhang" data-zh="悬臂长度">Overhang</th>
+                                <th data-en="Retained trials" data-zh="保留试验数">Retained trials</th>
+                                <th data-en="Mean frequency" data-zh="平均频率">Mean frequency</th>
+                                <th data-en="Frequency SD" data-zh="频率标准差">Frequency SD</th>
+                                <th data-en="Mean Young's modulus" data-zh="平均杨氏模量">Mean Young's modulus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0.10 m</td><td>3</td><td>53.40 Hz</td><td>0.11 Hz</td><td>222.66 GPa</td></tr>
+                            <tr><td>0.15 m</td><td>3</td><td>24.35 Hz</td><td>0.29 Hz</td><td>234.38 GPa</td></tr>
+                            <tr><td>0.20 m</td><td>2 / 3</td><td>14.41 Hz</td><td>0.29 Hz</td><td>259.38 GPa</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <aside class="data-summary-panel" data-reveal>
+                    <h3 data-en="Grouped estimate" data-zh="分组估计">Grouped estimate</h3>
+                    <div class="mean-readout">238.81 <span>GPa</span></div>
+                    <p data-en="The retained grouped estimates ranged from 222.66 GPa to 259.38 GPa. This is steel-like in scale, but the experiment was not precise enough for design calculations." data-zh="保留的分组估计范围为 222.66 GPa 至 259.38 GPa。量级与钢材相近，但实验精度不足以用于设计计算。">The retained grouped estimates ranged from 222.66 GPa to 259.38 GPa. This is steel-like in scale, but the experiment was not precise enough for design calculations.</p>
+                    <div class="bar-chart" aria-label="Bar chart of grouped Young's modulus estimates">
+                        <div class="bar-row"><span>0.10 m</span><div class="bar-track"><i class="bar-fill" style="width:74.22%"></i></div><strong>222.66</strong></div>
+                        <div class="bar-row"><span>0.15 m</span><div class="bar-track"><i class="bar-fill" style="width:78.13%"></i></div><strong>234.38</strong></div>
+                        <div class="bar-row"><span>0.20 m</span><div class="bar-track"><i class="bar-fill" style="width:86.46%"></i></div><strong>259.38</strong></div>
+                    </div>
+                    <p class="figure-note" data-en="Bars use a 0–300 GPa visual scale; the table remains the precise source." data-zh="柱状图使用 0–300 GPa 的视觉刻度；精确数据以表格为准。">Bars use a 0–300 GPa visual scale; the table remains the precise source.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="container project-insight-intro">
+                <div class="section-tag" data-en="What I learned" data-zh="我学会的内容">What I learned</div>
+                <h2 data-en="Embedded sampling is only the start" data-zh="嵌入式采样只是起点">Embedded sampling is only the start</h2>
+            </div>
+            <div class="container detail-grid project-insight-grid">
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">D1</span>
+                    <h2 data-en="A physical signal has to survive the hardware" data-zh="物理信号必须先通过硬件链路">A physical signal has to survive the hardware</h2>
+                    <p data-en="I learned how microphone placement, amplifier gain, ADC sampling and the Nyquist limit affect whether a vibration measurement is useful at all." data-zh="我理解了麦克风位置、放大器增益、ADC 采样和奈奎斯特极限如何决定一段振动测量是否有用。">I learned how microphone placement, amplifier gain, ADC sampling and the Nyquist limit affect whether a vibration measurement is useful at all.</p>
+                </article>
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">D2</span>
+                    <h2 data-en="Python turns raw CSV into an argument" data-zh="Python 把原始 CSV 转化为工程论证">Python turns raw CSV into an argument</h2>
+                    <p data-en="The useful work was not just calculating a frequency: it was centring the signal, identifying an energetic window, checking crossings, and applying the same method across trials." data-zh="有价值的不只是计算频率：还包括信号中心化、定位有效时间窗、检查过零点，并把同一方法应用到所有试验。">The useful work was not just calculating a frequency: it was centring the signal, identifying an energetic window, checking crossings, and applying the same method across trials.</p>
+                </article>
+                <article class="detail-card project-insight-card" data-reveal>
+                    <span class="insight-index">D3</span>
+                    <h2 data-en="Data quality is part of the result" data-zh="数据质量本身就是结果的一部分">Data quality is part of the result</h2>
+                    <p data-en="I documented clipped signals, 50 Hz interference and an 8.41 Hz outlier instead of treating every number as equally reliable. That made the final estimate more honest and more useful." data-zh="我记录了削顶信号、50 Hz 干扰和 8.41 Hz 异常值，而不是把每个数字都视为同样可靠。这让最终估计更诚实、更有用。">I documented clipped signals, 50 Hz interference and an 8.41 Hz outlier instead of treating every number as equally reliable. That made the final estimate more honest and more useful.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="improvements-section">
+            <div class="container improvements-layout">
+                <div class="project-insight-intro" data-reveal>
+                    <div class="section-tag" data-en="Reflection" data-zh="反思">Reflection</div>
+                    <h2 data-en="Useful measurement, clear limits" data-zh="有用的测量，明确的边界">Useful measurement, clear limits</h2>
+                    <p class="hero-copy" data-en="The 500 Hz validation showed that the acquisition-and-analysis chain could recover a clean periodic signal. The ruler estimate, however, was sensitive to the real measurement conditions and simple beam assumptions." data-zh="500 Hz 校验说明采集和分析链路能恢复干净的周期信号；但金属尺估计对真实测量条件和简化梁模型假设很敏感。">The 500 Hz validation showed that the acquisition-and-analysis chain could recover a clean periodic signal. The ruler estimate, however, was sensitive to the real measurement conditions and simple beam assumptions.</p>
+                </div>
+                <article class="improvement-panel" data-reveal>
+                    <h3 data-en="Next iteration priorities" data-zh="下一轮迭代重点">Next iteration priorities</h3>
+                    <ul class="improvement-list">
+                        <li data-en="Reduce amplifier gain or increase microphone distance to prevent clipping before it reaches the frequency estimate." data-zh="降低放大器增益或增大麦克风距离，避免削顶信号进入频率估计。">Reduce amplifier gain or increase microphone distance to prevent clipping before it reaches the frequency estimate.</li>
+                        <li data-en="Improve grounding and shorten wiring to reduce the visible 50 Hz electrical hum." data-zh="改善接地并缩短线缆，以减小可见的 50 Hz 电气干扰。">Improve grounding and shorten wiring to reduce the visible 50 Hz electrical hum.</li>
+                        <li data-en="Use a stronger clamp and repeated micrometer measurements of thickness, which strongly influences the final modulus." data-zh="使用更牢固的夹具，并用千分尺重复测量厚度；厚度会强烈影响最终模量。">Use a stronger clamp and repeated micrometer measurements of thickness, which strongly influences the final modulus.</li>
+                        <li data-en="Compare the microphone result with an accelerometer or displacement sensor, and add more repeat trials to make outliers easier to identify." data-zh="将麦克风结果与加速度计或位移传感器对比，并增加重复试验，使异常值更容易识别。">Compare the microphone result with an accelerometer or displacement sensor, and add more repeat trials to make outliers easier to identify.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="source-section">
+            <div class="container">
+                <p class="source-copy" data-en="Source note — This page condenses my CADE10002 Dynamics Lab Report. The values and limitations shown here are course-project evidence, presented as an engineering learning project rather than a production-grade material test." data-zh="来源说明 — 本页浓缩自我的 CADE10002 Dynamics Lab Report。这里的数值与局限性均来自课程项目证据；它被呈现为一个工程学习项目，而不是生产级材料测试。">Source note — This page condenses my CADE10002 Dynamics Lab Report. The values and limitations shown here are course-project evidence, presented as an engineering learning project rather than a production-grade material test.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="project-page.js"></script>
+</body>
+</html>

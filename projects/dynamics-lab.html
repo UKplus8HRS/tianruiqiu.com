@@ -151,6 +151,53 @@
             line-height: 1.7;
         }
 
+        .report-evidence-section {
+            padding: 0 0 7rem;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 2rem;
+        }
+
+        .report-figure {
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            clip-path: var(--clip-chamfer);
+        }
+
+        .report-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+        }
+
+        .report-figure figcaption {
+            display: grid;
+            gap: 0.35rem;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .report-figure figcaption span {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .report-figure figcaption strong {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
         .results-layout {
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
@@ -257,6 +304,11 @@
             text-align: right;
         }
 
+        .result-figure {
+            max-width: 980px;
+            margin: 2rem auto 0;
+        }
+
         .skills-section {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -309,6 +361,7 @@
 
         @media (max-width: 900px) {
             .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .evidence-grid,
             .results-layout,
             .improvements-layout { grid-template-columns: 1fr; }
             .dynamics-system-figure { min-height: auto; }
@@ -319,6 +372,7 @@
             .results-section,
             .skills-section,
             .improvements-section { padding: 4.5rem 0; }
+            .report-evidence-section { padding-bottom: 4.5rem; }
             .method-grid { grid-template-columns: 1fr; }
             .method-step { min-height: 0; }
             .dynamics-system-figure { padding: 1rem; }
@@ -444,6 +498,25 @@
             </div>
         </section>
 
+        <section class="report-evidence-section">
+            <div class="container evidence-grid">
+                <figure class="report-figure" data-reveal>
+                    <img src="../assets/dynamics-lab/acquisition-setup.jpg" alt="Annotated physical experiment setup showing the ruler, microphone amplifier circuit and Raspberry Pi Pico" loading="lazy">
+                    <figcaption>
+                        <span data-en="Report figure / acquisition setup" data-zh="报告插图 / 采集装置">Report figure / acquisition setup</span>
+                        <strong data-en="The physical setup joined the cantilever ruler, microphone-amplifier circuit and Raspberry Pi Pico ADC in one measurement chain." data-zh="这套实物装置将悬臂金属尺、麦克风放大电路和 Raspberry Pi Pico ADC 串成同一条测量链路。">The physical setup joined the cantilever ruler, microphone-amplifier circuit and Raspberry Pi Pico ADC in one measurement chain.</strong>
+                    </figcaption>
+                </figure>
+                <figure class="report-figure" data-reveal>
+                    <img src="../assets/dynamics-lab/validation-signal.jpg" alt="Python plot of the 500 Hz validation signal with detected zero crossings" loading="lazy">
+                    <figcaption>
+                        <span data-en="Report figure / validation signal" data-zh="报告插图 / 校验信号">Report figure / validation signal</span>
+                        <strong data-en="Using the same acquisition and Python workflow, the 500 Hz control signal was estimated at 499.77 Hz: a −0.046% error." data-zh="使用相同的采集与 Python 流程，500 Hz 校验信号被估计为 499.77 Hz，误差为 −0.046%。">Using the same acquisition and Python workflow, the 500 Hz control signal was estimated at 499.77 Hz: a −0.046% error.</strong>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
         <section id="results" class="results-section">
             <div class="container project-insight-intro">
                 <div class="section-tag" data-en="Results" data-zh="结果">Results</div>
@@ -481,6 +554,15 @@
                     </div>
                     <p class="figure-note" data-en="Bars use a 0–300 GPa visual scale; the table remains the precise source." data-zh="柱状图使用 0–300 GPa 的视觉刻度；精确数据以表格为准。">Bars use a 0–300 GPa visual scale; the table remains the precise source.</p>
                 </aside>
+            </div>
+            <div class="container">
+                <figure class="report-figure result-figure" data-reveal>
+                    <img src="../assets/dynamics-lab/youngs-modulus-by-overhang.jpg" alt="Chart of grouped Young's modulus estimates by ruler overhang length with error bars" loading="lazy">
+                    <figcaption>
+                        <span data-en="Report figure / grouped result" data-zh="报告插图 / 分组结果">Report figure / grouped result</span>
+                        <strong data-en="Grouped Young's modulus estimates from the retained trials; the error bars show the standard deviation within each overhang group." data-zh="由保留试验得到的分组杨氏模量估计；误差棒表示每个悬臂长度分组内的标准差。">Grouped Young's modulus estimates from the retained trials; the error bars show the standard deviation within each overhang group.</strong>
+                    </figcaption>
+                </figure>
             </div>
         </section>
 

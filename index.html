@@ -190,11 +190,10 @@
         #hero { order: 0; }
         #about { order: 1; }
         #basic-info { order: 2; }
-        #motivation { order: 3; }
-        #target { order: 4; }
-        #skills { order: 5; }
-        #projects { order: 6; }
-        #contact { order: 7; }
+        #target { order: 3; }
+        #skills { order: 4; }
+        #projects { order: 5; }
+        #contact { order: 6; }
 
         .mono {
             font-family: var(--font-mono);
@@ -776,6 +775,31 @@
             font-size: 0.5em;
             -webkit-text-stroke: 0;
         }
+        .skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.1rem 2rem;
+            max-width: 1180px;
+            margin: 3rem auto 0;
+            padding: 0 2rem;
+        }
+        .skills-item {
+            border-left: 3px solid var(--accent);
+            padding: 0.35rem 0 0.35rem 1.1rem;
+        }
+        .skills-label {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+        .skills-text {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-top: 0.2rem;
+        }
 
         .contact-wrap {
             background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-card) 100%);
@@ -1000,6 +1024,10 @@
                 padding: 0 1rem;
             }
 
+            .skills-list {
+                grid-template-columns: 1fr;
+                padding: 0 1.1rem;
+            }
             .contact-links {
                 gap: 1.25rem;
             }
@@ -1048,7 +1076,6 @@
             </a>
             <div class="nav-links">
                 <a href="#about" data-en="About" data-zh="关于">About</a>
-                <a href="#motivation" data-en="Self-Driven" data-zh="自驱力">Self-Driven</a>
                 <a href="#target" data-en="Focus" data-zh="方向">Focus</a>
                 <a href="#skills" data-en="Skills" data-zh="技能">Skills</a>
                 <a href="#projects" data-en="Projects" data-zh="项目">Projects</a>
@@ -1155,26 +1182,15 @@
                     </article>
                     <article class="info-item">
                         <span class="info-label" data-en="Contact" data-zh="联系方式">Contact</span>
-                        <p class="info-value">q1tr@outlook.com<br>WeChat: +86 18821253828</p>
+                        <p class="info-value">q2tr@outlook.com<br>+44 7940 899340<br>WeChat: +86 18821253828</p>
                     </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="motivation">
-            <div class="container reveal">
-                <div class="section-tag mono">03 // <span data-en="Self-Driven" data-zh="自驱力">Self-Driven</span></div>
-                <div class="about-content">
-                    <p class="about-text" data-en="I do not want self motivation to stay as a claim. My two open-source AI Agent projects show how I turn repeated engineering-learning problems into usable tools: video-transcribe-skill uses Python, FFmpeg, and local Whisper to turn unsubtitled tutorials into transcript evidence, while codex-agent-custom-instructions documents how I use coding agents with clearer assumptions, smaller edits, deterministic scripts, and verifiable results." data-zh="我不是只写“学习能力强”，而是用两个开源 AI Agent 项目证明自驱力：把自己反复遇到的工程学习问题做成可用工具。video-transcribe-skill 用 Python、FFmpeg 和本地 Whisper 把无字幕教程变成 transcript 证据；codex-agent-custom-instructions 则把我使用 coding agent 的方法整理成规则，强调先澄清、少改动、确定性流程交给脚本、结果要能验证。">
-                        I do not want self motivation to stay as a claim. My two open-source AI Agent projects show how I turn repeated engineering-learning problems into usable tools: video-transcribe-skill uses Python, FFmpeg, and local Whisper to turn unsubtitled tutorials into transcript evidence, while codex-agent-custom-instructions documents how I use coding agents with clearer assumptions, smaller edits, deterministic scripts, and verifiable results.
-                    </p>
                 </div>
             </div>
         </section>
 
         <section id="target">
             <div class="container reveal">
-                <div class="section-tag mono">04 // <span data-en="Current Focus" data-zh="当前关注">Current Focus</span></div>
+                <div class="section-tag mono">03 // <span data-en="Current Focus" data-zh="当前关注">Current Focus</span></div>
                 <div class="about-content">
                     <p class="about-text" data-en="I am building a foundation in <span>mechanical and electrical engineering</span> through coursework and hands-on projects. My current focus is <span>CAD modelling, mechanical drawing, robotics, vehicle electronic chassis, Python, MATLAB</span>, 3D printing, and practical AI Agent workflows for engineering learning." data-zh="我正在通过课程和项目实践打牢<span>机械与电气工程</span>基础。现阶段重点关注 <span>CAD 建模、机械制图、机器人、车辆电子底盘、Python、MATLAB</span>、3D 打印，以及面向工程学习的实用 AI Agent 工作流。">
                         I am building a foundation in <span>mechanical and electrical engineering</span> through coursework and hands-on projects. My current focus is <span>CAD modelling, mechanical drawing, robotics, vehicle electronic chassis, Python, MATLAB</span>, 3D printing, and practical AI Agent workflows for engineering learning.
@@ -1185,7 +1201,7 @@
 
         <section id="projects">
             <div class="container reveal">
-                <div class="section-tag mono">06 // <span data-en="Projects" data-zh="项目">Projects</span></div>
+                <div class="section-tag mono">05 // <span data-en="Projects" data-zh="项目">Projects</span></div>
                 <h2 class="title italic-speed" data-en="Featured Work" data-zh="精选作品">Featured Work</h2>
                 <p class="section-helper" data-en="Click any project card to open the full project story, CAD/GLB model, build photos, drawings, MATLAB plots, and report-backed analysis." data-zh="点击任意项目卡片，查看完整项目经历、CAD/GLB 模型、实物照片、工程图、MATLAB 图表和报告分析。">
                     Click any project card to open the full project story, CAD/GLB model, build photos, drawings, MATLAB plots, and report-backed analysis.
@@ -1280,7 +1296,7 @@
 
         <section id="skills" class="skills-section reveal">
             <div class="container" style="margin-bottom: 2rem;">
-                <div class="section-tag mono">05 // <span data-en="Capabilities" data-zh="能力方向">Capabilities</span></div>
+                <div class="section-tag mono">04 // <span data-en="Capabilities" data-zh="能力方向">Capabilities</span></div>
             </div>
 
             <div class="ticker-group">
@@ -1297,26 +1313,53 @@
                     <div class="ticker-item" data-en="TOOLS <span>FUSION 360</span> MATLAB <span>3D PRINTING</span> ROBOTICS <span>IELTS 6.5</span>" data-zh="工具 <span>FUSION 360</span> MATLAB <span>3D 打印</span> 机器人 <span>IELTS 6.5</span>">TOOLS <span>FUSION 360</span> MATLAB <span>3D PRINTING</span> ROBOTICS <span>IELTS 6.5</span></div>
                 </div>
             </div>
+            <ul class="skills-list">
+                <li class="skills-item">
+                    <div class="skills-label" data-en="CAD and engineering drawings" data-zh="CAD 与工程制图">CAD and engineering drawings</div>
+                    <p class="skills-text" data-en="Fusion 360 part and assembly modelling, orthographic and section views, tolerances, BOMs." data-zh="Fusion 360 零件与装配体建模，正交视图与剖面视图，公差标注，物料清单（BOM）。">Fusion 360 part and assembly modelling, orthographic and section views, tolerances, BOMs.</p>
+                </li>
+                <li class="skills-item">
+                    <div class="skills-label" data-en="Numerical analysis" data-zh="数值分析">Numerical analysis</div>
+                    <p class="skills-text" data-en="MATLAB parameter sweeps, thermal-resistance modelling, fan/system operating-point solution." data-zh="MATLAB 参数扫描，热阻建模，风扇/系统工作点求解。">MATLAB parameter sweeps, thermal-resistance modelling, fan/system operating-point solution.</p>
+                </li>
+                <li class="skills-item">
+                    <div class="skills-label" data-en="Programming and data acquisition" data-zh="编程与数据采集">Programming and data acquisition</div>
+                    <p class="skills-text" data-en="Python signal processing, Raspberry Pi Pico ADC, CSV data reduction, zero-crossing analysis." data-zh="Python 信号处理，Raspberry Pi Pico ADC，CSV 数据整理与归约，过零分析。">Python signal processing, Raspberry Pi Pico ADC, CSV data reduction, zero-crossing analysis.</p>
+                </li>
+                <li class="skills-item">
+                    <div class="skills-label" data-en="Prototyping and validation" data-zh="原型制作与验证">Prototyping and validation</div>
+                    <p class="skills-text" data-en="Design for additive manufacture, electromechanical packaging, assembly, model-to-test correlation, data-quality screening." data-zh="增材制造设计，机电集成封装与装配，模型与测试对标，数据质量筛选。">Design for additive manufacture, electromechanical packaging, assembly, model-to-test correlation, data-quality screening.</p>
+                </li>
+                <li class="skills-item">
+                    <div class="skills-label" data-en="Engineering tools" data-zh="工程工具">Engineering tools</div>
+                    <p class="skills-text" data-en="Git, Microsoft Excel, Word and PowerPoint, technical reporting." data-zh="Git、Microsoft Excel、Word 与 PowerPoint，技术报告撰写。">Git, Microsoft Excel, Word and PowerPoint, technical reporting.</p>
+                </li>
+                <li class="skills-item">
+                    <div class="skills-label" data-en="Languages" data-zh="语言能力">Languages</div>
+                    <p class="skills-text" data-en="English (working proficiency, IELTS 6.5), Mandarin Chinese (native)." data-zh="英语（工作沟通，IELTS 6.5），中文普通话（母语）。">English (working proficiency, IELTS 6.5), Mandarin Chinese (native).</p>
+                </li>
+            </ul>
         </section>
 
         <section id="contact">
             <div class="container reveal">
                 <div class="contact-wrap">
-                    <div class="section-tag mono">07 // <span data-en="System Halt" data-zh="联系通道">System Halt</span></div>
+                    <div class="section-tag mono">06 // <span data-en="System Halt" data-zh="联系通道">System Halt</span></div>
                     <h2 class="contact-title italic-speed" data-en="Let's Talk Engineering." data-zh="欢迎交流工程实践。">
                         Let's Talk Engineering.
                     </h2>
 
                     <div class="contact-links">
-                        <a href="mailto:q1tr@outlook.com" class="c-link">EMAIL</a>
+                        <a href="mailto:q2tr@outlook.com" class="c-link" data-en="q2tr@outlook.com" data-zh="q2tr@outlook.com">q2tr@outlook.com</a>
                         <a href="https://github.com/UKplus8HRS" target="_blank" rel="noopener noreferrer" class="c-link">GITHUB</a>
                         <button class="c-link wechat-contact" type="button" aria-expanded="false" aria-label="Show WeChat contact">
                             <span>WECHAT</span>
                             <span class="wechat-contact__detail">+86 18821253828</span>
                         </button>
+                        <span class="c-link" data-en="+44 7940 899340" data-zh="+44 7940 899340">+44 7940 899340</span>
                     </div>
 
-                    <a href="mailto:q1tr@outlook.com" class="btn btn-primary" data-en="Contact by Email" data-zh="发邮件联系">Contact by Email</a>
+                    <a href="mailto:q2tr@outlook.com" class="btn btn-primary" data-en="Contact by Email" data-zh="发邮件联系">Contact by Email</a>
                 </div>
             </div>
         </section>
@@ -1352,7 +1395,8 @@
             const localLang = localStorage.getItem('portfolio_lang');
             if (localLang && validLangs.includes(localLang)) return localLang;
 
-            return 'en';
+            const browserLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+            return browserLangs.some(lang => lang.toLowerCase().startsWith('zh')) ? 'zh' : 'en';
         }
 
         function getInitialTheme() {
